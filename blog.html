@@ -3,411 +3,344 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog — Fight Camp Guides & Muay Thai Tips | CheckFightCamp</title>
-<meta name="description" content="Guides, tips and insights about Muay Thai camps in Thailand. How to choose a fight camp, training tips, best locations and more.">
+<title>Blog — Fight Camp Guides & Training Tips | CheckFightCamp</title>
+<meta name="description" content="Guides, tips and honest insights about Muay Thai, MMA and BJJ camps. How to choose, where to go, what to expect.">
 <link rel="canonical" href="https://checkfightcamp.com/blog">
 <link rel="icon" type="image/png" href="2.png">
 <link rel="apple-touch-icon" href="2.png">
-<link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;background:#1C1C22;color:#E8E2DE;font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-size:16px}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#0D0D14;color:#E2DDD8;overflow-x:hidden;-webkit-font-smoothing:antialiased;font-size:16px}
 :root{
-  --bg:#1C1C22;--bg2:#242428;--bg3:#2C2C32;--bg4:#34343C;
-  --burg:#550000;--burg2:#700000;--burg3:#9A1515;--burg4:#CC3333;
-  --txt:#EEEAE6;--txt2:#C8C2BE;--txt3:#9A9490;--dim:#5A5450;
-  --rule:rgba(255,255,255,0.08);--rule2:rgba(255,255,255,0.04);
+  --bg:#0D0D14;--bg2:#13131C;--bg3:#1A1A26;--bg4:#222232;
+  --burg:#550000;--burg2:#6E0000;--burg3:#CC2222;
+  --txt:#E2DDD8;--txt2:#B8B2AC;--txt3:#7A7470;
+  --rule:rgba(255,255,255,0.07);--rule2:rgba(255,255,255,0.04);
+  --ease:cubic-bezier(0.4,0,0.2,1);
 }
-a{text-decoration:none;color:inherit;cursor:pointer}
-button{cursor:pointer;font-family:'DM Sans',sans-serif}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:'DM Sans',sans-serif;color:inherit}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:999;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(28,28,34,0.98);border-bottom:1px solid rgba(85,0,0,0.35)}
-.logo{font-family:'Racing Sans One',sans-serif;font-size:1.3rem;letter-spacing:0.05em;color:var(--txt)}
-.logo span{color:var(--burg4)}
-.nav-mid{display:flex;gap:2.5rem}
-.nav-mid a{font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt3);transition:color 0.15s}
-.nav-mid a:hover,.nav-mid a.active{color:var(--txt)}
-.nav-cta{font-size:0.75rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt);border:1px solid var(--burg);padding:0.42rem 1.2rem;transition:background 0.15s}
-.nav-cta:hover{background:var(--burg)}
+nav{position:fixed;top:0;left:0;right:0;z-index:600;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(13,13,20,0.96);border-bottom:1px solid var(--rule);backdrop-filter:blur(16px)}
+.logo{font-family:'Racing Sans One',sans-serif;font-size:1.25rem;letter-spacing:0.04em;color:var(--txt);cursor:pointer;transition:opacity 0.2s}
+.logo:hover{opacity:0.8}
+.logo em{font-style:normal;color:var(--burg3)}
+.nav-links{display:flex;gap:2.5rem}
+.nav-links a{font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt3);transition:color 0.2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--burg3);transform:scaleX(0);transition:transform 0.25s var(--ease)}
+.nav-links a:hover{color:var(--txt)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-links a.on{color:var(--txt)}
+.nav-links a.on::after{transform:scaleX(1)}
+.btn-list{font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt);border:1px solid var(--burg);background:transparent;padding:0.42rem 1.1rem;transition:all 0.2s}
+.btn-list:hover{background:var(--burg)}
 
 /* HERO */
-.blog-hero{padding:9rem 2.5rem 3.5rem;border-bottom:1px solid rgba(85,0,0,0.2);background:radial-gradient(ellipse 60% 80% at 80% 30%,rgba(85,0,0,0.08),transparent),var(--bg)}
-.h-tag{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--burg4);display:block;margin-bottom:1.5rem}
-.blog-hero h1{font-family:'Racing Sans One',sans-serif;font-size:clamp(2.8rem,6vw,6rem);line-height:0.92;letter-spacing:0.02em;color:#fff}
-.blog-hero h1 span{color:var(--burg4)}
-.h-line{width:40px;height:2px;background:var(--burg);display:block;margin:1.8rem 0}
-.blog-hero p{font-size:1.05rem;font-weight:300;color:var(--txt2);line-height:1.8;max-width:440px}
+.blog-hero{padding:9rem 2.5rem 5rem;background:var(--bg);position:relative;overflow:hidden;border-bottom:1px solid var(--rule)}
+.blog-hero::before{content:'';position:absolute;top:-10%;right:-5%;width:50vw;height:70vh;background:radial-gradient(ellipse,rgba(85,0,0,0.12) 0%,transparent 65%);pointer-events:none}
+.bh-inner{position:relative;z-index:2;max-width:700px}
+.bh-eye{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.28em;text-transform:uppercase;color:var(--burg3);display:flex;align-items:center;gap:0.75rem;margin-bottom:2rem}
+.bh-eye::before{content:'';width:24px;height:1px;background:var(--burg3);flex-shrink:0}
+.blog-hero h1{font-family:'Racing Sans One',sans-serif;font-size:clamp(3rem,7vw,7rem);line-height:0.9;letter-spacing:0.02em;color:#fff}
+.blog-hero h1 em{font-style:normal;color:var(--burg3)}
+.bh-rule{width:48px;height:2px;background:linear-gradient(90deg,var(--burg),transparent);display:block;margin:2rem 0}
+.bh-sub{font-size:1.05rem;font-weight:300;color:var(--txt2);line-height:1.8;max-width:440px}
 
-/* CATS */
-.cats{display:flex;gap:0.4rem;flex-wrap:wrap;padding:1.2rem 2.5rem;border-bottom:1px solid rgba(85,0,0,0.2);background:var(--bg2)}
-.cat{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--txt3);border:1px solid var(--rule);padding:0.32rem 0.85rem;cursor:pointer;transition:all 0.15s;user-select:none}
-.cat:hover,.cat.on{color:var(--burg4);border-color:var(--burg)}
+/* CAT FILTER */
+.cats-bar{padding:1.2rem 2.5rem;background:var(--bg2);border-bottom:1px solid var(--rule);display:flex;gap:0.35rem;flex-wrap:wrap}
+.cat{font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt3);border:1px solid var(--rule);padding:0.3rem 0.8rem;cursor:pointer;transition:all 0.18s;user-select:none}
+.cat:hover{color:var(--txt);border-color:rgba(255,255,255,0.2)}
+.cat.on{color:var(--burg3);border-color:var(--burg)}
 
-/* MAIN */
-.blog-main{display:grid;grid-template-columns:1fr 300px;max-width:1240px;margin:0 auto;padding:3.5rem 2.5rem;gap:3.5rem;align-items:start}
+/* LAYOUT */
+.blog-wrap{display:grid;grid-template-columns:1fr 280px;max-width:1240px;margin:0 auto;padding:4rem 2.5rem 6rem;gap:4rem;align-items:start}
 
 /* FEATURED */
-.featured{margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid var(--rule);cursor:pointer;display:block}
+.featured{display:block;margin-bottom:3.5rem;padding-bottom:3.5rem;border-bottom:1px solid var(--rule);cursor:pointer;position:relative}
+.feat-img{width:100%;height:400px;object-fit:cover;display:block;filter:grayscale(40%) brightness(0.55);transition:filter 0.5s var(--ease),transform 0.6s var(--ease);overflow:hidden}
 .feat-img-wrap{overflow:hidden;position:relative;border:1px solid var(--rule)}
-.feat-img{width:100%;height:380px;object-fit:cover;display:block;filter:grayscale(35%) brightness(0.62);transition:filter 0.45s,transform 0.5s}
-.featured:hover .feat-img{filter:grayscale(10%) brightness(0.82);transform:scale(1.02)}
-.feat-badge{position:absolute;top:1.2rem;left:1.2rem;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;background:var(--burg);color:#fff;padding:0.28rem 0.8rem}
-.feat-body{padding:1.6rem 0 0}
-.post-meta{display:flex;align-items:center;gap:1.2rem;margin-bottom:0.9rem}
-.p-cat{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--burg4)}
-.p-date,.p-read{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--txt3)}
-.featured h2{font-family:'Racing Sans One',sans-serif;font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:0.02em;color:#fff;line-height:1.05;margin-bottom:0.9rem}
-.featured:hover h2{color:var(--burg4)}
-.featured p{font-size:1rem;font-weight:300;color:var(--txt2);line-height:1.8;max-width:620px}
-.read-link{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--burg4);margin-top:1.3rem;transition:gap 0.15s}
-.featured:hover .read-link{gap:0.9rem}
+.featured:hover .feat-img{filter:grayscale(10%) brightness(0.75);transform:scale(1.03)}
+.feat-label{position:absolute;top:1.2rem;left:1.2rem;font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;background:var(--burg);color:#fff;padding:0.25rem 0.75rem}
+.feat-body{padding:1.8rem 0 0}
+.pm{display:flex;align-items:center;gap:1.2rem;margin-bottom:1rem}
+.pm-cat{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--burg3)}
+.pm-date,.pm-read{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--txt3)}
+.featured h2{font-family:'Racing Sans One',sans-serif;font-size:clamp(1.8rem,3vw,2.8rem);letter-spacing:0.02em;color:#fff;line-height:1.05;margin-bottom:1rem;transition:color 0.2s}
+.featured:hover h2{color:var(--burg3)}
+.feat-excerpt{font-size:1rem;font-weight:300;color:var(--txt2);line-height:1.82;max-width:600px}
+.read-more{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--burg3);margin-top:1.4rem;transition:gap 0.2s}
+.featured:hover .read-more{gap:1rem}
 
 /* POST GRID */
-.post-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--rule);margin-bottom:2px}
-.post-card{background:var(--bg);cursor:pointer;display:block;transition:background 0.2s}
-.post-card:hover{background:var(--bg2)}
-.pc-img-wrap{overflow:hidden;height:200px;position:relative}
-.pc-img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(45%) brightness(0.58);transition:filter 0.45s,transform 0.5s}
-.post-card:hover .pc-img{filter:grayscale(15%) brightness(0.8);transform:scale(1.04)}
-.pc-badge{position:absolute;bottom:0.8rem;left:0.8rem;font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;background:var(--burg);color:#fff;padding:0.22rem 0.65rem}
-.pc-body{padding:1.3rem}
+.post-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);margin-bottom:1px}
+.pcard{background:var(--bg2);cursor:pointer;display:block;transition:background 0.2s;position:relative;overflow:hidden}
+.pcard::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--burg);transform:scaleX(0);transform-origin:left;transition:transform 0.3s var(--ease);z-index:2}
+.pcard:hover{background:var(--bg3)}
+.pcard:hover::before{transform:scaleX(1)}
+.pc-img{width:100%;height:210px;object-fit:cover;display:block;filter:grayscale(45%) brightness(0.5);transition:filter 0.45s var(--ease),transform 0.5s var(--ease)}
+.pc-img-wrap{overflow:hidden}
+.pcard:hover .pc-img{filter:grayscale(15%) brightness(0.75);transform:scale(1.04)}
+.pc-bdg{position:absolute;bottom:0.8rem;left:0.8rem;font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.16em;text-transform:uppercase;background:var(--burg);color:#fff;padding:0.2rem 0.65rem}
+.pc-body{padding:1.4rem}
 .pc-meta{display:flex;gap:0.9rem;margin-bottom:0.7rem}
-.pc-date,.pc-read{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--txt3)}
-.pc-title{font-family:'Racing Sans One',sans-serif;font-size:1.2rem;letter-spacing:0.02em;color:#fff;line-height:1.15;margin-bottom:0.6rem;transition:color 0.15s}
-.post-card:hover .pc-title{color:var(--burg4)}
-.pc-excerpt{font-size:0.9rem;font-weight:300;color:var(--txt2);line-height:1.75}
+.pc-date,.pc-rd{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--txt3)}
+.pc-title{font-family:'Racing Sans One',sans-serif;font-size:1.2rem;letter-spacing:0.02em;color:#fff;line-height:1.15;margin-bottom:0.6rem;transition:color 0.2s}
+.pcard:hover .pc-title{color:var(--burg3)}
+.pc-ex{font-size:0.9rem;font-weight:300;color:var(--txt2);line-height:1.75}
 .pc-foot{display:flex;align-items:center;justify-content:space-between;margin-top:1rem;padding-top:0.8rem;border-top:1px solid var(--rule2)}
-.pc-author{font-size:0.78rem;font-weight:300;color:var(--txt3)}
-.pc-arrow{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--burg4);transition:all 0.15s}
-.post-card:hover .pc-arrow{letter-spacing:0.24em}
+.pc-auth{font-size:0.78rem;font-weight:300;color:var(--txt3)}
+.pc-arr{font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--burg3);transition:letter-spacing 0.2s}
+.pcard:hover .pc-arr{letter-spacing:0.26em}
 
-/* LIST POSTS */
-.post-list{display:flex;flex-direction:column;gap:2px;background:var(--rule);margin-top:2px}
-.pli{background:var(--bg);display:flex;cursor:pointer;transition:background 0.2s}
-.pli:hover{background:var(--bg2)}
-.pli-img{width:120px;flex-shrink:0;overflow:hidden}
-.pli-img img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(45%) brightness(0.58);transition:filter 0.4s}
-.pli:hover .pli-img img{filter:grayscale(15%) brightness(0.8)}
+/* LIST */
+.post-list{display:flex;flex-direction:column;gap:1px;background:var(--rule);margin-top:1px}
+.pli{background:var(--bg2);display:flex;cursor:pointer;transition:background 0.2s;position:relative}
+.pli::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--burg);transform:scaleY(0);transform-origin:bottom;transition:transform 0.3s var(--ease)}
+.pli:hover{background:var(--bg3)}
+.pli:hover::before{transform:scaleY(1)}
+.pli-img{width:110px;flex-shrink:0;overflow:hidden}
+.pli-img img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(50%) brightness(0.5);transition:filter 0.35s,transform 0.4s}
+.pli:hover .pli-img img{filter:grayscale(15%) brightness(0.72);transform:scale(1.06)}
 .pli-body{padding:1rem 1.2rem;display:flex;flex-direction:column;justify-content:center}
-.pli-cat{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--burg4);display:block;margin-bottom:0.4rem}
-.pli-title{font-family:'Racing Sans One',sans-serif;font-size:1.05rem;letter-spacing:0.02em;color:#fff;line-height:1.2;transition:color 0.15s}
-.pli:hover .pli-title{color:var(--burg4)}
-.pli-date{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--txt3);display:block;margin-top:0.4rem}
-
-/* SIDEBAR */
-.blog-sidebar{position:sticky;top:76px}
-.sw{margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid var(--rule)}
-.sw:last-child{border-bottom:none}
-.sw-title{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--txt3);display:block;margin-bottom:1.3rem}
-.nl-box{background:var(--bg2);border:1px solid var(--rule);padding:1.6rem}
-.nl-box h3{font-family:'Racing Sans One',sans-serif;font-size:1.3rem;letter-spacing:0.03em;color:#fff;margin-bottom:0.6rem}
-.nl-box p{font-size:0.92rem;font-weight:300;color:var(--txt2);line-height:1.75;margin-bottom:1.2rem}
-.nl-input{width:100%;background:var(--bg);border:1px solid var(--dim);color:var(--txt);font-size:0.92rem;padding:0.75rem 0.9rem;outline:none;margin-bottom:0.6rem;display:block;transition:border-color 0.15s}
-.nl-input:focus{border-color:var(--burg3)}
-.nl-input::placeholder{color:var(--dim)}
-.nl-btn{width:100%;font-family:'Racing Sans One',sans-serif;font-size:1rem;letter-spacing:0.04em;background:var(--burg);color:#fff;border:none;padding:0.75rem;transition:background 0.15s;display:block;cursor:pointer}
-.nl-btn:hover{background:var(--burg2)}
-.pop-list{display:flex;flex-direction:column;gap:1rem}
-.pop-item{display:flex;gap:0.9rem;align-items:flex-start;cursor:pointer}
-.pop-item:hover .pop-title{color:var(--burg4)}
-.pop-num{font-family:'Racing Sans One',sans-serif;font-size:1.5rem;color:var(--burg);line-height:1;flex-shrink:0;width:22px}
-.pop-title{font-size:0.92rem;color:var(--txt);line-height:1.45;display:block;transition:color 0.15s}
-.pop-meta{font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--txt3);display:block;margin-top:0.25rem}
-.tags-cloud{display:flex;flex-wrap:wrap;gap:0.4rem}
-.s-tag{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--txt3);border:1px solid var(--rule);padding:0.28rem 0.7rem;cursor:pointer;transition:all 0.15s;user-select:none}
-.s-tag:hover{color:var(--burg4);border-color:var(--burg)}
-.find-camps-btn{display:block;text-align:center;font-family:'Racing Sans One',sans-serif;font-size:1rem;letter-spacing:0.04em;background:var(--burg);color:#fff;padding:0.85rem 1rem;transition:background 0.15s;margin-top:0.8rem}
-.find-camps-btn:hover{background:var(--burg2)}
+.pli-cat{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--burg3);display:block;margin-bottom:0.4rem}
+.pli-title{font-family:'Racing Sans One',sans-serif;font-size:1.05rem;letter-spacing:0.02em;color:#fff;line-height:1.2;transition:color 0.2s}
+.pli:hover .pli-title{color:var(--burg3)}
+.pli-date{font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--txt3);display:block;margin-top:0.4rem}
 
 /* PAGINATION */
-.blog-pages{display:flex;gap:0.3rem;margin-top:2.5rem;justify-content:center}
-.pg{width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:0.88rem;background:transparent;border:1px solid var(--rule);color:var(--txt3);cursor:pointer;transition:all 0.15s}
-.pg:hover{border-color:var(--burg);color:var(--burg4)}
+.pages{display:flex;gap:0.3rem;margin-top:2.5rem;justify-content:center}
+.pg{width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:0.82rem;background:transparent;border:1px solid var(--rule);color:var(--txt3);cursor:pointer;transition:all 0.18s}
+.pg:hover{border-color:var(--burg);color:var(--burg3)}
 .pg.on{background:var(--burg);color:#fff;border-color:var(--burg)}
 
+/* SIDEBAR */
+.blog-sb{position:sticky;top:78px}
+.sw{margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid var(--rule)}
+.sw:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.sw-t{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--txt3);display:block;margin-bottom:1.3rem}
+
+/* Newsletter */
+.nl{background:var(--bg2);border:1px solid var(--rule);padding:1.6rem;transition:border-color 0.2s}
+.nl:hover{border-color:rgba(255,255,255,0.12)}
+.nl h3{font-family:'Racing Sans One',sans-serif;font-size:1.3rem;letter-spacing:0.03em;color:#fff;margin-bottom:0.6rem}
+.nl p{font-size:0.9rem;font-weight:300;color:var(--txt2);line-height:1.75;margin-bottom:1.2rem}
+.nl-in{width:100%;background:var(--bg);border:1px solid var(--rule);color:var(--txt);font-size:0.9rem;padding:0.75rem 0.9rem;outline:none;margin-bottom:0.6rem;display:block;transition:border-color 0.2s}
+.nl-in::placeholder{color:var(--txt3)}
+.nl-in:focus{border-color:var(--burg)}
+.nl-btn{width:100%;font-family:'Racing Sans One',sans-serif;font-size:0.95rem;letter-spacing:0.04em;background:var(--burg);color:#fff;border:none;padding:0.75rem;cursor:pointer;transition:background 0.2s;display:block}
+.nl-btn:hover{background:var(--burg2)}
+
+/* Popular */
+.pop-list{display:flex;flex-direction:column;gap:1.1rem}
+.pop-item{display:flex;gap:1rem;align-items:flex-start;cursor:pointer;transition:opacity 0.2s}
+.pop-item:hover{opacity:0.8}
+.pop-n{font-family:'Racing Sans One',sans-serif;font-size:1.5rem;color:var(--burg);line-height:1;flex-shrink:0;width:22px;opacity:0.5}
+.pop-t{font-size:0.9rem;color:var(--txt);line-height:1.45;display:block;transition:color 0.2s}
+.pop-item:hover .pop-t{color:var(--burg3)}
+.pop-m{font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--txt3);display:block;margin-top:0.25rem}
+
+/* Tags */
+.tag-cloud{display:flex;flex-wrap:wrap;gap:0.35rem}
+.stag{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--txt3);border:1px solid var(--rule);padding:0.28rem 0.7rem;cursor:pointer;transition:all 0.18s}
+.stag:hover{color:var(--burg3);border-color:var(--burg)}
+
+/* CTA box */
+.cta-box{background:var(--bg2);border:1px solid var(--rule);border-left:2px solid var(--burg);padding:1.5rem}
+.cta-box h4{font-family:'Racing Sans One',sans-serif;font-size:1.2rem;letter-spacing:0.03em;color:#fff;margin-bottom:0.6rem}
+.cta-box p{font-size:0.88rem;font-weight:300;color:var(--txt2);line-height:1.7;margin-bottom:1rem}
+.cta-btn{display:block;text-align:center;font-family:'Racing Sans One',sans-serif;font-size:0.95rem;letter-spacing:0.04em;background:var(--burg);color:#fff;padding:0.8rem 1rem;transition:background 0.2s}
+.cta-btn:hover{background:var(--burg2)}
+
 /* FOOTER */
-footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.2);padding:3.5rem 2.5rem 2rem;margin-top:5rem}
-.ft-g{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2rem}
-.ft-logo{font-family:'Racing Sans One',sans-serif;font-size:1.2rem;letter-spacing:0.05em;color:var(--txt);display:block;margin-bottom:0.7rem}
-.ft-logo span{color:var(--burg4)}
-.ft-desc{font-size:0.9rem;font-weight:300;color:var(--txt3);line-height:1.75;max-width:210px;display:block}
-.ft-col h4{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--txt3);display:block;margin-bottom:0.9rem}
-.ft-col ul{list-style:none}
-.ft-col ul li{margin-bottom:0.45rem}
-.ft-col ul a{font-size:0.9rem;font-weight:300;color:var(--txt3);display:block;transition:color 0.15s}
-.ft-col ul a:hover{color:var(--txt)}
-.ft-b{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;border-top:1px solid var(--rule);flex-wrap:wrap;gap:0.8rem}
-.ft-copy{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--txt3)}
-.ft-leg{display:flex;gap:1.5rem}
-.ft-leg a{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--txt3);transition:color 0.15s}
-.ft-leg a:hover{color:var(--txt)}
+footer{background:var(--bg2);border-top:1px solid var(--rule);padding:4rem 2.5rem 2rem}
+.ftg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
+.ftlogo{font-family:'Racing Sans One',sans-serif;font-size:1.2rem;letter-spacing:0.04em;color:var(--txt);display:block;margin-bottom:0.7rem}
+.ftlogo em{font-style:normal;color:var(--burg3)}
+.ftd{font-size:0.88rem;font-weight:300;color:var(--txt3);line-height:1.75;max-width:200px;display:block}
+.ftc h4{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--txt3);display:block;margin-bottom:0.9rem}
+.ftc ul{list-style:none}
+.ftc ul li{margin-bottom:0.4rem}
+.ftc ul a{font-size:0.88rem;font-weight:300;color:var(--txt3);display:block;transition:color 0.15s;cursor:pointer}
+.ftc ul a:hover{color:var(--txt)}
+.ftb{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;border-top:1px solid var(--rule);flex-wrap:wrap;gap:0.8rem}
+.ftcopy{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--txt3)}
+.ftleg{display:flex;gap:1.5rem}
+.ftleg a{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--txt3);transition:color 0.15s;cursor:pointer}
+.ftleg a:hover{color:var(--txt)}
 
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-.post-card,.pli,.featured{animation:fadeUp 0.4s ease both}
-.post-card:nth-child(2){animation-delay:.06s}.post-card:nth-child(3){animation-delay:.12s}.post-card:nth-child(4){animation-delay:.18s}
-.pli:nth-child(1){animation-delay:.04s}.pli:nth-child(2){animation-delay:.08s}.pli:nth-child(3){animation-delay:.12s}.pli:nth-child(4){animation-delay:.16s}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.featured,.pcard,.pli{animation:up 0.4s var(--ease) both}
+.pcard:nth-child(2){animation-delay:.06s}.pcard:nth-child(3){animation-delay:.12s}.pcard:nth-child(4){animation-delay:.18s}
+.pli:nth-child(1){animation-delay:.04s}.pli:nth-child(2){animation-delay:.08s}.pli:nth-child(3){animation-delay:.12s}
 
-@media(max-width:1024px){.blog-main{grid-template-columns:1fr}.blog-sidebar{position:static}.ft-g{grid-template-columns:1fr 1fr;gap:2rem}}
-@media(max-width:700px){nav{padding:0 1.2rem}.nav-mid{display:none}.blog-hero{padding:7rem 1.2rem 2.5rem}.blog-main{padding:2rem 1.2rem}.post-grid{grid-template-columns:1fr}.cats{padding:1rem 1.2rem}}
+@media(max-width:1024px){.blog-wrap{grid-template-columns:1fr}.blog-sb{position:static}.ftg{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:700px){nav{padding:0 1.2rem}.nav-links{display:none}.blog-hero{padding:7rem 1.2rem 3rem}.cats-bar{padding:1rem 1.2rem}.blog-wrap{padding:2.5rem 1.2rem}.post-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="logo">Check<span>Fight</span>Camp</a>
-  <div class="nav-mid">
+  <a href="index.html" class="logo">Check<em>Fight</em>Camp</a>
+  <div class="nav-links">
     <a href="index.html">Find Camps</a>
-    <a href="blog.html" class="active">Blog</a>
-    <a href="#">About</a>
+    <a href="blog.html" class="on">Blog</a>
+    <a href="about.html">About</a>
   </div>
-  <a href="#" class="nav-cta">List Your Gym</a>
+  <button class="btn-list">List Your Gym</button>
 </nav>
 
 <div class="blog-hero">
-  <span class="h-tag">Journal &amp; Guides</span>
-  <h1>THE FIGHT CAMP<br><span>KNOWLEDGE BASE</span></h1>
-  <span class="h-line"></span>
-  <p>Guides, training tips and honest reviews to help you find the perfect camp in Thailand.</p>
+  <div class="bh-inner">
+    <div class="bh-eye">Journal &amp; Guides</div>
+    <h1>THE FIGHT<br>CAMP<br><em>KNOWLEDGE</em><br>BASE</h1>
+    <span class="bh-rule"></span>
+    <p class="bh-sub">Honest guides, training tips and camp reviews — everything you need before you book.</p>
+  </div>
 </div>
 
-<div class="cats" id="cats">
-  <span class="cat on" onclick="filterCat('all',this)">All</span>
-  <span class="cat" onclick="filterCat('guide',this)">Guides</span>
-  <span class="cat" onclick="filterCat('muay-thai',this)">Muay Thai</span>
-  <span class="cat" onclick="filterCat('mma',this)">MMA</span>
-  <span class="cat" onclick="filterCat('bjj',this)">BJJ</span>
-  <span class="cat" onclick="filterCat('location',this)">Locations</span>
-  <span class="cat" onclick="filterCat('women',this)">Women &amp; Safety</span>
-  <span class="cat" onclick="filterCat('accom',this)">Accommodation</span>
-  <span class="cat" onclick="filterCat('beginner',this)">Beginner</span>
+<div class="cats-bar" id="catsBar">
+  <span class="cat on" onclick="fcat('all',this)">All</span>
+  <span class="cat" onclick="fcat('guide',this)">Guides</span>
+  <span class="cat" onclick="fcat('muay-thai',this)">Muay Thai</span>
+  <span class="cat" onclick="fcat('mma',this)">MMA</span>
+  <span class="cat" onclick="fcat('bjj',this)">BJJ</span>
+  <span class="cat" onclick="fcat('location',this)">Locations</span>
+  <span class="cat" onclick="fcat('beginner',this)">Beginner</span>
+  <span class="cat" onclick="fcat('women',this)">Women &amp; Safety</span>
+  <span class="cat" onclick="fcat('accom',this)">Accommodation</span>
 </div>
 
-<div class="blog-main">
-  <div class="blog-content">
-
+<div class="blog-wrap">
+  <div>
     <!-- FEATURED -->
     <a class="featured" href="blog-post.html?slug=complete-guide-muay-thai" data-cats="guide muay-thai beginner">
       <div class="feat-img-wrap">
-        <img class="feat-img" src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?w=1000&q=80" alt="Complete Guide to Muay Thai Camps">
-        <span class="feat-badge">Featured</span>
+        <img class="feat-img" src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?w=1000&q=80" alt="Guide">
+        <span class="feat-label">Featured</span>
       </div>
       <div class="feat-body">
-        <div class="post-meta">
-          <span class="p-cat">Beginner Guide</span>
-          <span class="p-date">March 2025</span>
-          <span class="p-read">8 min read</span>
-        </div>
+        <div class="pm"><span class="pm-cat">Beginner Guide</span><span class="pm-date">March 2025</span><span class="pm-read">8 min read</span></div>
         <h2>The Complete Guide to Choosing Your First Muay Thai Camp in Thailand</h2>
-        <p>Everything you need to know before booking — from choosing the right location and training level to understanding what's included. A practical, honest guide for first-timers.</p>
-        <span class="read-link">Read Article →</span>
+        <p class="feat-excerpt">Everything you need to know before booking — location, training level, pricing, accommodation and what to actually expect when you arrive.</p>
+        <span class="read-more">Read Article →</span>
       </div>
     </a>
 
-    <!-- POST GRID -->
+    <!-- GRID -->
     <div class="post-grid" id="postGrid">
-
-      <a class="post-card" href="blog-post.html?slug=phuket-vs-chiang-mai" data-cats="location muay-thai">
-        <div class="pc-img-wrap">
-          <img class="pc-img" src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&q=80" alt="Phuket vs Chiang Mai">
-          <span class="pc-badge">Locations</span>
-        </div>
-        <div class="pc-body">
-          <div class="pc-meta"><span class="pc-date">Feb 2025</span><span class="pc-read">5 min read</span></div>
-          <div class="pc-title">Phuket vs Chiang Mai — Which is Better for Muay Thai?</div>
-          <p class="pc-excerpt">Beach life vs mountain training. We compare the two most popular destinations for fighters and help you decide.</p>
-          <div class="pc-foot"><span class="pc-author">CheckFightCamp</span><span class="pc-arrow">Read →</span></div>
-        </div>
+      <a class="pcard" href="blog-post.html?slug=phuket-vs-chiang-mai" data-cats="location muay-thai">
+        <div class="pc-img-wrap"><img class="pc-img" src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&q=80" alt=""><span class="pc-bdg">Locations</span></div>
+        <div class="pc-body"><div class="pc-meta"><span class="pc-date">Feb 2025</span><span class="pc-rd">5 min</span></div><div class="pc-title">Phuket vs Chiang Mai — Which is Better for Muay Thai?</div><p class="pc-ex">Beach life vs mountain training. We compare the two biggest destinations for fighters.</p><div class="pc-foot"><span class="pc-auth">CheckFightCamp</span><span class="pc-arr">Read →</span></div></div>
       </a>
-
-      <a class="post-card" href="blog-post.html?slug=women-friendly-camps" data-cats="women muay-thai">
-        <div class="pc-img-wrap">
-          <img class="pc-img" src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80" alt="Women Muay Thai">
-          <span class="pc-badge">Women &amp; Safety</span>
-        </div>
-        <div class="pc-body">
-          <div class="pc-meta"><span class="pc-date">Jan 2025</span><span class="pc-read">6 min read</span></div>
-          <div class="pc-title">Best Women-Friendly Muay Thai Camps in Thailand 2025</div>
-          <p class="pc-excerpt">A curated list of camps with female trainers, women-only classes and safe accommodation — verified by real travellers.</p>
-          <div class="pc-foot"><span class="pc-author">CheckFightCamp</span><span class="pc-arrow">Read →</span></div>
-        </div>
+      <a class="pcard" href="blog-post.html?slug=women-friendly-camps" data-cats="women muay-thai">
+        <div class="pc-img-wrap"><img class="pc-img" src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80" alt=""><span class="pc-bdg">Women &amp; Safety</span></div>
+        <div class="pc-body"><div class="pc-meta"><span class="pc-date">Jan 2025</span><span class="pc-rd">6 min</span></div><div class="pc-title">Best Women-Friendly Muay Thai Camps in Thailand 2025</div><p class="pc-ex">Verified camps with female trainers, women-only classes and safe accommodation.</p><div class="pc-foot"><span class="pc-auth">CheckFightCamp</span><span class="pc-arr">Read →</span></div></div>
       </a>
-
-      <a class="post-card" href="blog-post.html?slug=top-5-mma-camps" data-cats="mma">
-        <div class="pc-img-wrap">
-          <img class="pc-img" src="https://images.unsplash.com/photo-1549476464-37392f717541?w=600&q=80" alt="MMA Thailand">
-          <span class="pc-badge">MMA</span>
-        </div>
-        <div class="pc-body">
-          <div class="pc-meta"><span class="pc-date">Dec 2024</span><span class="pc-read">7 min read</span></div>
-          <div class="pc-title">Top 5 MMA Camps in Thailand — Ranked and Reviewed</div>
-          <p class="pc-excerpt">From Bangkok's world-class facilities to Phuket's intense training-focused gyms. We rank the best for serious athletes.</p>
-          <div class="pc-foot"><span class="pc-author">CheckFightCamp</span><span class="pc-arrow">Read →</span></div>
-        </div>
+      <a class="pcard" href="blog-post.html?slug=top-5-mma-camps" data-cats="mma">
+        <div class="pc-img-wrap"><img class="pc-img" src="https://images.unsplash.com/photo-1549476464-37392f717541?w=600&q=80" alt=""><span class="pc-bdg">MMA</span></div>
+        <div class="pc-body"><div class="pc-meta"><span class="pc-date">Dec 2024</span><span class="pc-rd">7 min</span></div><div class="pc-title">Top 5 MMA Camps in Thailand — Ranked and Reviewed</div><p class="pc-ex">From Bangkok's world-class facilities to Phuket's intense training gyms.</p><div class="pc-foot"><span class="pc-auth">CheckFightCamp</span><span class="pc-arr">Read →</span></div></div>
       </a>
-
-      <a class="post-card" href="blog-post.html?slug=bjj-in-thailand" data-cats="bjj">
-        <div class="pc-img-wrap">
-          <img class="pc-img" src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=600&q=80" alt="BJJ Thailand">
-          <span class="pc-badge">BJJ</span>
-        </div>
-        <div class="pc-body">
-          <div class="pc-meta"><span class="pc-date">Nov 2024</span><span class="pc-read">5 min read</span></div>
-          <div class="pc-title">Is Thailand Good for BJJ Training? Honest Answer</div>
-          <p class="pc-excerpt">Thailand is famous for Muay Thai — but what about BJJ? We look at the growing grappling scene.</p>
-          <div class="pc-foot"><span class="pc-author">CheckFightCamp</span><span class="pc-arrow">Read →</span></div>
-        </div>
+      <a class="pcard" href="blog-post.html?slug=bjj-in-thailand" data-cats="bjj">
+        <div class="pc-img-wrap"><img class="pc-img" src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=600&q=80" alt=""><span class="pc-bdg">BJJ</span></div>
+        <div class="pc-body"><div class="pc-meta"><span class="pc-date">Nov 2024</span><span class="pc-rd">5 min</span></div><div class="pc-title">Is Thailand Good for BJJ Training? Honest Answer</div><p class="pc-ex">Thailand is famous for Muay Thai — but what about the grappling scene?</p><div class="pc-foot"><span class="pc-auth">CheckFightCamp</span><span class="pc-arr">Read →</span></div></div>
       </a>
-
     </div>
 
-    <!-- LIST POSTS -->
+    <!-- LIST -->
     <div class="post-list" id="postList">
-
       <a class="pli" href="blog-post.html?slug=first-week-preparation" data-cats="guide beginner">
         <div class="pli-img"><img src="https://images.unsplash.com/photo-1517438984742-1262db08379e?w=300&q=80" alt="" loading="lazy"></div>
-        <div class="pli-body">
-          <span class="pli-cat">Training Tips</span>
-          <div class="pli-title">How to Prepare for Your First Week at a Thai Fight Camp</div>
-          <span class="pli-date">Oct 2024 · 4 min read</span>
-        </div>
+        <div class="pli-body"><span class="pli-cat">Training Tips</span><div class="pli-title">How to Prepare for Your First Week at a Thai Fight Camp</div><span class="pli-date">Oct 2024 · 4 min</span></div>
       </a>
-
       <a class="pli" href="blog-post.html?slug=accommodation-guide" data-cats="accom guide">
         <div class="pli-img"><img src="https://images.unsplash.com/photo-1615117972428-28de67cda58e?w=300&q=80" alt="" loading="lazy"></div>
-        <div class="pli-body">
-          <span class="pli-cat">Accommodation</span>
-          <div class="pli-title">Camp Accommodation vs. External Hotels — What's Worth It?</div>
-          <span class="pli-date">Sep 2024 · 5 min read</span>
-        </div>
+        <div class="pli-body"><span class="pli-cat">Accommodation</span><div class="pli-title">Camp Accommodation vs External Hotels — What's Worth It?</div><span class="pli-date">Sep 2024 · 5 min</span></div>
       </a>
-
       <a class="pli" href="blog-post.html?slug=cost-breakdown" data-cats="guide beginner">
         <div class="pli-img"><img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?w=300&q=80" alt="" loading="lazy"></div>
-        <div class="pli-body">
-          <span class="pli-cat">Budget Guide</span>
-          <div class="pli-title">How Much Does a Muay Thai Camp Cost in Thailand? Full Breakdown</div>
-          <span class="pli-date">Aug 2024 · 6 min read</span>
-        </div>
+        <div class="pli-body"><span class="pli-cat">Budget Guide</span><div class="pli-title">How Much Does a Muay Thai Camp Cost in Thailand? Full Breakdown</div><span class="pli-date">Aug 2024 · 6 min</span></div>
       </a>
-
+      <a class="pli" href="blog-post.html?slug=private-vs-group" data-cats="guide muay-thai beginner">
+        <div class="pli-img"><img src="https://images.unsplash.com/photo-1549476464-37392f717541?w=300&q=80" alt="" loading="lazy"></div>
+        <div class="pli-body"><span class="pli-cat">Training Tips</span><div class="pli-title">Private vs Group Training — Which Gets You Better Faster?</div><span class="pli-date">Jun 2024 · 5 min</span></div>
+      </a>
       <a class="pli" href="blog-post.html?slug=koh-samui-camps" data-cats="location">
         <div class="pli-img"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=300&q=80" alt="" loading="lazy"></div>
-        <div class="pli-body">
-          <span class="pli-cat">Locations</span>
-          <div class="pli-title">Koh Samui Fight Camps — Hidden Gem or Overrated?</div>
-          <span class="pli-date">Jul 2024 · 4 min read</span>
-        </div>
+        <div class="pli-body"><span class="pli-cat">Locations</span><div class="pli-title">Koh Samui Fight Camps — Hidden Gem or Overrated?</div><span class="pli-date">Jul 2024 · 4 min</span></div>
       </a>
-
-      <a class="pli" href="blog-post.html?slug=private-vs-group" data-cats="guide beginner muay-thai">
-        <div class="pli-img"><img src="https://images.unsplash.com/photo-1549476464-37392f717541?w=300&q=80" alt="" loading="lazy"></div>
-        <div class="pli-body">
-          <span class="pli-cat">Training Tips</span>
-          <div class="pli-title">Private vs Group Training — Which Gets You Better Faster?</div>
-          <span class="pli-date">Jun 2024 · 5 min read</span>
-        </div>
-      </a>
-
       <a class="pli" href="blog-post.html?slug=tiger-muay-thai-review" data-cats="muay-thai guide">
         <div class="pli-img"><img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=300&q=80" alt="" loading="lazy"></div>
-        <div class="pli-body">
-          <span class="pli-cat">Camp Review</span>
-          <div class="pli-title">Tiger Muay Thai Phuket — Honest Full Review 2025</div>
-          <span class="pli-date">May 2024 · 7 min read</span>
-        </div>
+        <div class="pli-body"><span class="pli-cat">Camp Review</span><div class="pli-title">Tiger Muay Thai Phuket — Honest Full Review 2025</div><span class="pli-date">May 2024 · 7 min</span></div>
       </a>
-
     </div>
 
-    <div class="blog-pages">
-      <button class="pg on">1</button>
-      <button class="pg">2</button>
-      <button class="pg">3</button>
-      <button class="pg">›</button>
+    <div class="pages">
+      <button class="pg on">1</button><button class="pg">2</button><button class="pg">3</button><button class="pg">›</button>
     </div>
   </div>
 
   <!-- SIDEBAR -->
-  <aside class="blog-sidebar">
-
+  <aside class="blog-sb">
     <div class="sw">
-      <span class="sw-title">Newsletter</span>
-      <div class="nl-box">
+      <span class="sw-t">Newsletter</span>
+      <div class="nl">
         <h3>Camp Alerts</h3>
-        <p>New gyms, deals and training guides — no spam, ever.</p>
-        <input class="nl-input" type="email" placeholder="your@email.com">
-        <button class="nl-btn" onclick="this.textContent='✓ Subscribed!';this.style.background='#2E7D52'">Subscribe Free</button>
+        <p>New gyms and training guides — no spam.</p>
+        <input class="nl-in" type="email" placeholder="your@email.com">
+        <button class="nl-btn" onclick="this.textContent='✓ Subscribed!';this.style.background='#1A5C38'">Subscribe</button>
       </div>
     </div>
-
     <div class="sw">
-      <span class="sw-title">Popular Posts</span>
+      <span class="sw-t">Popular</span>
       <div class="pop-list">
-        <a class="pop-item" href="blog-post.html?slug=complete-guide-muay-thai">
-          <span class="pop-num">01</span>
-          <div><span class="pop-title">Complete Guide to Choosing Your First Muay Thai Camp</span><span class="pop-meta">8 min · 4.2k views</span></div>
-        </a>
-        <a class="pop-item" href="blog-post.html?slug=women-friendly-camps">
-          <span class="pop-num">02</span>
-          <div><span class="pop-title">Best Women-Friendly Camps in Thailand 2025</span><span class="pop-meta">6 min · 3.1k views</span></div>
-        </a>
-        <a class="pop-item" href="blog-post.html?slug=phuket-vs-chiang-mai">
-          <span class="pop-num">03</span>
-          <div><span class="pop-title">Phuket vs Chiang Mai for Muay Thai Training</span><span class="pop-meta">5 min · 2.8k views</span></div>
-        </a>
-        <a class="pop-item" href="blog-post.html?slug=cost-breakdown">
-          <span class="pop-num">04</span>
-          <div><span class="pop-title">How Much Does a Thai Fight Camp Cost?</span><span class="pop-meta">6 min · 2.4k views</span></div>
-        </a>
+        <a class="pop-item" href="blog-post.html?slug=complete-guide-muay-thai"><span class="pop-n">01</span><div><span class="pop-t">Complete Guide to Choosing Your First Muay Thai Camp</span><span class="pop-m">8 min · 4.2k views</span></div></a>
+        <a class="pop-item" href="blog-post.html?slug=women-friendly-camps"><span class="pop-n">02</span><div><span class="pop-t">Best Women-Friendly Camps in Thailand 2025</span><span class="pop-m">6 min · 3.1k views</span></div></a>
+        <a class="pop-item" href="blog-post.html?slug=phuket-vs-chiang-mai"><span class="pop-n">03</span><div><span class="pop-t">Phuket vs Chiang Mai for Muay Thai</span><span class="pop-m">5 min · 2.8k views</span></div></a>
+        <a class="pop-item" href="blog-post.html?slug=cost-breakdown"><span class="pop-n">04</span><div><span class="pop-t">How Much Does a Thai Fight Camp Cost?</span><span class="pop-m">6 min · 2.4k views</span></div></a>
       </div>
     </div>
-
     <div class="sw">
-      <span class="sw-title">Topics</span>
-      <div class="tags-cloud">
-        <span class="s-tag" onclick="filterCat('muay-thai',null)">Muay Thai</span>
-        <span class="s-tag" onclick="filterCat('guide',null)">Guides</span>
-        <span class="s-tag" onclick="filterCat('mma',null)">MMA</span>
-        <span class="s-tag" onclick="filterCat('bjj',null)">BJJ</span>
-        <span class="s-tag" onclick="filterCat('location',null)">Locations</span>
-        <span class="s-tag" onclick="filterCat('women',null)">Women</span>
-        <span class="s-tag" onclick="filterCat('beginner',null)">Beginner</span>
-        <span class="s-tag" onclick="filterCat('accom',null)">Accommodation</span>
+      <span class="sw-t">Topics</span>
+      <div class="tag-cloud">
+        <span class="stag" onclick="fcat('muay-thai',null)">Muay Thai</span>
+        <span class="stag" onclick="fcat('guide',null)">Guides</span>
+        <span class="stag" onclick="fcat('mma',null)">MMA</span>
+        <span class="stag" onclick="fcat('bjj',null)">BJJ</span>
+        <span class="stag" onclick="fcat('location',null)">Locations</span>
+        <span class="stag" onclick="fcat('women',null)">Women</span>
+        <span class="stag" onclick="fcat('beginner',null)">Beginner</span>
       </div>
     </div>
-
     <div class="sw">
-      <span class="sw-title">Find a Camp</span>
-      <p style="font-size:.92rem;font-weight:300;color:var(--txt2);line-height:1.75">Ready to train? Browse 300+ verified fight camps across Thailand.</p>
-      <a href="index.html" class="find-camps-btn">Browse All Camps →</a>
+      <span class="sw-t">Find a Camp</span>
+      <div class="cta-box">
+        <h4>Ready to Train?</h4>
+        <p>Browse 500+ verified fight camps across Thailand, UK and South Korea.</p>
+        <a href="index.html" class="cta-btn">Browse All Camps →</a>
+      </div>
     </div>
-
   </aside>
 </div>
 
 <footer>
-  <div class="ft-g">
-    <div><span class="ft-logo">Check<span>Fight</span>Camp</span><span class="ft-desc">The definitive platform to compare 300+ fight camps across Thailand. Free, always.</span></div>
-    <div class="ft-col"><h4>Disciplines</h4><ul><li><a href="index.html">Muay Thai</a></li><li><a href="index.html">Boxing</a></li><li><a href="index.html">MMA</a></li><li><a href="index.html">BJJ</a></li></ul></div>
-    <div class="ft-col"><h4>Locations</h4><ul><li><a href="index.html">Phuket</a></li><li><a href="index.html">Bangkok</a></li><li><a href="index.html">Chiang Mai</a></li><li><a href="index.html">Koh Samui</a></li></ul></div>
-    <div class="ft-col"><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">List Your Gym</a></li><li><a href="blog.html">Blog</a></li><li><a href="#">Contact</a></li></ul></div>
+  <div class="ftg">
+    <div><span class="ftlogo">Check<em>Fight</em>Camp</span><span class="ftd">Compare 500+ fight camps across Thailand, UK and South Korea.</span></div>
+    <div class="ftc"><h4>Disciplines</h4><ul><li><a href="index.html">Muay Thai</a></li><li><a href="index.html">Boxing</a></li><li><a href="index.html">MMA</a></li><li><a href="index.html">BJJ</a></li></ul></div>
+    <div class="ftc"><h4>Locations</h4><ul><li><a href="index.html">🇹🇭 Thailand</a></li><li><a href="index.html">🇬🇧 United Kingdom</a></li><li><a href="index.html">🇰🇷 South Korea</a></li></ul></div>
+    <div class="ftc"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a>List Your Gym</a></li><li><a href="blog.html">Blog</a></li><li><a>Contact</a></li></ul></div>
   </div>
-  <div class="ft-b">
-    <span class="ft-copy">© 2025 CheckFightCamp.com</span>
-    <div class="ft-leg"><a href="#">Privacy</a><a href="#">Impressum</a><a href="#">Cookies</a></div>
-  </div>
+  <div class="ftb"><span class="ftcopy">© 2025 CheckFightCamp.com</span><div class="ftleg"><a>Privacy</a><a>Impressum</a><a>Cookies</a></div></div>
 </footer>
 
 <script>
-function filterCat(tag, btn){
-  if(btn){
-    document.querySelectorAll('.cat').forEach(c=>c.classList.remove('on'));
-    btn.classList.add('on');
-  }
+function fcat(tag,btn){
+  if(btn){document.querySelectorAll('.cat').forEach(c=>c.classList.remove('on'));btn.classList.add('on')}
   document.querySelectorAll('[data-cats]').forEach(el=>{
-    const cats = el.dataset.cats || '';
-    el.style.display = (tag==='all' || cats.includes(tag)) ? '' : 'none';
+    const c=el.dataset.cats||'';
+    el.style.display=(tag==='all'||c.includes(tag))?'':'none';
   });
 }
 </script>
