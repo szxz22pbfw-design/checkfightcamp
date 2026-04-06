@@ -34,6 +34,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:600;height:60px;display:flex;ali
 .nav-links a:hover{color:var(--txt)}
 .nav-links a:hover::after,.nav-links a.on::after{transform:scaleX(1)}
 .nav-links a.on{color:var(--txt)}
+.nav-r{display:flex;align-items:center;gap:1.6rem}
 .btn-list{font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt);border:1px solid var(--burg);background:transparent;padding:0.42rem 1.1rem;transition:all 0.2s}
 .btn-list:hover{background:var(--burg)}
 
@@ -168,12 +169,14 @@ footer{background:var(--bg2);border-top:1px solid var(--rule);padding:4rem 2.5re
 
 <nav>
   <a href="index.html" class="logo">Check<em>Fight</em>Camp</a>
-  <div class="nav-links">
-    <a href="index.html">Find Camps</a>
-    <a href="blog.html">Blog</a>
-    <a href="about.html" class="on">About</a>
+  <div class="nav-r">
+    <div class="nav-links">
+      <a href="index.html">Find Camps</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html" class="on">About</a>
+    </div>
+    <button class="btn-list">List Your Gym</button>
   </div>
-  <button class="btn-list">List Your Gym</button>
 </nav>
 
 <!-- HERO — dark -->
