@@ -13,20 +13,20 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100%;font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-size:16px}
 :root{
-  --bg:#080606;--bg2:#0E0B0B;--bg3:#141010;--bg4:#1A1616;
+  --bg:#1C1C22;--bg2:#242428;--bg3:#2C2C32;--bg4:#34343C;
   --burg:#550000;--burg2:#700000;--burg3:#9A1515;--burg4:#CC3333;
-  --txt:#EEEAE6;--txt2:#C8C2BE;--txt3:#9A9490;--dim:#5A5450;
-  --rule:rgba(255,255,255,0.08);--rule2:rgba(255,255,255,0.04);
+  --txt:#F0ECEB;--txt2:#D4D0CE;--txt3:#A8A4A2;--dim:#686460;
+  --rule:rgba(255,255,255,0.1);--rule2:rgba(255,255,255,0.06);
   /* Light sections */
-  --cream:#FAF7F2;--cream2:#F2EDE6;--cream3:#E8E0D6;
-  --ink:#1A1410;--ink2:#3A2E28;--ink3:#6A5E58;
+  --cream:#F8F8F8;--cream2:#F0F0F0;--cream3:#E0E0E0;
+  --ink:#1A1A1E;--ink2:#3A3A42;--ink3:#6A6A72;
 }
 a{text-decoration:none;color:inherit;cursor:pointer}
 button{cursor:pointer;font-family:'DM Sans',sans-serif;color:inherit}
 input,select{font-family:'DM Sans',sans-serif;font-size:1rem}
 
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:600;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(8,6,6,0.98);border-bottom:1px solid rgba(85,0,0,0.35)}
+nav{position:fixed;top:0;left:0;right:0;z-index:600;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(28,28,34,0.98);border-bottom:1px solid rgba(85,0,0,0.35)}
 .logo{font-family:'Racing Sans One',sans-serif;font-size:1.3rem;letter-spacing:0.05em;color:var(--txt);cursor:pointer}
 .logo span{color:var(--burg4)}
 .nav-mid{display:flex;gap:2rem;align-items:center}
@@ -55,7 +55,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:600;height:58px;display:flex;ali
 .nav-cta:hover{background:var(--burg)}
 
 /* ── HERO (dark) ── */
-.hero{padding:9rem 2.5rem 5rem;background:radial-gradient(ellipse 80% 60% at 80% 30%,rgba(85,0,0,0.1),transparent),var(--bg);position:relative;overflow:hidden}
+.hero{padding:9rem 2.5rem 5rem;background:radial-gradient(ellipse 80% 60% at 80% 30%,rgba(85,0,0,0.18),transparent),var(--bg);position:relative;overflow:hidden}
 .h-tag{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--burg4);display:block;margin-bottom:1.8rem}
 .hero h1{font-family:'Racing Sans One',sans-serif;font-size:clamp(4rem,9vw,9rem);line-height:0.9;letter-spacing:0.02em;color:#fff}
 .hero h1 span{color:var(--burg4)}
@@ -63,14 +63,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:600;height:58px;display:flex;ali
 .h-sub{font-size:1.1rem;font-weight:300;color:var(--txt2);line-height:1.75;max-width:480px;display:block}
 
 /* COUNTRY TABS */
-.country-tabs{display:flex;gap:0;margin-top:2.5rem;border:1px solid var(--rule);overflow:hidden;max-width:480px}
-.c-tab{flex:1;font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--txt3);background:transparent;border:none;border-right:1px solid var(--rule);padding:0.65rem 0.5rem;cursor:pointer;transition:all 0.15s;text-align:center}
+.country-tabs{display:flex;gap:0;margin-top:2rem;border:1px solid rgba(255,255,255,0.15);overflow:hidden;max-width:600px}
+.c-tab{flex:1;font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:#C0BCBA;background:rgba(255,255,255,0.05);border:none;border-right:1px solid rgba(255,255,255,0.12);padding:0.7rem 0.6rem;cursor:pointer;transition:all 0.15s;text-align:center}
 .c-tab:last-child{border-right:none}
 .c-tab:hover{color:var(--txt)}
 .c-tab.on{background:var(--burg);color:#fff}
 
 /* SEARCH ROW */
-.search-row{display:flex;gap:0.8rem;align-items:stretch;margin-top:1rem;max-width:700px}
+.search-row{display:flex;gap:0.8rem;align-items:stretch;margin-top:0.8rem;max-width:700px}
 .search{display:flex;flex:1;border:1px solid rgba(85,0,0,0.4);background:var(--bg2)}
 .search select,.search input{background:transparent;border:none;outline:none;font-size:0.95rem;color:var(--txt);padding:1rem 1.1rem}
 .search select{border-right:1px solid var(--rule);color:var(--txt2);min-width:145px}
@@ -82,7 +82,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:600;height:58px;display:flex;ali
 .map-toggle{display:flex;align-items:center;gap:0.5rem;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--txt2);background:var(--bg2);border:1px solid var(--rule);padding:0 1.2rem;cursor:pointer;transition:all 0.15s;white-space:nowrap}
 .map-toggle:hover{border-color:var(--burg);color:var(--txt)}
 .map-toggle.on{background:var(--burg);color:#fff;border-color:var(--burg)}
-.map-toggle .mt-icon{font-size:1.1rem}
+.map-toggle svg{flex-shrink:0}
 
 /* PILLS */
 .pills{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:1.5rem}
@@ -95,21 +95,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:600;height:58px;display:flex;ali
 .hs .l{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--txt3);margin-top:0.3rem;display:block}
 
 /* ── WHITE SECTION (why us) ── */
-.why-section{background:var(--cream);padding:5rem 2.5rem;border-top:4px solid var(--burg)}
+.why-section{background:#F8F8F8;padding:5rem 2.5rem;border-top:3px solid var(--burg)}
 .why-inner{max-width:1100px;margin:0 auto}
 .why-label{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--burg);display:block;margin-bottom:1.2rem}
-.why-section h2{font-family:'Racing Sans One',sans-serif;font-size:clamp(2.2rem,4vw,4rem);letter-spacing:0.02em;color:var(--ink);line-height:0.95;margin-bottom:1rem}
+.why-section h2{font-family:'Racing Sans One',sans-serif;font-size:clamp(2.2rem,4vw,4rem);letter-spacing:0.02em;color:#1C1C22;line-height:0.95;margin-bottom:1rem}
 .why-section h2 span{color:var(--burg)}
-.why-section .why-sub{font-size:1.05rem;font-weight:300;color:var(--ink3);line-height:1.8;max-width:480px;margin-bottom:3rem}
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--cream3)}
-.why-card{background:var(--cream);padding:2.2rem 1.8rem;border-bottom:3px solid transparent;transition:border-color 0.2s}
-.why-card:hover{border-bottom-color:var(--burg)}
+.why-section .why-sub{font-size:1.05rem;font-weight:300;color:#6A6A72;line-height:1.8;max-width:480px;margin-bottom:3rem}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#E0E0E0}
+.why-card{background:#F8F8F8;padding:2.2rem 1.8rem;border-bottom:3px solid transparent;transition:border-color 0.2s}
+.why-card:hover{border-bottom-color:var(--burg);background:#fff}
 .why-icon{font-size:2rem;margin-bottom:1rem;display:block}
-.why-title{font-family:'Racing Sans One',sans-serif;font-size:1.3rem;letter-spacing:0.03em;color:var(--ink);margin-bottom:0.6rem}
-.why-desc{font-size:0.95rem;font-weight:300;color:var(--ink3);line-height:1.75}
+.why-title{font-family:'Racing Sans One',sans-serif;font-size:1.3rem;letter-spacing:0.03em;color:#1C1C22;margin-bottom:0.6rem}
+.why-desc{font-size:0.95rem;font-weight:300;color:#6A6A72;line-height:1.75}
 
 /* ── COUNTRIES SECTION (light) ── */
-.countries-section{background:var(--cream2);padding:4rem 2.5rem;border-top:1px solid var(--cream3)}
+.countries-section{}}
 .cs-inner{max-width:1100px;margin:0 auto}
 .cs-label{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--burg);display:block;margin-bottom:1.2rem}
 .cs-inner h2{font-family:'Racing Sans One',sans-serif;font-size:clamp(2rem,3.5vw,3.2rem);color:var(--ink);letter-spacing:0.02em;margin-bottom:2.5rem;line-height:0.95}
@@ -119,10 +119,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:600;height:58px;display:flex;ali
 .cc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--burg);transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
 .cc:hover::after{transform:scaleX(1)}
 .cc-flag{font-size:2.5rem;display:block;margin-bottom:0.8rem}
-.cc-name{font-family:'Racing Sans One',sans-serif;font-size:1.4rem;letter-spacing:0.03em;color:var(--ink);display:block;margin-bottom:0.3rem}
+.cc-name{font-family:'Racing Sans One',sans-serif;font-size:1.4rem;letter-spacing:0.03em;color:#1C1C22;display:block;margin-bottom:0.3rem}
 .cc-count{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--burg);display:block;margin-bottom:0.8rem}
-.cc-desc{font-size:0.9rem;font-weight:300;color:var(--ink3);line-height:1.7}
-.cc-arrow{position:absolute;bottom:1.5rem;right:1.5rem;font-size:1.2rem;color:var(--cream3);transition:color 0.2s}
+.cc-desc{font-size:0.9rem;font-weight:300;color:#6A6A72;line-height:1.7}
+.cc-arrow{position:absolute;bottom:1.5rem;right:1.5rem;font-size:1.2rem;color:#E0E0E0;transition:color 0.2s}
 .cc:hover .cc-arrow{color:var(--burg)}
 
 /* ── MAIN LAYOUT ── */
@@ -130,14 +130,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:600;height:58px;display:flex;ali
 .main.map-open{grid-template-columns:230px 1fr 420px}
 
 /* ── SIDEBAR ── */
-.sidebar{border-right:1px solid rgba(85,0,0,0.2);background:var(--bg2);position:sticky;top:58px;align-self:flex-start;height:calc(100vh - 58px);overflow-y:auto}
+.sidebar{border-right:1px solid rgba(85,0,0,0.2);background:#2A2A30;position:sticky;top:58px;align-self:flex-start;height:calc(100vh - 58px);overflow-y:auto}
 .sidebar::-webkit-scrollbar{width:3px}
 .sidebar::-webkit-scrollbar-thumb{background:var(--burg)}
 .sb-top{padding:1.1rem 1.4rem 0.9rem;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center}
 .sb-top span{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--txt3)}
 .sb-top button{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--burg4);background:none;border:none;transition:color 0.15s}
 .sb-top button:hover{color:var(--txt)}
-.fg{padding:1.1rem 1.4rem;border-bottom:1px solid var(--rule2)}
+.fg{padding:1.1rem 1.4rem;border-bottom:1px solid rgba(255,255,255,0.06)}
 .fg:last-child{border-bottom:none}
 .fgt{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--txt3);display:block;margin-bottom:0.8rem}
 .cr{display:flex;align-items:center;justify-content:space-between;padding:0.28rem 0;cursor:pointer}
@@ -146,15 +146,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:600;height:58px;display:flex;ali
 .cb{width:13px;height:13px;border:1px solid var(--dim);flex-shrink:0;position:relative;transition:all 0.15s}
 .cb.on{background:var(--burg);border-color:var(--burg)}
 .cb.on::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:8px;color:#fff;font-weight:700}
-.lbl{font-size:0.88rem;font-weight:400;color:var(--txt2);transition:color 0.15s}
-.cc-num{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--txt3)}
+.lbl{font-size:0.88rem;font-weight:400;color:#E8E4E2;transition:color 0.15s}
+.cc-num{font-family:'DM Mono',monospace;font-size:0.65rem;color:#A8A4A2}
 .range-track{position:relative;height:2px;background:var(--rule);margin:0.9rem 0 0.4rem}
 .range-fill{position:absolute;height:100%;background:var(--burg);left:0;right:30%}
 input[type=range]{width:100%;-webkit-appearance:none;height:2px;background:transparent;outline:none;position:absolute;top:0;pointer-events:none;cursor:pointer}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;background:var(--burg4);border-radius:50%;pointer-events:all;border:2px solid var(--bg);cursor:pointer}
 .range-vals{display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--txt2)}
 .dur-tabs{display:flex;gap:0;border:1px solid var(--rule);overflow:hidden;margin-bottom:1rem}
-.dur-tab{flex:1;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--txt3);background:transparent;border:none;border-right:1px solid var(--rule);padding:0.5rem 0.3rem;cursor:pointer;transition:all 0.15s;text-align:center}
+.dur-tab{flex:1;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:#C8C4C2;background:transparent;border:none;border-right:1px solid var(--rule);padding:0.5rem 0.3rem;cursor:pointer;transition:all 0.15s;text-align:center}
 .dur-tab:last-child{border-right:none}
 .dur-tab:hover{color:var(--txt)}
 .dur-tab.on{background:var(--burg);color:#fff}
@@ -163,7 +163,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;heigh
 .results{padding:1.8rem 2rem;background:var(--bg);min-height:100vh}
 .res-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:1.2rem;border-bottom:1px solid var(--rule);margin-bottom:1.5rem;flex-wrap:wrap;gap:0.8rem}
 .res-count{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--txt3)}
-.res-count strong{color:var(--txt);font-family:'Racing Sans One',sans-serif;font-size:1.1rem}
+.res-count strong{color:#F0ECEB;font-family:'Racing Sans One',sans-serif;font-size:1.1rem}
 .sort-wrap{display:flex;align-items:center;gap:0.7rem}
 .sort-lbl{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt3)}
 .sort-sel{font-size:0.85rem;color:var(--txt2);border:1px solid var(--rule);background:var(--bg2);padding:0.35rem 0.8rem;outline:none;cursor:pointer}
@@ -252,7 +252,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;heigh
 .mm-item:last-child{border-bottom:none}
 .mm-item:hover .mm-name{color:var(--burg4)}
 .mm-dot{width:8px;height:8px;background:var(--burg);border-radius:50%;flex-shrink:0}
-.mm-name{font-size:0.82rem;color:var(--txt2)}
+.mm-name{font-size:0.82rem;color:#D4D0CE}
 .mm-price{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--txt3);margin-left:auto}
 
 /* ── COMPARE TABLE ── */
@@ -395,12 +395,12 @@ footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.2);padding:3.5re
   <span class="h-line"></span>
   <span class="h-sub">Muay Thai, Boxing, MMA &amp; BJJ camps in Thailand, UK, South Korea and beyond.</span>
 
-  <!-- COUNTRY TABS -->
+  <!-- COUNTRY TABS — above search -->
   <div class="country-tabs">
-    <button class="c-tab on" onclick="setCountry('all',this)">🌍 All</button>
+    <button class="c-tab on" onclick="setCountry('all',this)">🌍 All Countries</button>
     <button class="c-tab" onclick="setCountry('thailand',this)">🇹🇭 Thailand</button>
-    <button class="c-tab" onclick="setCountry('uk',this)">🇬🇧 UK</button>
-    <button class="c-tab" onclick="setCountry('south-korea',this)">🇰🇷 Korea</button>
+    <button class="c-tab" onclick="setCountry('uk',this)">🇬🇧 United Kingdom</button>
+    <button class="c-tab" onclick="setCountry('south-korea',this)">🇰🇷 South Korea</button>
   </div>
 
   <!-- SEARCH + MAP TOGGLE -->
@@ -411,7 +411,8 @@ footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.2);padding:3.5re
       <button>Search</button>
     </div>
     <button class="map-toggle" id="mapToggle" onclick="toggleMap()">
-      <span class="mt-icon">🗺</span> Show Map
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
+      Show Map
     </button>
   </div>
 
@@ -428,9 +429,9 @@ footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.2);padding:3.5re
 
   <div class="h-stats">
     <div class="hs"><span class="n">500+</span><span class="l">Fight Camps</span></div>
-    <div class="hs"><span class="n">3</span><span class="l">Countries</span></div>
+    <div class="hs"><span class="n">3+</span><span class="l">Countries</span></div>
     <div class="hs"><span class="n">4</span><span class="l">Disciplines</span></div>
-    <div class="hs"><span class="n">FREE</span><span class="l">Always</span></div>
+    <div class="hs"><span class="n">100%</span><span class="l">No Booking Fees</span></div>
   </div>
 </section>
 
@@ -438,7 +439,7 @@ footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.2);padding:3.5re
 <section class="why-section">
   <div class="why-inner">
     <span class="why-label">Why Us</span>
-    <h2>THE SMARTEST WAY<br>TO FIND A <span>FIGHT CAMP</span></h2>
+    <h2>YOUR EDGE IN<br>FINDING THE RIGHT <span>FIGHT CAMP</span></h2>
     <p class="why-sub">No booking fees. No bias. Just clean data and honest comparisons — so you can train where it matters most.</p>
     <div class="why-grid">
       <div class="why-card">
@@ -464,7 +465,7 @@ footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.2);padding:3.5re
 <section class="countries-section">
   <div class="cs-inner">
     <span class="cs-label">Destinations</span>
-    <h2>CHOOSE YOUR COUNTRY</h2>
+    <h2>3+ COUNTRIES &amp; GROWING</h2>
     <div class="country-cards">
       <div class="cc" onclick="setCountryScroll('thailand')">
         <span class="cc-flag">🇹🇭</span>
