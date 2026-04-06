@@ -4,326 +4,267 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CheckFightCamp — Find & Compare 300+ Fight Camps in Thailand</title>
-<meta name="description" content="Compare 300+ Muay Thai, Boxing, MMA and BJJ camps in Thailand. Filter by price, accommodation, women-friendly and more.">
+<meta name="description" content="Compare 300+ Muay Thai, Boxing, MMA and BJJ camps in Thailand.">
 <link rel="canonical" href="https://checkfightcamp.com">
 <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;background:#080606;color:#E8E2DE;font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html,body{width:100%;background:#080606;color:#E8E2DE;font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-size:16px}
 :root{
-  --bg:    #080606;
-  --bg2:   #0E0B0B;
-  --bg3:   #141010;
-  --bg4:   #1A1616;
-  --burg:  #550000;
-  --burg2: #700000;
-  --burg3: #9A1515;
-  --burg4: #C43030;
-  --txt:   #E8E2DE;
-  --txt2:  #BEB8B4;
-  --txt3:  #9A9490;
-  --dim:   #5A5450;
-  --rule:  rgba(255,255,255,0.07);
-  --rule2: rgba(255,255,255,0.04);
+  --bg:#080606;--bg2:#0E0B0B;--bg3:#141010;--bg4:#1A1616;
+  --burg:#550000;--burg2:#700000;--burg3:#9A1515;--burg4:#CC3333;
+  --txt:#EEEAE6;--txt2:#C8C2BE;--txt3:#9A9490;--dim:#5A5450;
+  --rule:rgba(255,255,255,0.08);--rule2:rgba(255,255,255,0.04);
+  --green:#66FFBB;--rose:#FF9999;
 }
-a{text-decoration:none;color:inherit;cursor:pointer}
+a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:'DM Sans',sans-serif;color:inherit}
-input,select{font-family:'DM Sans',sans-serif}
+input,select{font-family:'DM Sans',sans-serif;font-size:1rem}
 
 /* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:999;
-  height:56px;display:flex;align-items:center;justify-content:space-between;
-  padding:0 2rem;
-  background:rgba(8,6,6,0.98);
-  border-bottom:1px solid rgba(85,0,0,0.3);
-}
-.logo{font-family:'Racing Sans One',sans-serif;font-size:1.15rem;letter-spacing:0.05em;color:var(--txt)}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;background:rgba(8,6,6,0.98);border-bottom:1px solid rgba(85,0,0,0.35)}
+.logo{font-family:'Racing Sans One',sans-serif;font-size:1.3rem;letter-spacing:0.05em;color:var(--txt);cursor:pointer}
 .logo span{color:var(--burg4)}
-.nav-mid{display:flex;gap:2.5rem;align-items:center}
-.nav-mid a{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--txt3);transition:color 0.15s}
-.nav-mid a:hover,.nav-mid a.active{color:var(--txt)}
+.nav-mid{display:flex;gap:2.5rem}
+.nav-mid a{font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt3);transition:color 0.15s;cursor:pointer}
+.nav-mid a:hover{color:var(--txt)}
 .nav-right{display:flex;align-items:center;gap:1rem}
 
-/* CURRENCY SWITCHER */
-.currency-wrap{position:relative}
-.currency-btn{
-  display:flex;align-items:center;gap:0.4rem;
-  font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;
-  color:var(--txt2);background:var(--bg3);border:1px solid var(--rule);
-  padding:0.35rem 0.75rem;transition:all 0.15s;cursor:pointer;
-}
-.currency-btn:hover{border-color:var(--burg3);color:var(--txt)}
-.currency-btn .arrow{font-size:0.55rem;transition:transform 0.15s}
-.currency-btn.open .arrow{transform:rotate(180deg)}
-.currency-drop{
-  position:absolute;top:calc(100% + 6px);right:0;
-  background:var(--bg3);border:1px solid var(--rule);
-  min-width:160px;display:none;z-index:100;
-}
-.currency-drop.show{display:block}
-.cur-opt{
-  display:flex;align-items:center;gap:0.6rem;
-  padding:0.6rem 0.9rem;font-size:0.78rem;
-  color:var(--txt2);cursor:pointer;transition:all 0.15s;
-  border-bottom:1px solid var(--rule2);
-}
+/* CURRENCY */
+.cur-wrap{position:relative}
+.cur-btn{display:flex;align-items:center;gap:0.5rem;font-family:'DM Mono',monospace;font-size:0.78rem;letter-spacing:0.08em;color:var(--txt2);background:var(--bg3);border:1px solid var(--rule);padding:0.4rem 0.85rem;cursor:pointer;transition:all 0.15s}
+.cur-btn:hover{border-color:var(--burg3);color:var(--txt)}
+.cur-drop{position:absolute;top:calc(100% + 6px);right:0;background:var(--bg3);border:1px solid var(--rule);min-width:175px;display:none;z-index:600}
+.cur-drop.show{display:block}
+.cur-opt{display:flex;align-items:center;gap:0.7rem;padding:0.7rem 1rem;font-size:0.85rem;color:var(--txt2);cursor:pointer;transition:all 0.15s;border-bottom:1px solid var(--rule2)}
 .cur-opt:last-child{border-bottom:none}
 .cur-opt:hover{background:var(--bg4);color:var(--txt)}
-.cur-opt.active{color:var(--burg4)}
-.cur-sym{font-family:'DM Mono',monospace;font-size:0.75rem;width:18px;flex-shrink:0}
-
-.nav-cta{
-  font-size:0.68rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--txt);border:1px solid var(--burg);padding:0.38rem 1.1rem;
-  transition:background 0.15s;
-}
+.cur-opt.on{color:var(--burg4)}
+.cur-sym{font-family:'DM Mono',monospace;font-size:0.82rem;width:20px}
+.nav-cta{font-size:0.75rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt);border:1px solid var(--burg);padding:0.42rem 1.2rem;transition:background 0.15s;cursor:pointer}
 .nav-cta:hover{background:var(--burg)}
 
 /* ── HERO ── */
-.hero{
-  padding:9rem 2.5rem 5rem;
-  border-bottom:1px solid rgba(85,0,0,0.25);
-  background:linear-gradient(160deg,#080606 0%,#0D0808 50%,#080606 100%);
-  position:relative;overflow:hidden;
-}
-.hero::before{
-  content:'';position:absolute;top:-200px;right:-200px;
-  width:700px;height:700px;border-radius:50%;
-  background:radial-gradient(circle,rgba(85,0,0,0.12) 0%,transparent 65%);
-  pointer-events:none;
-}
-.hero-inner{max-width:680px;position:relative;z-index:2}
-.hero-tag{
-  font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.24em;
-  text-transform:uppercase;color:var(--burg4);display:block;margin-bottom:1.8rem;
-}
-.hero h1{
-  font-family:'Racing Sans One',sans-serif;
-  font-size:clamp(4rem,9vw,9rem);
-  line-height:0.9;letter-spacing:0.02em;color:#FFFFFF;
-}
+.hero{padding:9rem 2.5rem 5rem;border-bottom:1px solid rgba(85,0,0,0.2);background:radial-gradient(ellipse 80% 60% at 80% 30%,rgba(85,0,0,0.1),transparent),var(--bg);position:relative;overflow:hidden}
+.h-tag{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--burg4);display:block;margin-bottom:1.8rem}
+.hero h1{font-family:'Racing Sans One',sans-serif;font-size:clamp(4rem,9vw,9rem);line-height:0.9;letter-spacing:0.02em;color:#fff}
 .hero h1 span{color:var(--burg4)}
-.hero-line{width:40px;height:2px;background:var(--burg);display:block;margin:2rem 0}
-.hero-sub{
-  font-size:1rem;font-weight:300;color:var(--txt2);
-  line-height:1.8;max-width:440px;
-}
-
-/* SEARCH */
-.search-wrap{margin-top:2.8rem}
-.search{
-  display:flex;max-width:600px;
-  border:1px solid rgba(85,0,0,0.4);background:var(--bg2);
-  box-shadow:0 0 40px rgba(85,0,0,0.08);
-}
-.search select,.search input{
-  background:transparent;border:none;outline:none;
-  font-size:0.88rem;color:var(--txt);padding:1rem 1.1rem;
-}
-.search select{border-right:1px solid var(--rule);color:var(--txt2);min-width:145px}
+.h-line{width:40px;height:2px;background:var(--burg);display:block;margin:2rem 0}
+.h-sub{font-size:1.1rem;font-weight:300;color:var(--txt2);line-height:1.75;max-width:480px;display:block}
+.search{display:flex;margin-top:2.5rem;max-width:620px;border:1px solid rgba(85,0,0,0.4);background:var(--bg2)}
+.search select,.search input{background:transparent;border:none;outline:none;font-size:0.95rem;color:var(--txt);padding:1rem 1.1rem}
+.search select{border-right:1px solid var(--rule);color:var(--txt2);min-width:155px}
 .search select option{background:#0E0B0B}
 .search input{flex:1}
 .search input::placeholder{color:var(--dim)}
-.search button{
-  font-family:'Racing Sans One',sans-serif;
-  font-size:0.85rem;letter-spacing:0.08em;
-  background:var(--burg);color:var(--txt);border:none;
-  padding:1rem 1.8rem;white-space:nowrap;transition:background 0.15s;
-}
+.search button{font-family:'Racing Sans One',sans-serif;font-size:0.95rem;letter-spacing:0.05em;background:var(--burg);color:#fff;border:none;padding:1rem 2rem;white-space:nowrap;transition:background 0.15s;cursor:pointer}
 .search button:hover{background:var(--burg2)}
-
-/* PILLS */
-.pills{display:flex;gap:0.35rem;flex-wrap:wrap;margin-top:1.4rem}
-.pill{
-  font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--txt3);border:1px solid var(--rule);padding:0.3rem 0.75rem;
-  cursor:pointer;transition:all 0.15s;
-}
+.pills{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:1.5rem}
+.pill{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt3);border:1px solid var(--rule);padding:0.32rem 0.8rem;cursor:pointer;transition:all 0.15s;user-select:none}
 .pill:hover,.pill.on{color:var(--burg4);border-color:var(--burg)}
+.h-stats{display:flex;gap:3.5rem;margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid var(--rule)}
+.hs .n{font-family:'Racing Sans One',sans-serif;font-size:2.2rem;color:#fff;line-height:1;display:block}
+.hs .l{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--txt3);margin-top:0.3rem;display:block}
 
-/* STATS */
-.hero-stats{display:flex;gap:3.5rem;margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid var(--rule)}
-.hs .n{font-family:'Racing Sans One',sans-serif;font-size:2.2rem;color:#FFFFFF;line-height:1;display:block}
-.hs .l{font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--txt3);margin-top:0.3rem;display:block}
-
-/* ── MAIN LAYOUT ── */
-.main{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+/* ── LAYOUT ── */
+.main{display:grid;grid-template-columns:230px 1fr;min-height:100vh}
 
 /* ── SIDEBAR ── */
-.sidebar{
-  border-right:1px solid rgba(85,0,0,0.2);
-  background:var(--bg2);
-  position:sticky;top:56px;align-self:flex-start;
-  height:calc(100vh - 56px);overflow-y:auto;
-}
+.sidebar{border-right:1px solid rgba(85,0,0,0.2);background:var(--bg2);position:sticky;top:58px;align-self:flex-start;height:calc(100vh - 58px);overflow-y:auto}
 .sidebar::-webkit-scrollbar{width:3px}
-.sidebar::-webkit-scrollbar-track{background:transparent}
 .sidebar::-webkit-scrollbar-thumb{background:var(--burg)}
-.sb-top{
-  padding:1.1rem 1.4rem 0.9rem;border-bottom:1px solid var(--rule);
-  display:flex;justify-content:space-between;align-items:center;
-}
-.sb-top span{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--txt3)}
-.sb-top button{font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--burg4);background:none;border:none;transition:color 0.15s}
+.sb-top{padding:1.1rem 1.4rem 0.9rem;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center}
+.sb-top span{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--txt3)}
+.sb-top button{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--burg4);background:none;border:none;transition:color 0.15s}
 .sb-top button:hover{color:var(--txt)}
-.fg{padding:1rem 1.4rem;border-bottom:1px solid var(--rule2)}
+.fg{padding:1.1rem 1.4rem;border-bottom:1px solid var(--rule2)}
 .fg:last-child{border-bottom:none}
-.fgt{
-  font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.22em;
-  text-transform:uppercase;color:var(--txt3);display:block;margin-bottom:0.8rem;
-}
-.fgt.rose{color:var(--burg4)}
-.cr{display:flex;align-items:center;justify-content:space-between;padding:0.25rem 0;cursor:pointer}
+.fgt{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--txt3);display:block;margin-bottom:0.8rem}
+.cr{display:flex;align-items:center;justify-content:space-between;padding:0.28rem 0;cursor:pointer}
 .cr:hover .lbl{color:var(--txt)}
-.cl{display:flex;align-items:center;gap:0.5rem}
-.cb{width:12px;height:12px;border:1px solid var(--dim);flex-shrink:0;position:relative;transition:all 0.15s}
+.cl{display:flex;align-items:center;gap:0.55rem}
+.cb{width:13px;height:13px;border:1px solid var(--dim);flex-shrink:0;position:relative;transition:all 0.15s}
 .cb.on{background:var(--burg);border-color:var(--burg)}
-.cb.on::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:7px;color:#fff;font-weight:700}
-.lbl{font-size:0.8rem;font-weight:400;color:var(--txt2);transition:color 0.15s}
-.cc{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--txt3)}
-.cr.wr{padding-left:0.6rem;border-left:2px solid var(--burg)}
-.cr.wr .lbl{color:var(--burg4)}
+.cb.on::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:8px;color:#fff;font-weight:700}
+.lbl{font-size:0.88rem;font-weight:400;color:var(--txt2);transition:color 0.15s}
+.cc{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--txt3)}
 .range-track{position:relative;height:2px;background:var(--rule);margin:0.9rem 0 0.4rem}
 .range-fill{position:absolute;height:100%;background:var(--burg);left:0;right:30%}
-input[type=range]{width:100%;-webkit-appearance:none;height:2px;background:transparent;outline:none;position:absolute;top:0;pointer-events:none}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;background:var(--burg4);border-radius:50%;pointer-events:all;border:2px solid var(--bg)}
-.range-vals{display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--txt2)}
+input[type=range]{width:100%;-webkit-appearance:none;height:2px;background:transparent;outline:none;position:absolute;top:0;pointer-events:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;background:var(--burg4);border-radius:50%;pointer-events:all;border:2px solid var(--bg);cursor:pointer}
+.range-vals{display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--txt2)}
+
+/* Duration tabs */
+.dur-tabs{display:flex;gap:0;margin-bottom:1rem;border:1px solid var(--rule);overflow:hidden}
+.dur-tab{flex:1;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--txt3);background:transparent;border:none;padding:0.5rem 0.3rem;cursor:pointer;transition:all 0.15s;border-right:1px solid var(--rule)}
+.dur-tab:last-child{border-right:none}
+.dur-tab:hover{color:var(--txt)}
+.dur-tab.on{background:var(--burg);color:#fff}
 
 /* ── RESULTS ── */
 .results{padding:1.8rem 2rem;background:var(--bg)}
-.res-top{
-  display:flex;align-items:center;justify-content:space-between;
-  padding-bottom:1.2rem;border-bottom:1px solid var(--rule);margin-bottom:1.4rem;
-  flex-wrap:wrap;gap:0.8rem;
-}
-.res-count{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--txt3)}
-.res-count strong{color:var(--txt);font-weight:400;font-size:0.9rem}
-.sort-wrap{display:flex;align-items:center;gap:0.6rem}
-.sort-lbl{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt3)}
-.sort-sel{font-size:0.78rem;color:var(--txt2);border:1px solid var(--rule);background:var(--bg2);padding:0.3rem 0.7rem;outline:none}
-
-/* Compare bar */
-.cmp-bar{border:1px solid var(--burg);background:var(--bg2);padding:0.7rem 1.1rem;display:none;align-items:center;justify-content:space-between;margin-bottom:1.2rem}
+.res-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:1.2rem;border-bottom:1px solid var(--rule);margin-bottom:1.5rem;flex-wrap:wrap;gap:0.8rem}
+.res-count{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--txt3)}
+.res-count strong{color:var(--txt);font-family:'Racing Sans One',sans-serif;font-size:1.1rem;letter-spacing:0.05em}
+.sort-wrap{display:flex;align-items:center;gap:0.7rem}
+.sort-lbl{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt3)}
+.sort-sel{font-size:0.85rem;color:var(--txt2);border:1px solid var(--rule);background:var(--bg2);padding:0.35rem 0.8rem;outline:none;cursor:pointer}
+.cmp-bar{border:1px solid var(--burg);background:var(--bg2);padding:0.8rem 1.2rem;display:none;align-items:center;justify-content:space-between;margin-bottom:1.4rem}
 .cmp-bar.show{display:flex}
-.cmp-txt{font-size:0.75rem;color:var(--txt2)}
-.cmp-txt strong{color:var(--txt);font-weight:500}
-.cmp-actions{display:flex;gap:0.6rem;align-items:center}
-.cmp-now{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;background:var(--burg);color:var(--txt);border:none;padding:0.4rem 1rem;transition:background 0.15s}
+.cmp-txt{font-size:0.85rem;color:var(--txt2)}
+.cmp-txt strong{color:var(--txt)}
+.cmp-now{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;background:var(--burg);color:#fff;border:none;padding:0.45rem 1.1rem;transition:background 0.15s;cursor:pointer}
 .cmp-now:hover{background:var(--burg2)}
-.cmp-clr{font-size:0.62rem;color:var(--txt3);background:none;border:none}
+.cmp-clr{font-size:0.68rem;color:var(--txt3);background:none;border:none;cursor:pointer}
 
 /* ── CARDS ── */
 .gym-list{display:flex;flex-direction:column;gap:2px;background:var(--rule)}
-.gym-card{background:var(--bg2);display:flex;transition:background 0.2s;position:relative}
+.gym-card{background:var(--bg2);display:flex;cursor:pointer;transition:background 0.2s;position:relative}
 .gym-card:hover{background:var(--bg3)}
 .gym-card.sel{outline:1px solid var(--burg)}
-
-/* Image */
-.card-img{width:240px;flex-shrink:0;position:relative;overflow:hidden;min-height:240px}
-.card-img img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(40%) brightness(0.6);transition:filter 0.5s,transform 0.5s}
-.gym-card:hover .card-img img{filter:grayscale(15%) brightness(0.8);transform:scale(1.04)}
-.badges{position:absolute;top:0.8rem;left:0.8rem;display:flex;flex-direction:column;gap:0.3rem}
-.bdg{font-family:'DM Mono',monospace;font-size:0.54rem;letter-spacing:0.14em;text-transform:uppercase;padding:0.2rem 0.6rem;display:inline-block}
-.bdg-d{background:rgba(8,6,6,0.9);color:var(--txt2);border:1px solid rgba(255,255,255,0.1)}
-.bdg-w{background:rgba(85,0,0,0.9);color:#FF9999;border:1px solid var(--burg)}
-.bdg-n{background:rgba(100,70,0,0.9);color:#FFB84D;border:1px solid #664400}
-.bdg-b{background:rgba(0,60,40,0.9);color:#66FFBB;border:1px solid #004428}
-.c-chk{position:absolute;bottom:0.8rem;right:0.8rem;width:24px;height:24px;background:rgba(8,6,6,0.88);border:1px solid var(--dim);display:flex;align-items:center;justify-content:center;font-size:0.62rem;color:var(--txt3);transition:all 0.15s}
+.card-img{width:245px;flex-shrink:0;position:relative;overflow:hidden;min-height:260px}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(35%) brightness(0.62);transition:filter 0.5s,transform 0.5s}
+.gym-card:hover .card-img img{filter:grayscale(10%) brightness(0.82);transform:scale(1.04)}
+.card-badges{position:absolute;top:0.8rem;left:0.8rem;display:flex;flex-direction:column;gap:0.3rem;pointer-events:none}
+.bdg{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.14em;text-transform:uppercase;padding:0.22rem 0.65rem;display:inline-block}
+.bdg-d{background:rgba(8,6,6,0.9);color:var(--txt2);border:1px solid rgba(255,255,255,0.12)}
+.bdg-w{background:rgba(85,0,0,0.92);color:#FF9999;border:1px solid var(--burg)}
+.bdg-b{background:rgba(0,80,50,0.92);color:#66FFBB;border:1px solid #005030}
+.bdg-n{background:rgba(100,70,0,0.92);color:#FFB84D;border:1px solid #664400}
+.c-chk{position:absolute;bottom:0.8rem;right:0.8rem;width:26px;height:26px;background:rgba(8,6,6,0.88);border:1px solid var(--dim);display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:var(--txt3);transition:all 0.15s;z-index:2}
 .c-chk:hover{border-color:var(--burg);color:var(--burg4)}
 .c-chk.on{background:var(--burg);border-color:var(--burg);color:#fff}
-
-/* Card body */
-.card-body{padding:1.4rem 1.6rem;display:flex;flex-direction:column;flex:1}
-.card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.7rem}
-.gym-loc{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--burg4);display:block;margin-bottom:0.32rem}
-.gym-name{font-family:'Racing Sans One',sans-serif;font-size:1.5rem;letter-spacing:0.03em;color:#FFFFFF;line-height:1;display:block}
+.card-body{padding:1.5rem 1.8rem;display:flex;flex-direction:column;flex:1}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.8rem}
+.gym-loc{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--burg4);display:block;margin-bottom:0.38rem}
+.gym-name{font-family:'Racing Sans One',sans-serif;font-size:1.65rem;letter-spacing:0.03em;color:#fff;line-height:1;display:block}
+.gym-website{font-size:0.75rem;color:var(--txt3);margin-top:0.3rem;display:block;font-weight:300}
+.gym-website:hover{color:var(--burg4)}
 .r-box{text-align:right;flex-shrink:0}
-.r-num{font-family:'Racing Sans One',sans-serif;font-size:1.6rem;color:#FFFFFF;line-height:1;display:block}
-.r-stars{color:var(--burg4);font-size:0.7rem;letter-spacing:-1px;display:block;margin-top:0.1rem}
-.r-ct{font-family:'DM Mono',monospace;font-size:0.56rem;color:var(--txt3);display:block}
+.r-num{font-family:'Racing Sans One',sans-serif;font-size:1.7rem;color:#fff;line-height:1;display:block}
+.r-stars{color:var(--burg4);font-size:0.75rem;letter-spacing:-1px;display:block;margin-top:0.1rem}
+.r-ct{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--txt3);display:block}
+.gtags{display:flex;gap:0.32rem;flex-wrap:wrap;margin:0.7rem 0 1rem}
+.gtag{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--txt3);border:1px solid var(--rule);padding:0.2rem 0.6rem}
 
-/* Tags */
-.gtags{display:flex;gap:0.3rem;flex-wrap:wrap;margin:0.6rem 0 0.8rem}
-.gtag{font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--txt3);border:1px solid var(--rule);padding:0.18rem 0.55rem}
+/* Pricing table on card */
+.price-table{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin:0.8rem 0}
+.pt-cell{background:var(--bg);padding:0.7rem 0.6rem;text-align:center}
+.pt-label{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--txt3);display:block;margin-bottom:0.35rem}
+.pt-val{font-family:'Racing Sans One',sans-serif;font-size:1.05rem;color:#fff;line-height:1;display:block}
+.pt-unit{font-size:0.6rem;color:var(--txt3);display:block;margin-top:0.12rem}
 
-/* Info grid */
-.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 1rem;margin:0.5rem 0 0.8rem}
-.info-item{display:flex;flex-direction:column;gap:0.15rem}
-.info-label{font-family:'DM Mono',monospace;font-size:0.54rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt3)}
-.info-val{font-size:0.82rem;font-weight:500;color:var(--txt);display:flex;align-items:center;gap:0.35rem}
-.info-val.green{color:#66FFBB}
-.info-val.rose{color:#FF9999}
-.info-badge{font-size:0.56rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.12rem 0.45rem;border:1px solid;display:inline-block}
-.ib-yes{color:#66FFBB;border-color:rgba(102,255,187,0.3)}
-.ib-no{color:var(--txt3);border-color:var(--rule)}
-
-/* Features */
-.feats{display:grid;grid-template-columns:1fr 1fr;gap:0.15rem 0.5rem;margin:0.5rem 0}
-.feat{font-size:0.76rem;font-weight:300;color:var(--txt2);display:flex;align-items:center;gap:0.35rem}
-.feat.wf{color:#FF9999}
-
-/* Accommodation */
-.accom{display:flex;align-items:center;gap:0.8rem;flex-wrap:wrap;margin:0.8rem 0;padding:0.65rem 0;border-top:1px solid var(--rule2);border-bottom:1px solid var(--rule2)}
-.accom-l{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt3);flex-shrink:0}
-.accom-ps{display:flex;gap:0.3rem;flex-wrap:wrap}
-.ap{font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--txt3);border:1px solid var(--rule);padding:0.15rem 0.55rem;display:inline-block}
-.ap.yes{border-color:rgba(85,0,0,0.5);color:var(--burg4)}
-.ap.no{opacity:0.35}
-
-/* Pricing section */
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem;margin:0.8rem 0;background:var(--bg);padding:0.8rem;border:1px solid var(--rule2)}
-.price-item{text-align:center}
-.price-item .pi-label{font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--txt3);display:block;margin-bottom:0.3rem}
-.price-item .pi-val{font-family:'Racing Sans One',sans-serif;font-size:1.05rem;color:#FFFFFF;line-height:1;display:block}
-.price-item .pi-sub{font-size:0.6rem;color:var(--txt3);display:block;margin-top:0.15rem}
-.price-divider{width:1px;background:var(--rule);align-self:stretch}
+/* Quick info row */
+.quick-info{display:flex;gap:1.5rem;margin:0.8rem 0;flex-wrap:wrap}
+.qi{display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;color:var(--txt2)}
+.qi-icon{font-size:0.85rem;flex-shrink:0}
+.qi.green{color:var(--green)}
+.qi.rose{color:var(--rose)}
 
 /* Card footer */
-.card-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:0.9rem}
-.cta-g{display:flex;gap:0.4rem;align-items:center}
-.btn-v{font-family:'Racing Sans One',sans-serif;font-size:0.82rem;letter-spacing:0.05em;background:var(--burg);color:var(--txt);border:none;padding:0.55rem 1.4rem;transition:background 0.15s}
+.card-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:1rem;border-top:1px solid var(--rule2)}
+.card-tags-sm{display:flex;gap:0.6rem}
+.ct-sm{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--txt3)}
+.ct-sm span{color:var(--txt2)}
+.btn-group{display:flex;gap:0.4rem;align-items:center}
+.btn-map{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--txt2);background:var(--bg3);border:1px solid var(--rule);padding:0.48rem 0.9rem;transition:all 0.15s;display:flex;align-items:center;gap:0.4rem;cursor:pointer}
+.btn-map:hover{border-color:var(--burg3);color:var(--txt)}
+.btn-v{font-family:'Racing Sans One',sans-serif;font-size:0.9rem;letter-spacing:0.04em;background:var(--burg);color:#fff;border:none;padding:0.52rem 1.4rem;transition:background 0.15s;cursor:pointer}
 .btn-v:hover{background:var(--burg2)}
-.btn-c{font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;background:transparent;color:var(--txt3);border:1px solid var(--rule);padding:0.35rem 0.8rem;transition:all 0.15s}
+.btn-c{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;background:transparent;color:var(--txt3);border:1px solid var(--rule);padding:0.38rem 0.85rem;transition:all 0.15s;cursor:pointer}
 .btn-c:hover{border-color:var(--burg);color:var(--burg4)}
-.btn-c.on{background:var(--burg);color:var(--txt);border-color:var(--burg)}
-.card-meta{display:flex;gap:1rem;align-items:center}
-.cm-item{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--txt3);display:flex;align-items:center;gap:0.35rem}
-.cm-item span{color:var(--txt2)}
+.btn-c.on{background:var(--burg);color:#fff;border-color:var(--burg)}
 
-/* Compare table */
-.cmp-tbl{display:none;background:var(--bg2);border:1px solid var(--rule);margin-top:1.4rem;overflow-x:auto}
+/* ── COMPARE TABLE (simplified) ── */
+.cmp-tbl{display:none;margin-top:1.5rem;border:1px solid var(--rule);overflow:hidden}
 .cmp-tbl.show{display:block}
-.ct-h{display:grid;padding:0.9rem 1.3rem;background:var(--bg3);font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--txt3);border-bottom:1px solid var(--rule)}
-.ct-r{display:grid;border-bottom:1px solid var(--rule2);padding:0.7rem 1.3rem;align-items:center}
-.ct-r:last-child{border-bottom:none}
-.ct-r:nth-child(even){background:rgba(255,255,255,0.01)}
-.ct-l{font-family:'DM Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--txt3)}
-.ct-v{font-size:0.82rem;color:var(--txt2)}
-.ct-v.good{color:#66FFBB}
+.cmp-tbl-head{display:flex;background:var(--bg3);border-bottom:1px solid var(--rule)}
+.cth-label{width:120px;flex-shrink:0;padding:0.9rem 1rem;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--txt3)}
+.cth-camp{flex:1;padding:0.9rem 1rem;border-left:1px solid var(--rule)}
+.cth-name{font-family:'Racing Sans One',sans-serif;font-size:0.95rem;color:#fff;display:block}
+.cth-loc{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--txt3);display:block;margin-top:0.2rem}
+.cmp-row{display:flex;border-bottom:1px solid var(--rule2)}
+.cmp-row:last-child{border-bottom:none}
+.cmp-row:nth-child(even){background:rgba(255,255,255,0.01)}
+.cr-label{width:120px;flex-shrink:0;padding:0.75rem 1rem;font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--txt3)}
+.cr-val{flex:1;padding:0.75rem 1rem;border-left:1px solid var(--rule2);font-size:0.88rem;color:var(--txt2)}
+.cr-val.good{color:var(--green)}
+.cr-val.best{color:var(--burg4);font-weight:600}
+
+/* ── CAMP DETAIL MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(8,6,6,0.88);z-index:800;opacity:0;pointer-events:none;transition:opacity 0.3s;backdrop-filter:blur(4px)}
+.modal-overlay.show{opacity:1;pointer-events:all}
+.camp-modal{position:fixed;top:0;right:0;bottom:0;width:min(720px,100vw);background:var(--bg2);z-index:900;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);overflow-y:auto;border-left:1px solid rgba(85,0,0,0.3)}
+.camp-modal.show{transform:translateX(0)}
+.modal-close{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;background:rgba(14,11,11,0.95);border-bottom:1px solid var(--rule);backdrop-filter:blur(8px)}
+.modal-close-btn{font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt3);background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:0.5rem;transition:color 0.15s}
+.modal-close-btn:hover{color:var(--txt)}
+.modal-title{font-family:'Racing Sans One',sans-serif;font-size:1.1rem;letter-spacing:0.04em;color:#fff}
+.modal-hero-img{width:100%;height:280px;object-fit:cover;display:block;filter:brightness(0.7)}
+.modal-body{padding:2rem}
+.modal-loc{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--burg4);display:block;margin-bottom:0.5rem}
+.modal-name{font-family:'Racing Sans One',sans-serif;font-size:2.2rem;letter-spacing:0.03em;color:#fff;line-height:1;display:block}
+.modal-website{font-size:0.88rem;color:var(--burg4);display:flex;align-items:center;gap:0.4rem;margin-top:0.5rem}
+.modal-website:hover{color:var(--txt)}
+.modal-rating{display:flex;align-items:center;gap:1rem;margin:1.2rem 0;padding:1rem;background:var(--bg3);border:1px solid var(--rule)}
+.mr-score{font-family:'Racing Sans One',sans-serif;font-size:2rem;color:#fff}
+.mr-stars{color:var(--burg4);font-size:1rem;letter-spacing:-1px}
+.mr-count{font-size:0.85rem;color:var(--txt3)}
+.modal-section{margin-top:1.8rem}
+.ms-title{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--txt3);display:block;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--rule)}
+.modal-desc{font-size:0.95rem;font-weight:300;color:var(--txt2);line-height:1.8}
+
+/* Duration pricing in modal */
+.modal-dur-tabs{display:flex;gap:0;border:1px solid var(--rule);overflow:hidden;margin-bottom:1rem}
+.mdt{flex:1;font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--txt3);background:transparent;border:none;border-right:1px solid var(--rule);padding:0.65rem 0.5rem;cursor:pointer;transition:all 0.15s;text-align:center}
+.mdt:last-child{border-right:none}
+.mdt:hover{color:var(--txt)}
+.mdt.on{background:var(--burg);color:#fff}
+.modal-price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.mpg-cell{background:var(--bg);padding:1rem;text-align:center}
+.mpg-label{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt3);display:block;margin-bottom:0.5rem}
+.mpg-val{font-family:'Racing Sans One',sans-serif;font-size:1.4rem;color:#fff;line-height:1;display:block}
+.mpg-sub{font-size:0.68rem;color:var(--txt3);display:block;margin-top:0.2rem}
+.modal-feats{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 1.5rem;margin-top:0.5rem}
+.mf{display:flex;align-items:center;gap:0.5rem;font-size:0.88rem;color:var(--txt2)}
+.mf::before{content:'✓';color:var(--burg4);font-size:0.75rem;font-weight:700}
+.modal-accom-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem}
+.mac{background:var(--bg3);border:1px solid var(--rule);padding:0.8rem 1rem}
+.mac-name{font-size:0.88rem;font-weight:500;color:var(--txt);display:block}
+.mac-price{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--burg4);display:block;margin-top:0.2rem}
+
+/* MAP MODAL */
+.map-modal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;background:rgba(8,6,6,0.92);backdrop-filter:blur(6px)}
+.map-modal.show{display:flex}
+.map-inner{background:var(--bg2);border:1px solid var(--rule);width:min(820px,96vw);max-height:90vh;overflow:hidden;position:relative}
+.map-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.4rem;border-bottom:1px solid var(--rule)}
+.map-title{font-family:'Racing Sans One',sans-serif;font-size:1.1rem;color:#fff;letter-spacing:0.04em}
+.map-close{font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt3);background:none;border:none;cursor:pointer;transition:color 0.15s}
+.map-close:hover{color:var(--txt)}
+.map-frame{width:100%;height:420px;border:none;display:block;filter:grayscale(50%) contrast(1.1) brightness(0.8)}
 
 /* PAGINATION */
 .pages{display:flex;gap:0.3rem;margin-top:2rem;justify-content:center;flex-wrap:wrap}
-.pg{width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:0.78rem;background:transparent;border:1px solid var(--rule);color:var(--txt3);cursor:pointer;transition:all 0.15s}
+.pg{width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;background:transparent;border:1px solid var(--rule);color:var(--txt3);cursor:pointer;transition:all 0.15s}
 .pg:hover{border-color:var(--burg);color:var(--burg4)}
-.pg.on{background:var(--burg);color:var(--txt);border-color:var(--burg)}
-.pg-dots{width:32px;height:32px;display:flex;align-items:center;justify-content:center;color:var(--txt3);font-size:0.8rem}
+.pg.on{background:var(--burg);color:#fff;border-color:var(--burg)}
+.pg-dot{width:34px;height:34px;display:flex;align-items:center;justify-content:center;color:var(--txt3)}
 
 /* FOOTER */
-footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.25);padding:3.5rem 2.5rem 2rem}
+footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.2);padding:3.5rem 2.5rem 2rem}
 .ft-g{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2rem}
-.ft-logo{font-family:'Racing Sans One',sans-serif;font-size:1.15rem;letter-spacing:0.05em;color:var(--txt);display:block;margin-bottom:0.7rem}
+.ft-logo{font-family:'Racing Sans One',sans-serif;font-size:1.2rem;letter-spacing:0.05em;color:var(--txt);display:block;margin-bottom:0.7rem}
 .ft-logo span{color:var(--burg4)}
-.ft-desc{font-size:0.82rem;font-weight:300;color:var(--txt3);line-height:1.75;max-width:210px;display:block}
-.ft-col h4{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--txt3);display:block;margin-bottom:0.9rem}
+.ft-desc{font-size:0.88rem;font-weight:300;color:var(--txt3);line-height:1.75;max-width:210px;display:block}
+.ft-col h4{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--txt3);display:block;margin-bottom:0.9rem}
 .ft-col ul{list-style:none}
-.ft-col ul li{margin-bottom:0.42rem}
-.ft-col ul a{font-size:0.82rem;font-weight:300;color:var(--txt3);display:block;transition:color 0.15s}
+.ft-col ul li{margin-bottom:0.45rem}
+.ft-col ul a{font-size:0.88rem;font-weight:300;color:var(--txt3);display:block;transition:color 0.15s;cursor:pointer}
 .ft-col ul a:hover{color:var(--txt)}
-.ft-b{display:flex;justify-content:space-between;align-items:center;padding-top:1.4rem;border-top:1px solid var(--rule);flex-wrap:wrap;gap:0.8rem}
-.ft-copy{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--txt3)}
+.ft-b{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;border-top:1px solid var(--rule);flex-wrap:wrap;gap:0.8rem}
+.ft-copy{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--txt3)}
 .ft-leg{display:flex;gap:1.5rem}
-.ft-leg a{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--txt3);transition:color 0.15s}
+.ft-leg a{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--txt3);transition:color 0.15s;cursor:pointer}
 .ft-leg a:hover{color:var(--txt)}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
@@ -334,16 +275,16 @@ footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.25);padding:3.5r
 .gym-card:nth-child(7){animation-delay:.28s}.gym-card:nth-child(8){animation-delay:.32s}
 
 @media(max-width:1024px){.main{grid-template-columns:210px 1fr}}
-@media(max-width:900px){.main{grid-template-columns:1fr}.sidebar{position:static;height:auto;border-right:none;border-bottom:1px solid var(--rule)}.card-img{width:200px}}
-@media(max-width:600px){
+@media(max-width:860px){.main{grid-template-columns:1fr}.sidebar{position:static;height:auto;border-right:none;border-bottom:1px solid var(--rule)}.card-img{width:200px}}
+@media(max-width:640px){
   nav{padding:0 1rem}.nav-mid{display:none}
-  .hero{padding:7rem 1.2rem 3rem}
+  .hero{padding:7rem 1.2rem 3rem}.h-stats{gap:1.5rem;flex-wrap:wrap}
   .results{padding:1.2rem 1rem}
   .gym-card{flex-direction:column}.card-img{width:100%;height:200px}
   .ft-g{grid-template-columns:1fr 1fr;gap:2rem}
   .search{flex-direction:column}.search select{border-right:none;border-bottom:1px solid var(--rule)}
-  .pricing-grid{grid-template-columns:1fr 1fr}
-  .info-grid{grid-template-columns:1fr}
+  .price-table{grid-template-columns:1fr 1fr}
+  .modal-price-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -351,64 +292,57 @@ footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.25);padding:3.5r
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="logo">Check<span>Fight</span>Camp</a>
+  <div class="logo" onclick="location.reload()">Check<span>Fight</span>Camp</div>
   <div class="nav-mid">
-    <a href="#gyms">Find Camps</a>
+    <a onclick="document.getElementById('gyms').scrollIntoView({behavior:'smooth'})">Find Camps</a>
     <a href="blog.html">Blog</a>
-    <a href="#">Map</a>
-    <a href="#">About</a>
+    <a>About</a>
   </div>
   <div class="nav-right">
-    <!-- CURRENCY SWITCHER -->
-    <div class="currency-wrap">
-      <button class="currency-btn" id="curBtn" onclick="toggleCurrency()">
-        <span id="curLabel">฿ THB</span>
-        <span class="arrow">▾</span>
+    <div class="cur-wrap">
+      <button class="cur-btn" id="curBtn" onclick="toggleCur(event)">
+        <span id="curLabel">฿ THB</span> <span>▾</span>
       </button>
-      <div class="currency-drop" id="curDrop">
-        <div class="cur-opt active" onclick="setCurrency('THB','฿','1')"><span class="cur-sym">฿</span> Thai Baht (THB)</div>
-        <div class="cur-opt" onclick="setCurrency('USD','$','0.028')"><span class="cur-sym">$</span> US Dollar (USD)</div>
-        <div class="cur-opt" onclick="setCurrency('EUR','€','0.026')"><span class="cur-sym">€</span> Euro (EUR)</div>
-        <div class="cur-opt" onclick="setCurrency('GBP','£','0.022')"><span class="cur-sym">£</span> British Pound (GBP)</div>
-        <div class="cur-opt" onclick="setCurrency('AUD','A$','0.043')"><span class="cur-sym">A$</span> Australian Dollar</div>
-        <div class="cur-opt" onclick="setCurrency('CHF','Fr','0.025')"><span class="cur-sym">Fr</span> Swiss Franc (CHF)</div>
+      <div class="cur-drop" id="curDrop">
+        <div class="cur-opt on" onclick="setCur('THB','฿',1,this)"><span class="cur-sym">฿</span>Thai Baht (THB)</div>
+        <div class="cur-opt" onclick="setCur('USD','$',0.028,this)"><span class="cur-sym">$</span>US Dollar (USD)</div>
+        <div class="cur-opt" onclick="setCur('EUR','€',0.026,this)"><span class="cur-sym">€</span>Euro (EUR)</div>
+        <div class="cur-opt" onclick="setCur('GBP','£',0.022,this)"><span class="cur-sym">£</span>British Pound (GBP)</div>
+        <div class="cur-opt" onclick="setCur('AUD','A$',0.043,this)"><span class="cur-sym">A$</span>Australian Dollar</div>
+        <div class="cur-opt" onclick="setCur('CHF','Fr',0.025,this)"><span class="cur-sym">Fr</span>Swiss Franc (CHF)</div>
       </div>
     </div>
-    <a href="#" class="nav-cta">List Your Gym</a>
+    <button class="nav-cta">List Your Gym</button>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-inner">
-    <span class="hero-tag">Thailand · 300+ Verified Fight Camps</span>
-    <h1>FIND.<br>COMPARE.<br><span>TRAIN.</span></h1>
-    <span class="hero-line"></span>
-    <span class="hero-sub">Muay Thai, Boxing, MMA &amp; BJJ camps across Thailand — filter by discipline, price, accommodation, beginner-friendly and safety.</span>
-    <div class="search-wrap">
-      <div class="search">
-        <select><option value="">All Disciplines</option><option>Muay Thai</option><option>Boxing</option><option>MMA</option><option>BJJ / Grappling</option></select>
-        <input type="text" placeholder="City or camp — Phuket, Chiang Mai, Bangkok…">
-        <button>Search</button>
-      </div>
-    </div>
-    <div class="pills">
-      <span class="pill on" onclick="qf(this,'all')">All</span>
-      <span class="pill" onclick="qf(this,'muay-thai')">Muay Thai</span>
-      <span class="pill" onclick="qf(this,'boxing')">Boxing</span>
-      <span class="pill" onclick="qf(this,'mma')">MMA</span>
-      <span class="pill" onclick="qf(this,'bjj')">BJJ</span>
-      <span class="pill" onclick="qf(this,'women')">♀ Women-Friendly</span>
-      <span class="pill" onclick="qf(this,'beginner')">Beginner Friendly</span>
-      <span class="pill" onclick="qf(this,'private-training')">Private Training</span>
-      <span class="pill" onclick="qf(this,'accom')">With Accommodation</span>
-    </div>
-    <div class="hero-stats">
-      <div class="hs"><span class="n">300+</span><span class="l">Fight Camps</span></div>
-      <div class="hs"><span class="n">24</span><span class="l">Cities</span></div>
-      <div class="hs"><span class="n">4</span><span class="l">Disciplines</span></div>
-      <div class="hs"><span class="n">FREE</span><span class="l">Always</span></div>
-    </div>
+  <span class="h-tag">Thailand · 300+ Verified Fight Camps</span>
+  <h1>FIND.<br>COMPARE.<br><span>TRAIN.</span></h1>
+  <span class="h-line"></span>
+  <span class="h-sub">Muay Thai, Boxing, MMA &amp; BJJ camps across Thailand — filter by price, duration, accommodation and more.</span>
+  <div class="search">
+    <select><option value="">All Disciplines</option><option>Muay Thai</option><option>Boxing</option><option>MMA</option><option>BJJ / Grappling</option></select>
+    <input type="text" placeholder="City or camp — Phuket, Chiang Mai, Bangkok…">
+    <button>Search</button>
+  </div>
+  <div class="pills">
+    <span class="pill on" onclick="qf(this,'all')">All</span>
+    <span class="pill" onclick="qf(this,'muay-thai')">Muay Thai</span>
+    <span class="pill" onclick="qf(this,'boxing')">Boxing</span>
+    <span class="pill" onclick="qf(this,'mma')">MMA</span>
+    <span class="pill" onclick="qf(this,'bjj')">BJJ</span>
+    <span class="pill" onclick="qf(this,'women')">♀ Women-Friendly</span>
+    <span class="pill" onclick="qf(this,'beginner')">Beginner OK</span>
+    <span class="pill" onclick="qf(this,'accom')">With Accommodation</span>
+    <span class="pill" onclick="qf(this,'private-training')">Private Training</span>
+  </div>
+  <div class="h-stats">
+    <div class="hs"><span class="n">300+</span><span class="l">Fight Camps</span></div>
+    <div class="hs"><span class="n">24</span><span class="l">Cities</span></div>
+    <div class="hs"><span class="n">4</span><span class="l">Disciplines</span></div>
+    <div class="hs"><span class="n">FREE</span><span class="l">Always</span></div>
   </div>
 </section>
 
@@ -419,15 +353,28 @@ footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.25);padding:3.5r
   <aside class="sidebar">
     <div class="sb-top"><span>Filter</span><button onclick="clearAll()">Clear all</button></div>
 
+    <div class="fg"><span class="fgt">Duration</span>
+      <div class="dur-tabs">
+        <button class="dur-tab on" onclick="setDur('day',this)">1 Day</button>
+        <button class="dur-tab" onclick="setDur('week',this)">1 Week</button>
+        <button class="dur-tab" onclick="setDur('month',this)">1 Month</button>
+        <button class="dur-tab" onclick="setDur('3month',this)">3 Mo.</button>
+      </div>
+      <div class="range-track"><div class="range-fill" id="rf"></div>
+        <input type="range" id="pMin" min="0" max="100000" value="0" step="500" oninput="upP()">
+        <input type="range" id="pMax" min="0" max="100000" value="80000" step="500" oninput="upP()">
+      </div>
+      <div class="range-vals"><span id="pvMin">฿0</span><span id="pvMax">฿80,000</span></div>
+    </div>
+
     <div class="fg"><span class="fgt">Location</span>
       <div class="cr" onclick="tf(this,'phuket')"><div class="cl"><div class="cb"></div><span class="lbl">Phuket</span></div><span class="cc">84</span></div>
       <div class="cr" onclick="tf(this,'bangkok')"><div class="cl"><div class="cb"></div><span class="lbl">Bangkok</span></div><span class="cc">91</span></div>
       <div class="cr" onclick="tf(this,'chiang-mai')"><div class="cl"><div class="cb"></div><span class="lbl">Chiang Mai</span></div><span class="cc">48</span></div>
       <div class="cr" onclick="tf(this,'koh-samui')"><div class="cl"><div class="cb"></div><span class="lbl">Koh Samui</span></div><span class="cc">29</span></div>
       <div class="cr" onclick="tf(this,'pattaya')"><div class="cl"><div class="cb"></div><span class="lbl">Pattaya</span></div><span class="cc">22</span></div>
-      <div class="cr" onclick="tf(this,'hua-hin')"><div class="cl"><div class="cb"></div><span class="lbl">Hua Hin</span></div><span class="cc">11</span></div>
-      <div class="cr" onclick="tf(this,'krabi')"><div class="cl"><div class="cb"></div><span class="lbl">Krabi</span></div><span class="cc">9</span></div>
-      <div class="cr" onclick="tf(this,'koh-phangan')"><div class="cl"><div class="cb"></div><span class="lbl">Koh Phangan</span></div><span class="cc">8</span></div>
+      <div class="cr" onclick="tf(this,'krabi')"><div class="cl"><div class="cb"></div><span class="lbl">Krabi</span></div><span class="cc">14</span></div>
+      <div class="cr" onclick="tf(this,'koh-phangan')"><div class="cl"><div class="cb"></div><span class="lbl">Koh Phangan</span></div><span class="cc">11</span></div>
     </div>
 
     <div class="fg"><span class="fgt">Discipline</span>
@@ -437,27 +384,16 @@ footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.25);padding:3.5r
       <div class="cr" onclick="tf(this,'bjj')"><div class="cl"><div class="cb"></div><span class="lbl">BJJ / Grappling</span></div><span class="cc">48</span></div>
     </div>
 
-    <div class="fg"><span class="fgt">Group Class Price / Day</span>
-      <div style="padding:0.2rem 0">
-        <div class="range-track"><div class="range-fill" id="rf"></div>
-          <input type="range" id="pMin" min="300" max="3000" value="300" step="50" oninput="upP()">
-          <input type="range" id="pMax" min="300" max="3000" value="2500" step="50" oninput="upP()">
-        </div>
-        <div class="range-vals"><span id="pvMin">฿300</span><span id="pvMax">฿2,500</span></div>
-      </div>
-    </div>
-
     <div class="fg"><span class="fgt">Level</span>
       <div class="cr" onclick="tf(this,'beginner')"><div class="cl"><div class="cb"></div><span class="lbl">Beginner Friendly</span></div><span class="cc">124</span></div>
       <div class="cr" onclick="tf(this,'intermediate')"><div class="cl"><div class="cb"></div><span class="lbl">Intermediate</span></div><span class="cc">178</span></div>
       <div class="cr" onclick="tf(this,'advanced')"><div class="cl"><div class="cb"></div><span class="lbl">Advanced / Pro</span></div><span class="cc">88</span></div>
     </div>
 
-    <div class="fg"><span class="fgt">Training Type</span>
+    <div class="fg"><span class="fgt">Training</span>
       <div class="cr" onclick="tf(this,'group-class')"><div class="cl"><div class="cb"></div><span class="lbl">Group Classes</span></div><span class="cc">300</span></div>
       <div class="cr" onclick="tf(this,'private-training')"><div class="cl"><div class="cb"></div><span class="lbl">Private Training</span></div><span class="cc">218</span></div>
-      <div class="cr" onclick="tf(this,'semi-private')"><div class="cl"><div class="cb"></div><span class="lbl">Semi-Private (2-4 pax)</span></div><span class="cc">112</span></div>
-      <div class="cr" onclick="tf(this,'online')"><div class="cl"><div class="cb"></div><span class="lbl">Online / Hybrid</span></div><span class="cc">24</span></div>
+      <div class="cr" onclick="tf(this,'semi-private')"><div class="cl"><div class="cb"></div><span class="lbl">Semi-Private</span></div><span class="cc">112</span></div>
     </div>
 
     <div class="fg"><span class="fgt">Accommodation</span>
@@ -466,29 +402,19 @@ footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.25);padding:3.5r
       <div class="cr" onclick="tf(this,'shared-dorm')"><div class="cl"><div class="cb"></div><span class="lbl">Shared Dorm</span></div><span class="cc">88</span></div>
       <div class="cr" onclick="tf(this,'pool')"><div class="cl"><div class="cb"></div><span class="lbl">Swimming Pool</span></div><span class="cc">112</span></div>
       <div class="cr" onclick="tf(this,'meals')"><div class="cl"><div class="cb"></div><span class="lbl">Meals Included</span></div><span class="cc">68</span></div>
-      <div class="cr" onclick="tf(this,'wifi')"><div class="cl"><div class="cb"></div><span class="lbl">Free WiFi</span></div><span class="cc">284</span></div>
       <div class="cr" onclick="tf(this,'airport')"><div class="cl"><div class="cb"></div><span class="lbl">Airport Transfer</span></div><span class="cc">94</span></div>
     </div>
 
-    <div class="fg"><span class="fgt rose">♀ Women &amp; Safety</span>
-      <div class="cr wr" onclick="tf(this,'women')"><div class="cl"><div class="cb"></div><span class="lbl">Women-Friendly</span></div><span class="cc">88</span></div>
-      <div class="cr" onclick="tf(this,'female-trainers')"><div class="cl"><div class="cb"></div><span class="lbl">Female Trainers</span></div><span class="cc">54</span></div>
-      <div class="cr" onclick="tf(this,'women-class')"><div class="cl"><div class="cb"></div><span class="lbl">Women-Only Classes</span></div><span class="cc">38</span></div>
-      <div class="cr" onclick="tf(this,'safe-area')"><div class="cl"><div class="cb"></div><span class="lbl">Safe Neighbourhood</span></div><span class="cc">142</span></div>
-      <div class="cr" onclick="tf(this,'24h-security')"><div class="cl"><div class="cb"></div><span class="lbl">24h Security</span></div><span class="cc">76</span></div>
+    <div class="fg"><span class="fgt">Rating</span>
+      <div class="cr" onclick="tf(this,'r49')"><div class="cl"><div class="cb"></div><span class="lbl">★ 4.9 and above</span></div><span class="cc">12</span></div>
+      <div class="cr" onclick="tf(this,'r48')"><div class="cl"><div class="cb"></div><span class="lbl">★ 4.8 and above</span></div><span class="cc">44</span></div>
+      <div class="cr" onclick="tf(this,'r45')"><div class="cl"><div class="cb"></div><span class="lbl">★ 4.5 and above</span></div><span class="cc">128</span></div>
     </div>
 
     <div class="fg"><span class="fgt">Sessions / Day</span>
       <div class="cr" onclick="tf(this,'s1')"><div class="cl"><div class="cb"></div><span class="lbl">1 Session</span></div></div>
       <div class="cr" onclick="tf(this,'s2')"><div class="cl"><div class="cb"></div><span class="lbl">2 Sessions</span></div></div>
       <div class="cr" onclick="tf(this,'s3')"><div class="cl"><div class="cb"></div><span class="lbl">3+ Sessions</span></div></div>
-    </div>
-
-    <div class="fg"><span class="fgt">Rating</span>
-      <div class="cr" onclick="tf(this,'r49')"><div class="cl"><div class="cb"></div><span class="lbl">★ 4.9+</span></div><span class="cc">12</span></div>
-      <div class="cr" onclick="tf(this,'r48')"><div class="cl"><div class="cb"></div><span class="lbl">★ 4.8+</span></div><span class="cc">44</span></div>
-      <div class="cr" onclick="tf(this,'r45')"><div class="cl"><div class="cb"></div><span class="lbl">★ 4.5+</span></div><span class="cc">128</span></div>
-      <div class="cr" onclick="tf(this,'r40')"><div class="cl"><div class="cb"></div><span class="lbl">★ 4.0+</span></div><span class="cc">221</span></div>
     </div>
   </aside>
 
@@ -497,278 +423,353 @@ footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.25);padding:3.5r
     <div class="res-top">
       <span class="res-count"><strong id="cnt">8</strong> of 300+ camps</span>
       <div class="sort-wrap">
-        <span class="sort-lbl">Sort</span>
-        <select class="sort-sel"><option>Best Rated</option><option>Price: Low–High</option><option>Price: High–Low</option><option>Most Reviewed</option><option>Newest</option></select>
+        <span class="sort-lbl">Sort by</span>
+        <select class="sort-sel"><option>Best Rated</option><option>Price: Low–High</option><option>Price: High–Low</option><option>Most Reviewed</option></select>
       </div>
     </div>
 
     <div class="cmp-bar" id="cmpBar">
       <span class="cmp-txt">Comparing <strong id="cmpCnt">0</strong> camps</span>
-      <div class="cmp-actions"><button class="cmp-now" onclick="showTbl()">Compare Now</button><button class="cmp-clr" onclick="clearCmp()">Clear</button></div>
+      <div style="display:flex;gap:.6rem">
+        <button class="cmp-now" onclick="showCmp()">Compare Now</button>
+        <button class="cmp-clr" onclick="clearCmp()">Clear</button>
+      </div>
     </div>
 
+    <!-- GYM CARDS -->
     <div class="gym-list" id="gymList">
 
-      <!-- CARD 1 -->
-      <div class="gym-card" data-tags="muay-thai mma bjj phuket accom women beginner intermediate private-training group-class">
+      <!-- TIGER MUAY THAI -->
+      <div class="gym-card" data-tags="muay-thai mma bjj phuket accom women beginner intermediate private-training group-class pool"
+           onclick="openCamp('tiger')">
         <div class="card-img">
           <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=700&q=80" alt="Tiger Muay Thai" loading="lazy">
-          <div class="badges"><span class="bdg bdg-d">#1 Rated</span><span class="bdg bdg-w">♀ Women-Friendly</span><span class="bdg bdg-b">Beginner OK</span></div>
-          <div class="c-chk" onclick="tChk(this)">+</div>
+          <div class="card-badges">
+            <span class="bdg bdg-d">#1 Rated</span>
+            <span class="bdg bdg-w">♀ Women-Friendly</span>
+            <span class="bdg bdg-b">Beginner OK</span>
+          </div>
+          <div class="c-chk" onclick="tChk(this,event)">+</div>
         </div>
         <div class="card-body">
           <div class="card-top">
-            <div><span class="gym-loc">📍 Chalong, Phuket</span><span class="gym-name">Tiger Muay Thai</span></div>
-            <div class="r-box"><span class="r-num">9.4</span><span class="r-stars">★★★★★</span><span class="r-ct">1,240 reviews</span></div>
+            <div>
+              <span class="gym-loc">📍 Chalong, Phuket</span>
+              <span class="gym-name">Tiger Muay Thai</span>
+              <a class="gym-website" href="https://tigermuaythai.com" target="_blank" onclick="event.stopPropagation()">🔗 tigermuaythai.com</a>
+            </div>
+            <div class="r-box">
+              <span class="r-num">9.4</span>
+              <span class="r-stars">★★★★★</span>
+              <span class="r-ct">1,240 reviews</span>
+            </div>
           </div>
           <div class="gtags"><span class="gtag">Muay Thai</span><span class="gtag">MMA</span><span class="gtag">BJJ</span><span class="gtag">Boxing</span></div>
-          <div class="info-grid">
-            <div class="info-item"><span class="info-label">Beginner Friendly</span><span class="info-val green">✓ <span class="info-badge ib-yes">Yes</span></span></div>
-            <div class="info-item"><span class="info-label">Private Training</span><span class="info-val green">✓ Available</span></div>
-            <div class="info-item"><span class="info-label">Women-Friendly</span><span class="info-val rose">♀ Yes</span></div>
-            <div class="info-item"><span class="info-label">Sessions / Day</span><span class="info-val">2 sessions</span></div>
+          <div class="price-table">
+            <div class="pt-cell"><span class="pt-label">1 Day</span><span class="pt-val" data-prices="900,6300,24000,63000">฿900</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">1 Week</span><span class="pt-val" data-prices="900,6300,24000,63000">฿6,300</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">1 Month</span><span class="pt-val" data-prices="900,6300,24000,63000">฿24,000</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">Private /hr</span><span class="pt-val" data-private="1500">฿1,500</span><span class="pt-unit">1-on-1</span></div>
           </div>
-          <div class="pricing-grid">
-            <div class="price-item"><span class="pi-label">Group Class</span><span class="pi-val" data-thb="900">฿900</span><span class="pi-sub">per day</span></div>
-            <div class="price-item"><span class="pi-label">Private (1hr)</span><span class="pi-val" data-thb="1500">฿1,500</span><span class="pi-sub">per session</span></div>
-            <div class="price-item"><span class="pi-label">Accommodation</span><span class="pi-val" data-thb="400">฿400</span><span class="pi-sub">per night</span></div>
+          <div class="quick-info">
+            <span class="qi green">✓ Beginner Friendly</span>
+            <span class="qi rose">♀ Female Trainers</span>
+            <span class="qi">🏊 Pool</span>
+            <span class="qi">🛏 Accommodation incl.</span>
           </div>
-          <div class="accom"><span class="accom-l">Accommodation</span><div class="accom-ps"><span class="ap yes">Private Room</span><span class="ap yes">Shared Dorm</span><span class="ap yes">Bungalow</span><span class="ap yes">Pool</span></div></div>
-          <div class="feats"><div class="feat wf">♀ Female Trainers</div><div class="feat">24h Security</div><div class="feat">Meals Available</div><div class="feat">Free WiFi</div><div class="feat">Airport Transfer</div><div class="feat">Sauna</div></div>
           <div class="card-foot">
-            <div class="card-meta"><span class="cm-item">Est. <span>2004</span></span><span class="cm-item">Trainers <span>40+</span></span><span class="cm-item">Rings <span>8</span></span></div>
-            <div class="cta-g"><a href="#" class="btn-v">View Camp</a><button class="btn-c" onclick="tCmp(this)">+ Compare</button></div>
+            <div class="card-tags-sm">
+              <span class="ct-sm">Est. <span>2004</span></span>
+              <span class="ct-sm">Trainers <span>40+</span></span>
+              <span class="ct-sm">Rings <span>8</span></span>
+            </div>
+            <div class="btn-group">
+              <button class="btn-map" onclick="openMap('tiger',event)">🗺 Karte anzeigen</button>
+              <button class="btn-c" onclick="tCmp(this,event)">+ Compare</button>
+              <button class="btn-v" onclick="openCamp('tiger',event)">View Camp</button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- CARD 2 -->
-      <div class="gym-card" data-tags="muay-thai boxing chiang-mai accom women intermediate advanced private-training group-class">
+      <!-- LANNA -->
+      <div class="gym-card" data-tags="muay-thai boxing chiang-mai accom women intermediate advanced private-training group-class"
+           onclick="openCamp('lanna')">
         <div class="card-img">
           <img src="https://images.unsplash.com/photo-1615117972428-28de67cda58e?w=700&q=80" alt="Lanna Muay Thai" loading="lazy">
-          <div class="badges"><span class="bdg bdg-d">Pro Camp</span><span class="bdg bdg-w">♀ Women-Friendly</span></div>
-          <div class="c-chk" onclick="tChk(this)">+</div>
+          <div class="card-badges"><span class="bdg bdg-d">Pro Camp</span><span class="bdg bdg-w">♀ Women-Friendly</span></div>
+          <div class="c-chk" onclick="tChk(this,event)">+</div>
         </div>
         <div class="card-body">
           <div class="card-top">
-            <div><span class="gym-loc">📍 Chiang Mai, North Thailand</span><span class="gym-name">Lanna Muay Thai</span></div>
+            <div>
+              <span class="gym-loc">📍 Chiang Mai, North Thailand</span>
+              <span class="gym-name">Lanna Muay Thai</span>
+              <a class="gym-website" href="https://lannamuaythai.com" target="_blank" onclick="event.stopPropagation()">🔗 lannamuaythai.com</a>
+            </div>
             <div class="r-box"><span class="r-num">9.2</span><span class="r-stars">★★★★★</span><span class="r-ct">876 reviews</span></div>
           </div>
           <div class="gtags"><span class="gtag">Muay Thai</span><span class="gtag">Boxing</span><span class="gtag">Intermediate+</span></div>
-          <div class="info-grid">
-            <div class="info-item"><span class="info-label">Beginner Friendly</span><span class="info-val"><span class="info-badge ib-yes">Limited</span></span></div>
-            <div class="info-item"><span class="info-label">Private Training</span><span class="info-val green">✓ Available</span></div>
-            <div class="info-item"><span class="info-label">Women-Friendly</span><span class="info-val rose">♀ Yes</span></div>
-            <div class="info-item"><span class="info-label">Sessions / Day</span><span class="info-val">2 sessions</span></div>
+          <div class="price-table">
+            <div class="pt-cell"><span class="pt-label">1 Day</span><span class="pt-val" data-prices="700,4900,18000,48000">฿700</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">1 Week</span><span class="pt-val" data-prices="700,4900,18000,48000">฿4,900</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">1 Month</span><span class="pt-val" data-prices="700,4900,18000,48000">฿18,000</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">Private /hr</span><span class="pt-val" data-private="1200">฿1,200</span><span class="pt-unit">1-on-1</span></div>
           </div>
-          <div class="pricing-grid">
-            <div class="price-item"><span class="pi-label">Group Class</span><span class="pi-val" data-thb="700">฿700</span><span class="pi-sub">per day</span></div>
-            <div class="price-item"><span class="pi-label">Private (1hr)</span><span class="pi-val" data-thb="1200">฿1,200</span><span class="pi-sub">per session</span></div>
-            <div class="price-item"><span class="pi-label">Accommodation</span><span class="pi-val" data-thb="350">฿350</span><span class="pi-sub">per night</span></div>
+          <div class="quick-info">
+            <span class="qi rose">♀ Women-Only Classes</span>
+            <span class="qi green">✓ Meals Included</span>
+            <span class="qi">🏔 Mountain Setting</span>
           </div>
-          <div class="accom"><span class="accom-l">Accommodation</span><div class="accom-ps"><span class="ap yes">Private Room</span><span class="ap yes">Shared Dorm</span><span class="ap yes">Meals Incl.</span><span class="ap no">No Pool</span></div></div>
-          <div class="feats"><div class="feat wf">♀ Female Trainers</div><div class="feat wf">♀ Women-Only Classes</div><div class="feat">Safe Neighbourhood</div><div class="feat">Free WiFi</div><div class="feat">Mountain Setting</div><div class="feat">Meals Included</div></div>
           <div class="card-foot">
-            <div class="card-meta"><span class="cm-item">Est. <span>1997</span></span><span class="cm-item">Trainers <span>18</span></span><span class="cm-item">Rings <span>4</span></span></div>
-            <div class="cta-g"><a href="#" class="btn-v">View Camp</a><button class="btn-c" onclick="tCmp(this)">+ Compare</button></div>
+            <div class="card-tags-sm"><span class="ct-sm">Est. <span>1997</span></span><span class="ct-sm">Trainers <span>18</span></span></div>
+            <div class="btn-group">
+              <button class="btn-map" onclick="openMap('lanna',event)">🗺 Karte anzeigen</button>
+              <button class="btn-c" onclick="tCmp(this,event)">+ Compare</button>
+              <button class="btn-v" onclick="openCamp('lanna',event)">View Camp</button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- CARD 3 -->
-      <div class="gym-card" data-tags="mma boxing bjj bangkok accom beginner intermediate advanced private-training group-class">
+      <!-- EVOLVE -->
+      <div class="gym-card" data-tags="mma boxing bjj bangkok accom beginner intermediate advanced private-training group-class pool"
+           onclick="openCamp('evolve')">
         <div class="card-img">
           <img src="https://images.unsplash.com/photo-1549476464-37392f717541?w=700&q=80" alt="Evolve MMA" loading="lazy">
-          <div class="badges"><span class="bdg bdg-d">World Class</span><span class="bdg bdg-n">Trending</span><span class="bdg bdg-b">Beginner OK</span></div>
-          <div class="c-chk" onclick="tChk(this)">+</div>
+          <div class="card-badges"><span class="bdg bdg-d">World Class</span><span class="bdg bdg-n">Trending</span><span class="bdg bdg-b">Beginner OK</span></div>
+          <div class="c-chk" onclick="tChk(this,event)">+</div>
         </div>
         <div class="card-body">
           <div class="card-top">
-            <div><span class="gym-loc">📍 Sukhumvit, Bangkok</span><span class="gym-name">Evolve MMA Bangkok</span></div>
+            <div>
+              <span class="gym-loc">📍 Sukhumvit, Bangkok</span>
+              <span class="gym-name">Evolve MMA Bangkok</span>
+              <a class="gym-website" href="https://evolve-mma.com" target="_blank" onclick="event.stopPropagation()">🔗 evolve-mma.com</a>
+            </div>
             <div class="r-box"><span class="r-num">9.6</span><span class="r-stars">★★★★★</span><span class="r-ct">2,100 reviews</span></div>
           </div>
           <div class="gtags"><span class="gtag">MMA</span><span class="gtag">Boxing</span><span class="gtag">BJJ</span><span class="gtag">Muay Thai</span></div>
-          <div class="info-grid">
-            <div class="info-item"><span class="info-label">Beginner Friendly</span><span class="info-val green">✓ <span class="info-badge ib-yes">Yes</span></span></div>
-            <div class="info-item"><span class="info-label">Private Training</span><span class="info-val green">✓ Available</span></div>
-            <div class="info-item"><span class="info-label">Women-Friendly</span><span class="info-val"><span class="info-badge ib-yes">Welcoming</span></span></div>
-            <div class="info-item"><span class="info-label">Sessions / Day</span><span class="info-val">3+ sessions</span></div>
+          <div class="price-table">
+            <div class="pt-cell"><span class="pt-label">1 Day</span><span class="pt-val" data-prices="1200,8400,30000,78000">฿1,200</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">1 Week</span><span class="pt-val" data-prices="1200,8400,30000,78000">฿8,400</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">1 Month</span><span class="pt-val" data-prices="1200,8400,30000,78000">฿30,000</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">Private /hr</span><span class="pt-val" data-private="2500">฿2,500</span><span class="pt-unit">1-on-1</span></div>
           </div>
-          <div class="pricing-grid">
-            <div class="price-item"><span class="pi-label">Group Class</span><span class="pi-val" data-thb="1200">฿1,200</span><span class="pi-sub">per day</span></div>
-            <div class="price-item"><span class="pi-label">Private (1hr)</span><span class="pi-val" data-thb="2500">฿2,500</span><span class="pi-sub">per session</span></div>
-            <div class="price-item"><span class="pi-label">Accommodation</span><span class="pi-val" data-thb="800">฿800</span><span class="pi-sub">partner hotels</span></div>
+          <div class="quick-info">
+            <span class="qi green">✓ Beginner Friendly</span>
+            <span class="qi">🏊 Rooftop Pool</span>
+            <span class="qi">🏙 City Centre</span>
+            <span class="qi">3+ sessions/day</span>
           </div>
-          <div class="accom"><span class="accom-l">Accommodation</span><div class="accom-ps"><span class="ap yes">Partner Hotels</span><span class="ap yes">Serviced Apts</span><span class="ap yes">Rooftop Pool</span></div></div>
-          <div class="feats"><div class="feat">Rooftop Pool</div><div class="feat">Full Weights Gym</div><div class="feat">24h Security</div><div class="feat">Sauna &amp; Recovery</div><div class="feat">Free WiFi</div><div class="feat">City Centre</div></div>
           <div class="card-foot">
-            <div class="card-meta"><span class="cm-item">Est. <span>2009</span></span><span class="cm-item">Trainers <span>60+</span></span><span class="cm-item">Rings <span>12</span></span></div>
-            <div class="cta-g"><a href="#" class="btn-v">View Camp</a><button class="btn-c" onclick="tCmp(this)">+ Compare</button></div>
+            <div class="card-tags-sm"><span class="ct-sm">Est. <span>2009</span></span><span class="ct-sm">Trainers <span>60+</span></span><span class="ct-sm">Rings <span>12</span></span></div>
+            <div class="btn-group">
+              <button class="btn-map" onclick="openMap('evolve',event)">🗺 Karte anzeigen</button>
+              <button class="btn-c" onclick="tCmp(this,event)">+ Compare</button>
+              <button class="btn-v" onclick="openCamp('evolve',event)">View Camp</button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- CARD 4 -->
-      <div class="gym-card" data-tags="muay-thai boxing koh-samui accom women beginner private-training group-class">
+      <!-- LAMAI -->
+      <div class="gym-card" data-tags="muay-thai boxing koh-samui accom women beginner private-training group-class pool"
+           onclick="openCamp('lamai')">
         <div class="card-img">
           <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=700&q=80" alt="Lamai Camp" loading="lazy">
-          <div class="badges"><span class="bdg bdg-d">Beach Camp</span><span class="bdg bdg-w">♀ Women-Friendly</span><span class="bdg bdg-b">Beginner OK</span></div>
-          <div class="c-chk" onclick="tChk(this)">+</div>
+          <div class="card-badges"><span class="bdg bdg-d">Beach Camp</span><span class="bdg bdg-w">♀ Women-Friendly</span><span class="bdg bdg-b">Beginner OK</span></div>
+          <div class="c-chk" onclick="tChk(this,event)">+</div>
         </div>
         <div class="card-body">
           <div class="card-top">
-            <div><span class="gym-loc">📍 Lamai Beach, Koh Samui</span><span class="gym-name">Lamai Muay Thai</span></div>
+            <div>
+              <span class="gym-loc">📍 Lamai Beach, Koh Samui</span>
+              <span class="gym-name">Lamai Muay Thai</span>
+              <a class="gym-website" href="https://lamaimuaythai.com" target="_blank" onclick="event.stopPropagation()">🔗 lamaimuaythai.com</a>
+            </div>
             <div class="r-box"><span class="r-num">8.8</span><span class="r-stars">★★★★☆</span><span class="r-ct">512 reviews</span></div>
           </div>
           <div class="gtags"><span class="gtag">Muay Thai</span><span class="gtag">Boxing</span><span class="gtag">All Levels</span></div>
-          <div class="info-grid">
-            <div class="info-item"><span class="info-label">Beginner Friendly</span><span class="info-val green">✓ <span class="info-badge ib-yes">Yes</span></span></div>
-            <div class="info-item"><span class="info-label">Private Training</span><span class="info-val green">✓ Available</span></div>
-            <div class="info-item"><span class="info-label">Women-Friendly</span><span class="info-val rose">♀ Yes</span></div>
-            <div class="info-item"><span class="info-label">Sessions / Day</span><span class="info-val">2 sessions</span></div>
+          <div class="price-table">
+            <div class="pt-cell"><span class="pt-label">1 Day</span><span class="pt-val" data-prices="650,4550,16000,42000">฿650</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">1 Week</span><span class="pt-val" data-prices="650,4550,16000,42000">฿4,550</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">1 Month</span><span class="pt-val" data-prices="650,4550,16000,42000">฿16,000</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">Private /hr</span><span class="pt-val" data-private="1100">฿1,100</span><span class="pt-unit">1-on-1</span></div>
           </div>
-          <div class="pricing-grid">
-            <div class="price-item"><span class="pi-label">Group Class</span><span class="pi-val" data-thb="650">฿650</span><span class="pi-sub">per day</span></div>
-            <div class="price-item"><span class="pi-label">Private (1hr)</span><span class="pi-val" data-thb="1100">฿1,100</span><span class="pi-sub">per session</span></div>
-            <div class="price-item"><span class="pi-label">Accommodation</span><span class="pi-val" data-thb="500">฿500</span><span class="pi-sub">per night</span></div>
+          <div class="quick-info">
+            <span class="qi rose">♀ Women-Only Classes</span>
+            <span class="qi green">✓ Beach Access</span>
+            <span class="qi">🏊 Pool</span>
+            <span class="qi">🍽 Meals incl.</span>
           </div>
-          <div class="accom"><span class="accom-l">Accommodation</span><div class="accom-ps"><span class="ap yes">Beach Bungalow</span><span class="ap yes">Private Room</span><span class="ap yes">Shared Dorm</span><span class="ap yes">Pool</span></div></div>
-          <div class="feats"><div class="feat wf">♀ Women-Only Classes</div><div class="feat">Beach Access</div><div class="feat">Meals Included</div><div class="feat">Free WiFi</div><div class="feat">Pool On-site</div><div class="feat">Airport Transfer</div></div>
           <div class="card-foot">
-            <div class="card-meta"><span class="cm-item">Est. <span>2011</span></span><span class="cm-item">Trainers <span>12</span></span><span class="cm-item">Rings <span>3</span></span></div>
-            <div class="cta-g"><a href="#" class="btn-v">View Camp</a><button class="btn-c" onclick="tCmp(this)">+ Compare</button></div>
+            <div class="card-tags-sm"><span class="ct-sm">Est. <span>2011</span></span><span class="ct-sm">Trainers <span>12</span></span></div>
+            <div class="btn-group">
+              <button class="btn-map" onclick="openMap('lamai',event)">🗺 Karte anzeigen</button>
+              <button class="btn-c" onclick="tCmp(this,event)">+ Compare</button>
+              <button class="btn-v" onclick="openCamp('lamai',event)">View Camp</button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- CARD 5 -->
-      <div class="gym-card" data-tags="bjj mma phuket accom intermediate advanced private-training group-class">
+      <!-- PHUKET TOP TEAM -->
+      <div class="gym-card" data-tags="bjj mma phuket accom intermediate advanced private-training group-class pool"
+           onclick="openCamp('ptt')">
         <div class="card-img">
           <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=700&q=80" alt="Phuket Top Team" loading="lazy">
-          <div class="badges"><span class="bdg bdg-d">BJJ Specialist</span></div>
-          <div class="c-chk" onclick="tChk(this)">+</div>
+          <div class="card-badges"><span class="bdg bdg-d">BJJ Specialist</span></div>
+          <div class="c-chk" onclick="tChk(this,event)">+</div>
         </div>
         <div class="card-body">
           <div class="card-top">
-            <div><span class="gym-loc">📍 Patong, Phuket</span><span class="gym-name">Phuket Top Team</span></div>
+            <div>
+              <span class="gym-loc">📍 Patong, Phuket</span>
+              <span class="gym-name">Phuket Top Team</span>
+              <a class="gym-website" href="https://phuket-top-team.com" target="_blank" onclick="event.stopPropagation()">🔗 phuket-top-team.com</a>
+            </div>
             <div class="r-box"><span class="r-num">9.0</span><span class="r-stars">★★★★★</span><span class="r-ct">389 reviews</span></div>
           </div>
           <div class="gtags"><span class="gtag">BJJ</span><span class="gtag">Wrestling</span><span class="gtag">MMA</span><span class="gtag">No-Gi</span></div>
-          <div class="info-grid">
-            <div class="info-item"><span class="info-label">Beginner Friendly</span><span class="info-val"><span class="info-badge ib-yes">Limited</span></span></div>
-            <div class="info-item"><span class="info-label">Private Training</span><span class="info-val green">✓ Available</span></div>
-            <div class="info-item"><span class="info-label">Women-Friendly</span><span class="info-val"><span class="info-badge ib-yes">Welcoming</span></span></div>
-            <div class="info-item"><span class="info-label">Sessions / Day</span><span class="info-val">2 sessions</span></div>
+          <div class="price-table">
+            <div class="pt-cell"><span class="pt-label">1 Day</span><span class="pt-val" data-prices="800,5600,20000,54000">฿800</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">1 Week</span><span class="pt-val" data-prices="800,5600,20000,54000">฿5,600</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">1 Month</span><span class="pt-val" data-prices="800,5600,20000,54000">฿20,000</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">Private /hr</span><span class="pt-val" data-private="1800">฿1,800</span><span class="pt-unit">1-on-1</span></div>
           </div>
-          <div class="pricing-grid">
-            <div class="price-item"><span class="pi-label">Group Class</span><span class="pi-val" data-thb="800">฿800</span><span class="pi-sub">per day</span></div>
-            <div class="price-item"><span class="pi-label">Private (1hr)</span><span class="pi-val" data-thb="1800">฿1,800</span><span class="pi-sub">per session</span></div>
-            <div class="price-item"><span class="pi-label">Accommodation</span><span class="pi-val" data-thb="380">฿380</span><span class="pi-sub">per night</span></div>
+          <div class="quick-info">
+            <span class="qi green">✓ IBJJF Affiliated</span>
+            <span class="qi">🏊 Pool</span>
+            <span class="qi">🧊 Ice Bath Recovery</span>
           </div>
-          <div class="accom"><span class="accom-l">Accommodation</span><div class="accom-ps"><span class="ap yes">Private Room</span><span class="ap yes">Shared Dorm</span><span class="ap yes">Pool</span><span class="ap no">No meals</span></div></div>
-          <div class="feats"><div class="feat">Swimming Pool</div><div class="feat">Weights Room</div><div class="feat">24h Security</div><div class="feat">Ice Bath Recovery</div><div class="feat">IBJJF Affiliated</div><div class="feat">Free WiFi</div></div>
           <div class="card-foot">
-            <div class="card-meta"><span class="cm-item">Est. <span>2008</span></span><span class="cm-item">Trainers <span>22</span></span><span class="cm-item">Mats <span>4</span></span></div>
-            <div class="cta-g"><a href="#" class="btn-v">View Camp</a><button class="btn-c" onclick="tCmp(this)">+ Compare</button></div>
+            <div class="card-tags-sm"><span class="ct-sm">Est. <span>2008</span></span><span class="ct-sm">Trainers <span>22</span></span></div>
+            <div class="btn-group">
+              <button class="btn-map" onclick="openMap('ptt',event)">🗺 Karte anzeigen</button>
+              <button class="btn-c" onclick="tCmp(this,event)">+ Compare</button>
+              <button class="btn-v" onclick="openCamp('ptt',event)">View Camp</button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- CARD 6 -->
-      <div class="gym-card" data-tags="muay-thai boxing mma bangkok accom intermediate advanced private-training group-class">
+      <!-- FAIRTEX -->
+      <div class="gym-card" data-tags="muay-thai boxing mma bangkok accom beginner intermediate advanced private-training group-class pool"
+           onclick="openCamp('fairtex')">
         <div class="card-img">
           <img src="https://images.unsplash.com/photo-1517438984742-1262db08379e?w=700&q=80" alt="Fairtex" loading="lazy">
-          <div class="badges"><span class="bdg bdg-d">Legendary</span></div>
-          <div class="c-chk" onclick="tChk(this)">+</div>
+          <div class="card-badges"><span class="bdg bdg-d">Legendary</span><span class="bdg bdg-b">Beginner OK</span></div>
+          <div class="c-chk" onclick="tChk(this,event)">+</div>
         </div>
         <div class="card-body">
           <div class="card-top">
-            <div><span class="gym-loc">📍 Bang Phli, Bangkok</span><span class="gym-name">Fairtex Training Center</span></div>
+            <div>
+              <span class="gym-loc">📍 Bang Phli, Bangkok</span>
+              <span class="gym-name">Fairtex Training Center</span>
+              <a class="gym-website" href="https://fairtex.com" target="_blank" onclick="event.stopPropagation()">🔗 fairtex.com</a>
+            </div>
             <div class="r-box"><span class="r-num">9.3</span><span class="r-stars">★★★★★</span><span class="r-ct">1,650 reviews</span></div>
           </div>
           <div class="gtags"><span class="gtag">Muay Thai</span><span class="gtag">Boxing</span><span class="gtag">MMA</span></div>
-          <div class="info-grid">
-            <div class="info-item"><span class="info-label">Beginner Friendly</span><span class="info-val green">✓ <span class="info-badge ib-yes">Yes</span></span></div>
-            <div class="info-item"><span class="info-label">Private Training</span><span class="info-val green">✓ Available</span></div>
-            <div class="info-item"><span class="info-label">Women-Friendly</span><span class="info-val"><span class="info-badge ib-yes">Welcoming</span></span></div>
-            <div class="info-item"><span class="info-label">Sessions / Day</span><span class="info-val">2 sessions</span></div>
+          <div class="price-table">
+            <div class="pt-cell"><span class="pt-label">1 Day</span><span class="pt-val" data-prices="1000,7000,25000,66000">฿1,000</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">1 Week</span><span class="pt-val" data-prices="1000,7000,25000,66000">฿7,000</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">1 Month</span><span class="pt-val" data-prices="1000,7000,25000,66000">฿25,000</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">Private /hr</span><span class="pt-val" data-private="2000">฿2,000</span><span class="pt-unit">1-on-1</span></div>
           </div>
-          <div class="pricing-grid">
-            <div class="price-item"><span class="pi-label">Group Class</span><span class="pi-val" data-thb="1000">฿1,000</span><span class="pi-sub">per day</span></div>
-            <div class="price-item"><span class="pi-label">Private (1hr)</span><span class="pi-val" data-thb="2000">฿2,000</span><span class="pi-sub">per session</span></div>
-            <div class="price-item"><span class="pi-label">Accommodation</span><span class="pi-val" data-thb="600">฿600</span><span class="pi-sub">per night</span></div>
+          <div class="quick-info">
+            <span class="qi green">✓ Beginner Friendly</span>
+            <span class="qi">🏊 Olympic Pool</span>
+            <span class="qi">🧖 Sauna &amp; Spa</span>
           </div>
-          <div class="accom"><span class="accom-l">Accommodation</span><div class="accom-ps"><span class="ap yes">Private Room</span><span class="ap yes">Deluxe Suite</span><span class="ap yes">Shared Dorm</span><span class="ap yes">Olympic Pool</span></div></div>
-          <div class="feats"><div class="feat">Olympic Pool</div><div class="feat">Full Gym</div><div class="feat">24h Security</div><div class="feat">Sauna &amp; Spa</div><div class="feat">Restaurant</div><div class="feat">Free WiFi</div></div>
           <div class="card-foot">
-            <div class="card-meta"><span class="cm-item">Est. <span>1985</span></span><span class="cm-item">Trainers <span>35+</span></span><span class="cm-item">Rings <span>6</span></span></div>
-            <div class="cta-g"><a href="#" class="btn-v">View Camp</a><button class="btn-c" onclick="tCmp(this)">+ Compare</button></div>
+            <div class="card-tags-sm"><span class="ct-sm">Est. <span>1985</span></span><span class="ct-sm">Trainers <span>35+</span></span><span class="ct-sm">Rings <span>6</span></span></div>
+            <div class="btn-group">
+              <button class="btn-map" onclick="openMap('fairtex',event)">🗺 Karte anzeigen</button>
+              <button class="btn-c" onclick="tCmp(this,event)">+ Compare</button>
+              <button class="btn-v" onclick="openCamp('fairtex',event)">View Camp</button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- CARD 7 -->
-      <div class="gym-card" data-tags="muay-thai boxing phuket beginner intermediate private-training group-class women accom">
+      <!-- SINBI -->
+      <div class="gym-card" data-tags="muay-thai boxing phuket accom women beginner intermediate private-training group-class pool"
+           onclick="openCamp('sinbi')">
         <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?w=700&q=80" alt="Sinbi Muay Thai" loading="lazy">
-          <div class="badges"><span class="bdg bdg-d">Top Trainer</span><span class="bdg bdg-w">♀ Women-Friendly</span><span class="bdg bdg-b">Beginner OK</span></div>
-          <div class="c-chk" onclick="tChk(this)">+</div>
+          <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?w=700&q=80" alt="Sinbi" loading="lazy">
+          <div class="card-badges"><span class="bdg bdg-d">Top Trainer</span><span class="bdg bdg-w">♀ Women-Friendly</span><span class="bdg bdg-b">Beginner OK</span></div>
+          <div class="c-chk" onclick="tChk(this,event)">+</div>
         </div>
         <div class="card-body">
           <div class="card-top">
-            <div><span class="gym-loc">📍 Rawai, Phuket</span><span class="gym-name">Sinbi Muay Thai</span></div>
+            <div>
+              <span class="gym-loc">📍 Rawai, Phuket</span>
+              <span class="gym-name">Sinbi Muay Thai</span>
+              <a class="gym-website" href="https://sinbi-muaythai.com" target="_blank" onclick="event.stopPropagation()">🔗 sinbi-muaythai.com</a>
+            </div>
             <div class="r-box"><span class="r-num">9.1</span><span class="r-stars">★★★★★</span><span class="r-ct">741 reviews</span></div>
           </div>
           <div class="gtags"><span class="gtag">Muay Thai</span><span class="gtag">Boxing</span><span class="gtag">All Levels</span></div>
-          <div class="info-grid">
-            <div class="info-item"><span class="info-label">Beginner Friendly</span><span class="info-val green">✓ <span class="info-badge ib-yes">Yes</span></span></div>
-            <div class="info-item"><span class="info-label">Private Training</span><span class="info-val green">✓ Available</span></div>
-            <div class="info-item"><span class="info-label">Women-Friendly</span><span class="info-val rose">♀ Yes</span></div>
-            <div class="info-item"><span class="info-label">Sessions / Day</span><span class="info-val">2 sessions</span></div>
+          <div class="price-table">
+            <div class="pt-cell"><span class="pt-label">1 Day</span><span class="pt-val" data-prices="750,5250,19000,50000">฿750</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">1 Week</span><span class="pt-val" data-prices="750,5250,19000,50000">฿5,250</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">1 Month</span><span class="pt-val" data-prices="750,5250,19000,50000">฿19,000</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">Private /hr</span><span class="pt-val" data-private="1400">฿1,400</span><span class="pt-unit">1-on-1</span></div>
           </div>
-          <div class="pricing-grid">
-            <div class="price-item"><span class="pi-label">Group Class</span><span class="pi-val" data-thb="750">฿750</span><span class="pi-sub">per day</span></div>
-            <div class="price-item"><span class="pi-label">Private (1hr)</span><span class="pi-val" data-thb="1400">฿1,400</span><span class="pi-sub">per session</span></div>
-            <div class="price-item"><span class="pi-label">Accommodation</span><span class="pi-val" data-thb="450">฿450</span><span class="pi-sub">per night</span></div>
+          <div class="quick-info">
+            <span class="qi rose">♀ Female Trainers</span>
+            <span class="qi green">✓ Beginner Friendly</span>
+            <span class="qi">🏊 Pool</span>
           </div>
-          <div class="accom"><span class="accom-l">Accommodation</span><div class="accom-ps"><span class="ap yes">Private Room</span><span class="ap yes">Shared Dorm</span><span class="ap yes">Pool</span></div></div>
-          <div class="feats"><div class="feat wf">♀ Female Trainers</div><div class="feat">Swimming Pool</div><div class="feat">Strength Training</div><div class="feat">Free WiFi</div><div class="feat">Meals Available</div><div class="feat">Airport Transfer</div></div>
           <div class="card-foot">
-            <div class="card-meta"><span class="cm-item">Est. <span>2012</span></span><span class="cm-item">Trainers <span>20</span></span><span class="cm-item">Rings <span>5</span></span></div>
-            <div class="cta-g"><a href="#" class="btn-v">View Camp</a><button class="btn-c" onclick="tCmp(this)">+ Compare</button></div>
+            <div class="card-tags-sm"><span class="ct-sm">Est. <span>2012</span></span><span class="ct-sm">Trainers <span>20</span></span></div>
+            <div class="btn-group">
+              <button class="btn-map" onclick="openMap('sinbi',event)">🗺 Karte anzeigen</button>
+              <button class="btn-c" onclick="tCmp(this,event)">+ Compare</button>
+              <button class="btn-v" onclick="openCamp('sinbi',event)">View Camp</button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- CARD 8 -->
-      <div class="gym-card" data-tags="muay-thai mma chiang-mai beginner intermediate private-training group-class accom">
+      <!-- CHIANG MAI BOXING -->
+      <div class="gym-card" data-tags="muay-thai mma chiang-mai beginner intermediate private-training group-class accom"
+           onclick="openCamp('cmb')">
         <div class="card-img">
-          <img src="https://images.unsplash.com/photo-1517438984742-1262db08379e?w=700&q=80" alt="Chiang Mai Boxing" loading="lazy">
-          <div class="badges"><span class="bdg bdg-d">Best Value</span><span class="bdg bdg-b">Beginner OK</span></div>
-          <div class="c-chk" onclick="tChk(this)">+</div>
+          <img src="https://images.unsplash.com/photo-1549476464-37392f717541?w=700&q=80" alt="CMB" loading="lazy">
+          <div class="card-badges"><span class="bdg bdg-d">Best Value</span><span class="bdg bdg-b">Beginner OK</span></div>
+          <div class="c-chk" onclick="tChk(this,event)">+</div>
         </div>
         <div class="card-body">
           <div class="card-top">
-            <div><span class="gym-loc">📍 Nimman, Chiang Mai</span><span class="gym-name">Chiang Mai Boxing Stadium</span></div>
+            <div>
+              <span class="gym-loc">📍 Nimman, Chiang Mai</span>
+              <span class="gym-name">CM Boxing Stadium</span>
+              <a class="gym-website" href="https://chiangmaiboxing.com" target="_blank" onclick="event.stopPropagation()">🔗 chiangmaiboxing.com</a>
+            </div>
             <div class="r-box"><span class="r-num">8.6</span><span class="r-stars">★★★★☆</span><span class="r-ct">328 reviews</span></div>
           </div>
           <div class="gtags"><span class="gtag">Muay Thai</span><span class="gtag">MMA</span><span class="gtag">Beginners Welcome</span></div>
-          <div class="info-grid">
-            <div class="info-item"><span class="info-label">Beginner Friendly</span><span class="info-val green">✓ <span class="info-badge ib-yes">Yes</span></span></div>
-            <div class="info-item"><span class="info-label">Private Training</span><span class="info-val green">✓ Available</span></div>
-            <div class="info-item"><span class="info-label">Women-Friendly</span><span class="info-val"><span class="info-badge ib-yes">Welcoming</span></span></div>
-            <div class="info-item"><span class="info-label">Sessions / Day</span><span class="info-val">2 sessions</span></div>
+          <div class="price-table">
+            <div class="pt-cell"><span class="pt-label">1 Day</span><span class="pt-val" data-prices="500,3500,12000,32000">฿500</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">1 Week</span><span class="pt-val" data-prices="500,3500,12000,32000">฿3,500</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">1 Month</span><span class="pt-val" data-prices="500,3500,12000,32000">฿12,000</span><span class="pt-unit">group class</span></div>
+            <div class="pt-cell"><span class="pt-label">Private /hr</span><span class="pt-val" data-private="900">฿900</span><span class="pt-unit">1-on-1</span></div>
           </div>
-          <div class="pricing-grid">
-            <div class="price-item"><span class="pi-label">Group Class</span><span class="pi-val" data-thb="500">฿500</span><span class="pi-sub">per day</span></div>
-            <div class="price-item"><span class="pi-label">Private (1hr)</span><span class="pi-val" data-thb="900">฿900</span><span class="pi-sub">per session</span></div>
-            <div class="price-item"><span class="pi-label">Accommodation</span><span class="pi-val" data-thb="300">฿300</span><span class="pi-sub">per night</span></div>
+          <div class="quick-info">
+            <span class="qi green">✓ Best Value</span>
+            <span class="qi green">✓ Beginner Friendly</span>
+            <span class="qi">🏙 City Centre</span>
           </div>
-          <div class="accom"><span class="accom-l">Accommodation</span><div class="accom-ps"><span class="ap yes">Private Room</span><span class="ap yes">Shared Dorm</span><span class="ap no">No Pool</span></div></div>
-          <div class="feats"><div class="feat">City Location</div><div class="feat">Weights Room</div><div class="feat">Safe Area</div><div class="feat">Free WiFi</div><div class="feat">Meals Available</div><div class="feat">Great Value</div></div>
           <div class="card-foot">
-            <div class="card-meta"><span class="cm-item">Est. <span>2015</span></span><span class="cm-item">Trainers <span>10</span></span><span class="cm-item">Rings <span>2</span></span></div>
-            <div class="cta-g"><a href="#" class="btn-v">View Camp</a><button class="btn-c" onclick="tCmp(this)">+ Compare</button></div>
+            <div class="card-tags-sm"><span class="ct-sm">Est. <span>2015</span></span><span class="ct-sm">Trainers <span>10</span></span></div>
+            <div class="btn-group">
+              <button class="btn-map" onclick="openMap('cmb',event)">🗺 Karte anzeigen</button>
+              <button class="btn-c" onclick="tCmp(this,event)">+ Compare</button>
+              <button class="btn-v" onclick="openCamp('cmb',event)">View Camp</button>
+            </div>
           </div>
         </div>
       </div>
@@ -776,17 +777,13 @@ footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.25);padding:3.5r
     </div><!-- /gymList -->
 
     <!-- COMPARE TABLE -->
-    <div class="cmp-tbl" id="cmpTbl">
-      <div class="ct-h" id="ctH" style="grid-template-columns:150px repeat(3,1fr)">
-        <span>Feature</span><span id="c1">—</span><span id="c2">—</span><span id="c3">—</span>
-      </div>
-    </div>
+    <div class="cmp-tbl" id="cmpTbl"></div>
 
     <div class="pages">
       <button class="pg on">1</button>
       <button class="pg">2</button>
       <button class="pg">3</button>
-      <span class="pg-dots">…</span>
+      <span class="pg-dot">…</span>
       <button class="pg">30</button>
       <button class="pg">›</button>
     </div>
@@ -797,114 +794,236 @@ footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.25);padding:3.5r
 <footer>
   <div class="ft-g">
     <div><span class="ft-logo">Check<span>Fight</span>Camp</span><span class="ft-desc">The definitive platform to compare 300+ fight camps across Thailand. 100% free, always.</span></div>
-    <div class="ft-col"><h4>Disciplines</h4><ul><li><a href="#">Muay Thai</a></li><li><a href="#">Boxing</a></li><li><a href="#">MMA</a></li><li><a href="#">BJJ / Grappling</a></li></ul></div>
-    <div class="ft-col"><h4>Locations</h4><ul><li><a href="#">Phuket</a></li><li><a href="#">Bangkok</a></li><li><a href="#">Chiang Mai</a></li><li><a href="#">Koh Samui</a></li><li><a href="#">Pattaya</a></li></ul></div>
-    <div class="ft-col"><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">List Your Gym</a></li><li><a href="blog.html">Blog</a></li><li><a href="#">Contact</a></li><li><a href="#">Sitemap</a></li></ul></div>
+    <div class="ft-col"><h4>Disciplines</h4><ul><li><a>Muay Thai</a></li><li><a>Boxing</a></li><li><a>MMA</a></li><li><a>BJJ / Grappling</a></li></ul></div>
+    <div class="ft-col"><h4>Locations</h4><ul><li><a>Phuket</a></li><li><a>Bangkok</a></li><li><a>Chiang Mai</a></li><li><a>Koh Samui</a></li></ul></div>
+    <div class="ft-col"><h4>Company</h4><ul><li><a>About</a></li><li><a>List Your Gym</a></li><li><a href="blog.html">Blog</a></li><li><a>Contact</a></li></ul></div>
   </div>
   <div class="ft-b">
-    <span class="ft-copy">© 2025 CheckFightCamp.com — All rights reserved</span>
-    <div class="ft-leg"><a href="#">Privacy</a><a href="#">Impressum</a><a href="#">Cookies</a></div>
+    <span class="ft-copy">© 2025 CheckFightCamp.com</span>
+    <div class="ft-leg"><a>Privacy</a><a>Impressum</a><a>Cookies</a></div>
   </div>
 </footer>
 
-<script>
-// ── CURRENCY ──
-let curSym = '฿';
-let curRate = 1;
-let curCode = 'THB';
+<!-- CAMP DETAIL MODAL -->
+<div class="modal-overlay" id="overlay" onclick="closeAll()"></div>
+<div class="camp-modal" id="campModal">
+  <div class="modal-close">
+    <button class="modal-close-btn" onclick="closeAll()">← Back to camps</button>
+    <span class="modal-title" id="modalTitle">Camp Detail</span>
+  </div>
+  <div id="modalContent"></div>
+</div>
 
-function toggleCurrency(){
-  const btn = document.getElementById('curBtn');
-  const drop = document.getElementById('curDrop');
-  btn.classList.toggle('open');
-  drop.classList.toggle('show');
-}
-document.addEventListener('click', function(e){
-  if(!e.target.closest('.currency-wrap')){
-    document.getElementById('curBtn').classList.remove('open');
-    document.getElementById('curDrop').classList.remove('show');
+<!-- MAP MODAL -->
+<div class="map-modal" id="mapModal">
+  <div class="map-inner">
+    <div class="map-header">
+      <span class="map-title" id="mapTitle">Map</span>
+      <button class="map-close" onclick="closeMap()">✕ Close</button>
+    </div>
+    <iframe id="mapFrame" src="" class="map-frame" allowfullscreen loading="lazy"></iframe>
+  </div>
+</div>
+
+<script>
+// ── DATA ──
+const camps = {
+  tiger: {
+    name:'Tiger Muay Thai', loc:'Chalong, Phuket', website:'tigermuaythai.com',
+    url:'https://tigermuaythai.com', rating:'9.4', stars:'★★★★★', reviews:'1,240',
+    img:'https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=900&q=80',
+    desc:'One of the world\'s most renowned Muay Thai & MMA training facilities. With over 40 world-champion trainers and 8 rings, Tiger offers an unmatched training experience for all levels. The camp covers 15 acres and includes a full resort with pool, restaurant and accommodation.',
+    disciplines:['Muay Thai','MMA','BJJ','Boxing','Wrestling'],
+    prices:{day:900, week:6300, month:24000, '3month':63000, private:1500},
+    accom:[{name:'Shared Dorm',price:200},{name:'Private Room',price:400},{name:'Bungalow',price:700},{name:'Deluxe Suite',price:1200}],
+    features:['40+ World Champion Trainers','8 Full-Size Rings','Swimming Pool','Muay Thai Museum','Sauna & Steam Room','Onsite Restaurant & Café','Free WiFi','24h Security','Airport Transfer','Female Trainers','Women-Friendly'],
+    schedule:['06:00 — Morning Run','07:00 — Pad Work & Technique','09:00 — Sparring (optional)','15:00 — Strength & Conditioning','17:00 — Evening Pad Work','19:00 — Cool Down'],
+    est:'2004', trainers:'40+', rings:'8',
+    lat:7.8191, lng:98.3270,
+    mapUrl:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.2!2d98.3270!3d7.8191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304d8dfb5c4!2sTiger+Muay+Thai!5e0!3m2!1sen!2sth'
+  },
+  lanna: {
+    name:'Lanna Muay Thai', loc:'Chiang Mai, North Thailand', website:'lannamuaythai.com',
+    url:'https://lannamuaythai.com', rating:'9.2', stars:'★★★★★', reviews:'876',
+    img:'https://images.unsplash.com/photo-1615117972428-28de67cda58e?w=900&q=80',
+    desc:'Nestled in the mountains of Chiang Mai, Lanna Muay Thai is one of Thailand\'s oldest and most respected traditional camps. Known for authentic training with Thai masters, Lanna offers a genuine immersive experience away from the tourist crowds.',
+    disciplines:['Muay Thai','Boxing'],
+    prices:{day:700, week:4900, month:18000, '3month':48000, private:1200},
+    accom:[{name:'Shared Dorm',price:150},{name:'Private Room',price:350},{name:'Meals Included',price:0}],
+    features:['Traditional Thai Kru Trainers','Female Trainers','Women-Only Classes','Meals Included','Safe Neighbourhood','Mountain Setting','Free WiFi','Quiet Training Environment'],
+    schedule:['06:00 — Morning Run','07:30 — Technique & Pad Work','09:00 — Sparring','15:00 — Bag Work','17:00 — Pad Rounds','18:30 — Cool Down & Stretch'],
+    est:'1997', trainers:'18', rings:'4',
+    mapUrl:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3776.2!2d98.9763!3d18.7883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da!2sLanna+Muay+Thai!5e0!3m2!1sen!2sth'
+  },
+  evolve: {
+    name:'Evolve MMA Bangkok', loc:'Sukhumvit, Bangkok', website:'evolve-mma.com',
+    url:'https://evolve-mma.com', rating:'9.6', stars:'★★★★★', reviews:'2,100',
+    img:'https://images.unsplash.com/photo-1549476464-37392f717541?w=900&q=80',
+    desc:'Asia\'s #1 MMA organization. Evolve MMA features the largest collection of World Champions as coaches, with state-of-the-art facilities across multiple Bangkok locations. Perfect for serious fighters and beginners alike.',
+    disciplines:['MMA','Boxing','BJJ','Muay Thai','Wrestling'],
+    prices:{day:1200, week:8400, month:30000, '3month':78000, private:2500},
+    accom:[{name:'Partner Hotels',price:800},{name:'Serviced Apartments',price:1200}],
+    features:['60+ World Champion Coaches','Rooftop Pool','12 Rings & Mats','Sauna & Ice Bath','Nutrition Coaching','City Centre Location','Free WiFi','24h Security','3+ Sessions Daily'],
+    schedule:['07:00 — Morning Class','10:00 — Technique Class','14:00 — Conditioning','17:00 — Evening Class','19:00 — Open Mat'],
+    est:'2009', trainers:'60+', rings:'12',
+    mapUrl:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.2!2d100.5603!3d13.7398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d601a!2sEvolve+MMA!5e0!3m2!1sen!2sth'
+  },
+  lamai: {
+    name:'Lamai Muay Thai', loc:'Lamai Beach, Koh Samui', website:'lamaimuaythai.com',
+    url:'https://lamaimuaythai.com', rating:'8.8', stars:'★★★★☆', reviews:'512',
+    img:'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=900&q=80',
+    desc:'A beach paradise with serious training. Lamai Muay Thai Camp sits steps from the ocean on Koh Samui, offering authentic Thai training with the bonus of beach life. Perfect for beginners wanting a full immersion experience.',
+    disciplines:['Muay Thai','Boxing'],
+    prices:{day:650, week:4550, month:16000, '3month':42000, private:1100},
+    accom:[{name:'Shared Dorm',price:150},{name:'Private Room',price:500},{name:'Beach Bungalow',price:800}],
+    features:['Beach Access','Swimming Pool','Women-Only Classes','Female Trainers','Meals Included','Airport Transfer','Free WiFi','Beginner Programs'],
+    schedule:['06:30 — Beach Run','08:00 — Morning Training','10:00 — Technique Work','16:00 — Afternoon Session','18:00 — Sunset Stretch'],
+    est:'2011', trainers:'12', rings:'3',
+    mapUrl:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.2!2d100.0629!3d9.4978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3101!2sLamai+Muay+Thai!5e0!3m2!1sen!2sth'
+  },
+  ptt: {
+    name:'Phuket Top Team', loc:'Patong, Phuket', website:'phuket-top-team.com',
+    url:'https://phuket-top-team.com', rating:'9.0', stars:'★★★★★', reviews:'389',
+    img:'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=900&q=80',
+    desc:'The premier destination for BJJ and grappling in Southeast Asia. IBJJF affiliated with world-class instructors, Phuket Top Team offers cutting-edge MMA training in a professional environment.',
+    disciplines:['BJJ','No-Gi','Wrestling','MMA'],
+    prices:{day:800, week:5600, month:20000, '3month':54000, private:1800},
+    accom:[{name:'Private Room',price:380},{name:'Shared Dorm',price:200}],
+    features:['IBJJF Affiliated','Ice Bath Recovery','Swimming Pool','Weights Room','24h Security','Competition Prep','Free WiFi','Video Analysis'],
+    schedule:['07:00 — Morning Grappling','09:00 — Technique Drilling','11:00 — Open Mat','15:00 — MMA Training','17:30 — Evening BJJ','19:00 — No-Gi (optional)'],
+    est:'2008', trainers:'22', rings:'4',
+    mapUrl:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.2!2d98.2930!3d7.9000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304d!2sPhuket+Top+Team!5e0!3m2!1sen!2sth'
+  },
+  fairtex: {
+    name:'Fairtex Training Center', loc:'Bang Phli, Bangkok', website:'fairtex.com',
+    url:'https://fairtex.com', rating:'9.3', stars:'★★★★★', reviews:'1,650',
+    img:'https://images.unsplash.com/photo-1517438984742-1262db08379e?w=900&q=80',
+    desc:'A legendary name in combat sports since 1971. Fairtex Training Center is the home of champions, offering world-class Muay Thai training combined with a luxury resort experience. The facility covers 10 acres with an Olympic pool, sauna, and full spa.',
+    disciplines:['Muay Thai','Boxing','MMA'],
+    prices:{day:1000, week:7000, month:25000, '3month':66000, private:2000},
+    accom:[{name:'Shared Dorm',price:300},{name:'Private Room',price:600},{name:'Deluxe Suite',price:1500}],
+    features:['Olympic Swimming Pool','Full Spa & Sauna','6 Rings','Restaurant','35+ World Champion Trainers','Beginner Programs','Competition Schedule','Free WiFi','24h Security','Airport Transfer'],
+    schedule:['06:00 — Morning Run','07:00 — Pad Work','09:00 — Sparring','14:00 — Conditioning','15:30 — Evening Training','17:30 — Cool Down'],
+    est:'1985', trainers:'35+', rings:'6',
+    mapUrl:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.2!2d100.6780!3d13.6880!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d!2sFairtex!5e0!3m2!1sen!2sth'
+  },
+  sinbi: {
+    name:'Sinbi Muay Thai', loc:'Rawai, Phuket', website:'sinbi-muaythai.com',
+    url:'https://sinbi-muaythai.com', rating:'9.1', stars:'★★★★★', reviews:'741',
+    img:'https://images.unsplash.com/photo-1599058917765-a780eda07a3e?w=900&q=80',
+    desc:'Sinbi Muay Thai is a hidden gem in Rawai, Phuket — away from the tourist crowds but close to the beach. Known for its high-quality training and personal attention, Sinbi is beloved by both beginners and experienced fighters.',
+    disciplines:['Muay Thai','Boxing'],
+    prices:{day:750, week:5250, month:19000, '3month':50000, private:1400},
+    accom:[{name:'Private Room',price:450},{name:'Shared Dorm',price:200},{name:'Pool Villa',price:900}],
+    features:['Female Trainers','Swimming Pool','Strength & Conditioning','Beginner Programs','Meals Available','Airport Transfer','Free WiFi','Quiet Location'],
+    schedule:['07:00 — Morning Session','09:00 — Technique','15:00 — Afternoon Session','17:00 — Pad Work','18:30 — Cool Down'],
+    est:'2012', trainers:'20', rings:'5',
+    mapUrl:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.8!2d98.3380!3d7.7800!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304d!2sSinbi+Muay+Thai!5e0!3m2!1sen!2sth'
+  },
+  cmb: {
+    name:'CM Boxing Stadium', loc:'Nimman, Chiang Mai', website:'chiangmaiboxing.com',
+    url:'https://chiangmaiboxing.com', rating:'8.6', stars:'★★★★☆', reviews:'328',
+    img:'https://images.unsplash.com/photo-1549476464-37392f717541?w=900&q=80',
+    desc:'The best-value fight camp in Chiang Mai. Located in the trendy Nimman neighbourhood, CM Boxing Stadium offers quality Muay Thai and MMA training at unbeatable prices — perfect for those on a budget who don\'t want to compromise on quality.',
+    disciplines:['Muay Thai','MMA'],
+    prices:{day:500, week:3500, month:12000, '3month':32000, private:900},
+    accom:[{name:'Private Room',price:300},{name:'Shared Dorm',price:120}],
+    features:['Best Value in Chiang Mai','City Centre Location','Beginner Friendly','Free WiFi','Weights Room','Safe Area','Meals Available'],
+    schedule:['07:00 — Morning Training','09:00 — Technique','15:00 — Afternoon Session','17:00 — Sparring (optional)'],
+    est:'2015', trainers:'10', rings:'2',
+    mapUrl:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3776.8!2d98.9671!3d18.7990!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30da!2sChiang+Mai+Boxing!5e0!3m2!1sen!2sth'
   }
-});
-function setCurrency(code, sym, rate){
-  curCode = code; curSym = sym; curRate = parseFloat(rate);
-  document.getElementById('curLabel').textContent = sym + ' ' + code;
-  document.querySelectorAll('.cur-opt').forEach(o => o.classList.remove('active'));
-  event.currentTarget.classList.add('active');
-  document.getElementById('curBtn').classList.remove('open');
+};
+
+// ── CURRENCY ──
+let sym = '฿', rate = 1, dur = 'day';
+const durIdx = {day:0, week:1, month:2, '3month':3};
+
+function toggleCur(e){e.stopPropagation();document.getElementById('curDrop').classList.toggle('show')}
+document.addEventListener('click',()=>document.getElementById('curDrop').classList.remove('show'));
+function setCur(code,s,r,el){
+  sym=s; rate=r;
+  document.getElementById('curLabel').textContent=s+' '+code;
+  document.querySelectorAll('.cur-opt').forEach(o=>o.classList.remove('on'));
+  el.classList.add('on');
   document.getElementById('curDrop').classList.remove('show');
-  updatePrices();
-  upP();
+  updateAllPrices(); upP();
 }
-function formatPrice(thb){
-  const val = thb * curRate;
-  if(curRate === 1) return curSym + Math.round(val).toLocaleString();
-  if(val < 10) return curSym + val.toFixed(2);
-  return curSym + Math.round(val).toLocaleString();
+function fmt(thb){
+  const v = thb * rate;
+  if(rate===1) return sym+Math.round(v).toLocaleString();
+  if(v<10) return sym+v.toFixed(2);
+  return sym+Math.round(v).toLocaleString();
 }
-function updatePrices(){
-  document.querySelectorAll('.pi-val[data-thb]').forEach(el => {
-    el.textContent = formatPrice(+el.dataset.thb);
+function updateAllPrices(){
+  document.querySelectorAll('.pt-val[data-prices]').forEach(el=>{
+    const ps = el.dataset.prices.split(',').map(Number);
+    el.textContent = fmt(ps[durIdx[dur]]);
+  });
+  document.querySelectorAll('.pt-val[data-private]').forEach(el=>{
+    el.textContent = fmt(+el.dataset.private);
   });
 }
 
-// ── FILTERS ──
-const active = new Set();
-function tf(r,t){const b=r.querySelector('.cb');b.classList.toggle('on');active.has(t)?active.delete(t):active.add(t);applyF()}
-function applyF(){let n=0;document.querySelectorAll('#gymList .gym-card').forEach(c=>{const t=c.dataset.tags||'';const s=active.size===0||[...active].every(f=>t.includes(f));c.style.display=s?'':'none';if(s)n++});document.getElementById('cnt').textContent=n+' of 300+';}
-function clearAll(){active.clear();document.querySelectorAll('.cb.on').forEach(b=>b.classList.remove('on'));applyF()}
-function qf(p,t){document.querySelectorAll('.pill').forEach(x=>x.classList.remove('on'));p.classList.add('on');active.clear();document.querySelectorAll('.cb.on').forEach(b=>b.classList.remove('on'));if(t!=='all')active.add(t);applyF()}
+// ── DURATION ──
+function setDur(d,btn){
+  dur=d;
+  document.querySelectorAll('.dur-tab').forEach(t=>t.classList.remove('on'));
+  btn.classList.add('on');
+  // Update slider range
+  const maxMap={day:3000,week:21000,month:80000,'3month':220000};
+  const max=maxMap[d];
+  document.getElementById('pMax').max=max;
+  document.getElementById('pMax').value=max*0.8;
+  document.getElementById('pMin').max=max;
+  updateAllPrices(); upP();
+}
 
 // ── PRICE SLIDER ──
 function upP(){
   const mn=+document.getElementById('pMin').value, mx=+document.getElementById('pMax').value;
-  const minFmt = formatPrice(mn);
-  const maxFmt = formatPrice(mx);
-  document.getElementById('pvMin').textContent = minFmt;
-  document.getElementById('pvMax').textContent = maxFmt;
-  const p=v=>((v-300)/2700)*100;
-  document.getElementById('rf').style.left=p(mn)+'%';
-  document.getElementById('rf').style.right=(100-p(mx))+'%';
+  document.getElementById('pvMin').textContent=fmt(mn);
+  document.getElementById('pvMax').textContent=fmt(mx);
+  const max=+document.getElementById('pMax').max;
+  const pct=v=>((v-0)/max)*100;
+  document.getElementById('rf').style.left=pct(mn)+'%';
+  document.getElementById('rf').style.right=(100-pct(mx))+'%';
 }
 
+// ── FILTERS ──
+const active=new Set();
+function tf(r,t){const b=r.querySelector('.cb');b.classList.toggle('on');active.has(t)?active.delete(t):active.add(t);applyF()}
+function applyF(){let n=0;document.querySelectorAll('#gymList .gym-card').forEach(c=>{const t=c.dataset.tags||'';const s=active.size===0||[...active].every(f=>t.includes(f));c.style.display=s?'':'none';if(s)n++});document.getElementById('cnt').textContent=n+' of 300+'}
+function clearAll(){active.clear();document.querySelectorAll('.cb.on').forEach(b=>b.classList.remove('on'));applyF()}
+function qf(p,t){document.querySelectorAll('.pill').forEach(x=>x.classList.remove('on'));p.classList.add('on');active.clear();document.querySelectorAll('.cb.on').forEach(b=>b.classList.remove('on'));if(t!=='all')active.add(t);applyF()}
+
 // ── COMPARE ──
-const cs = new Set();
-const cd = {
-  'Tiger Muay Thai':{loc:'Phuket',group:'฿900/day',private:'฿1,500/hr',accom:'฿400/night',women:'Yes',beginner:'Yes',sessions:'2/day',pool:'Yes',meals:'Available',rating:'9.4'},
-  'Lanna Muay Thai':{loc:'Chiang Mai',group:'฿700/day',private:'฿1,200/hr',accom:'฿350/night',women:'Yes',beginner:'Limited',sessions:'2/day',pool:'No',meals:'Included',rating:'9.2'},
-  'Evolve MMA Bangkok':{loc:'Bangkok',group:'฿1,200/day',private:'฿2,500/hr',accom:'฿800/night',women:'Welcoming',beginner:'Yes',sessions:'3+/day',pool:'Rooftop',meals:'Restaurant',rating:'9.6'},
-  'Lamai Muay Thai':{loc:'Koh Samui',group:'฿650/day',private:'฿1,100/hr',accom:'฿500/night',women:'Yes',beginner:'Yes',sessions:'2/day',pool:'Yes',meals:'Included',rating:'8.8'},
-  'Phuket Top Team':{loc:'Phuket',group:'฿800/day',private:'฿1,800/hr',accom:'฿380/night',women:'Welcoming',beginner:'Limited',sessions:'2/day',pool:'Yes',meals:'No',rating:'9.0'},
-  'Fairtex Training Center':{loc:'Bangkok',group:'฿1,000/day',private:'฿2,000/hr',accom:'฿600/night',women:'Welcoming',beginner:'Yes',sessions:'2/day',pool:'Olympic',meals:'Restaurant',rating:'9.3'},
-  'Sinbi Muay Thai':{loc:'Phuket',group:'฿750/day',private:'฿1,400/hr',accom:'฿450/night',women:'Yes',beginner:'Yes',sessions:'2/day',pool:'Yes',meals:'Available',rating:'9.1'},
-  'Chiang Mai Boxing Stadium':{loc:'Chiang Mai',group:'฿500/day',private:'฿900/hr',accom:'฿300/night',women:'Welcoming',beginner:'Yes',sessions:'2/day',pool:'No',meals:'Available',rating:'8.6'},
-};
+const cs=new Set();
+function tChk(b,e){e&&e.stopPropagation();const n=gN(b);if(!b.classList.contains('on')&&cs.size>=3)return;b.classList.toggle('on');b.textContent=b.classList.contains('on')?'✓':'+';b.closest('.gym-card').classList.toggle('sel');cs.has(n)?cs.delete(n):cs.add(n);sC()}
+function tCmp(b,e){e&&e.stopPropagation();const c=b.closest('.gym-card'),n=gN(b),k=c.querySelector('.c-chk');if(!b.classList.contains('on')&&cs.size>=3)return;b.classList.toggle('on');k.classList.toggle('on');k.textContent=k.classList.contains('on')?'✓':'+';c.classList.toggle('sel');cs.has(n)?cs.delete(n):cs.add(n);sC()}
 function gN(e){return e.closest('.gym-card').querySelector('.gym-name').textContent.trim()}
-function tChk(b){const n=gN(b);if(!b.classList.contains('on')&&cs.size>=3)return;b.classList.toggle('on');b.textContent=b.classList.contains('on')?'✓':'+';b.closest('.gym-card').classList.toggle('sel');cs.has(n)?cs.delete(n):cs.add(n);sC()}
-function tCmp(b){const c=b.closest('.gym-card'),n=gN(b),k=c.querySelector('.c-chk');if(!b.classList.contains('on')&&cs.size>=3)return;b.classList.toggle('on');k.classList.toggle('on');k.textContent=k.classList.contains('on')?'✓':'+';c.classList.toggle('sel');cs.has(n)?cs.delete(n):cs.add(n);sC()}
 function sC(){document.getElementById('cmpCnt').textContent=cs.size;document.getElementById('cmpBar').classList.toggle('show',cs.size>=2)}
-function showTbl(){
-  const t=document.getElementById('cmpTbl');t.classList.add('show');
-  const ns=[...cs];const cl=`grid-template-columns:150px repeat(${ns.length},1fr)`;
-  document.getElementById('ctH').style=cl;
-  ['c1','c2','c3'].forEach((id,i)=>{document.getElementById(id).textContent=ns[i]||'—'});
-  t.querySelectorAll('.ct-r').forEach(r=>r.remove());
-  [
-    ['Location',ns.map(n=>cd[n]?.loc)],
-    ['Group Class',ns.map(n=>cd[n]?.group)],
-    ['Private (1hr)',ns.map(n=>cd[n]?.private)],
-    ['Accommodation',ns.map(n=>cd[n]?.accom)],
-    ['Women-Friendly',ns.map(n=>cd[n]?.women)],
-    ['Beginner OK',ns.map(n=>cd[n]?.beginner)],
-    ['Sessions/Day',ns.map(n=>cd[n]?.sessions)],
-    ['Pool',ns.map(n=>cd[n]?.pool)],
-    ['Meals',ns.map(n=>cd[n]?.meals)],
-    ['Rating',ns.map(n=>cd[n]?.rating)],
-  ].forEach(([l,vs])=>{
-    const r=document.createElement('div');r.className='ct-r';r.style.cssText=cl;
-    r.innerHTML=`<span class="ct-l">${l}</span>`+vs.map(v=>`<span class="ct-v ${v==='Yes'||v==='Included'?'good':''}">${v||'—'}</span>`).join('');
-    t.appendChild(r);
+
+function showCmp(){
+  const tbl=document.getElementById('cmpTbl');
+  tbl.classList.add('show');
+  const keys=[...cs].map(n=>Object.keys(camps).find(k=>camps[k].name===n)).filter(Boolean);
+  const cols=keys.map(k=>camps[k]);
+  let html=`<div class="cmp-tbl-head"><div class="cth-label"></div>${cols.map(c=>`<div class="cth-camp"><span class="cth-name">${c.name}</span><span class="cth-loc">${c.loc}</span></div>`).join('')}</div>`;
+  const rows=[
+    ['Rating',cols.map(c=>c.rating)],
+    ['Location',cols.map(c=>c.loc.split(',')[1]||c.loc)],
+    ['1 Day',cols.map(c=>fmt(c.prices.day))],
+    ['1 Week',cols.map(c=>fmt(c.prices.week))],
+    ['1 Month',cols.map(c=>fmt(c.prices.month))],
+    ['Private/hr',cols.map(c=>fmt(c.prices.private))],
+    ['Disciplines',cols.map(c=>c.disciplines.slice(0,2).join(', '))],
+  ];
+  rows.forEach(([l,vs])=>{
+    html+=`<div class="cmp-row"><div class="cr-label">${l}</div>${vs.map(v=>`<div class="cr-val">${v}</div>`).join('')}</div>`;
   });
-  t.scrollIntoView({behavior:'smooth',block:'nearest'});
+  tbl.innerHTML=html;
+  tbl.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 function clearCmp(){
   cs.clear();
@@ -914,6 +1033,125 @@ function clearCmp(){
   document.getElementById('cmpBar').classList.remove('show');
   document.getElementById('cmpTbl').classList.remove('show');
 }
+
+// ── CAMP DETAIL MODAL ──
+function openCamp(key, e){
+  if(e) e.stopPropagation();
+  const c=camps[key]; if(!c) return;
+  document.getElementById('modalTitle').textContent=c.name;
+  document.getElementById('modalContent').innerHTML=`
+    <img src="${c.img}" class="modal-hero-img" alt="${c.name}">
+    <div class="modal-body">
+      <span class="modal-loc">📍 ${c.loc}</span>
+      <span class="modal-name">${c.name}</span>
+      <a class="modal-website" href="${c.url}" target="_blank">🔗 ${c.website}</a>
+      <div class="modal-rating">
+        <span class="mr-score">${c.rating}</span>
+        <div>
+          <div class="mr-stars">${c.stars}</div>
+          <div class="mr-count">${c.reviews} verified reviews</div>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:1.5rem">
+          <div style="text-align:center"><span style="font-family:'Racing Sans One',sans-serif;font-size:1.2rem;color:#fff;display:block">${c.est}</span><span style="font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--txt3);text-transform:uppercase;letter-spacing:.12em">Founded</span></div>
+          <div style="text-align:center"><span style="font-family:'Racing Sans One',sans-serif;font-size:1.2rem;color:#fff;display:block">${c.trainers}</span><span style="font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--txt3);text-transform:uppercase;letter-spacing:.12em">Trainers</span></div>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <span class="ms-title">About</span>
+        <p class="modal-desc">${c.desc}</p>
+      </div>
+
+      <div class="modal-section">
+        <span class="ms-title">Pricing</span>
+        <div class="modal-dur-tabs">
+          <button class="mdt on" onclick="setModalDur(this,0,'${key}')">1 Day</button>
+          <button class="mdt" onclick="setModalDur(this,1,'${key}')">1 Week</button>
+          <button class="mdt" onclick="setModalDur(this,2,'${key}')">1 Month</button>
+          <button class="mdt" onclick="setModalDur(this,3,'${key}')">3 Months</button>
+        </div>
+        <div class="modal-price-grid" id="mpGrid">
+          <div class="mpg-cell"><span class="mpg-label">Group Class</span><span class="mpg-val" id="mpGroup">${fmt(c.prices.day)}</span><span class="mpg-sub">per day / person</span></div>
+          <div class="mpg-cell"><span class="mpg-label">Private (1hr)</span><span class="mpg-val">${fmt(c.prices.private)}</span><span class="mpg-sub">1-on-1 with trainer</span></div>
+          <div class="mpg-cell"><span class="mpg-label">Accommodation</span><span class="mpg-val">${fmt(c.accom[0].price)}</span><span class="mpg-sub">from / night</span></div>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <span class="ms-title">Accommodation Options</span>
+        <div class="modal-accom-grid">
+          ${c.accom.map(a=>`<div class="mac"><span class="mac-name">${a.name}</span><span class="mac-price">${a.price>0?'from '+fmt(a.price)+'/night':'Included'}</span></div>`).join('')}
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <span class="ms-title">Disciplines</span>
+        <div style="display:flex;gap:.4rem;flex-wrap:wrap">
+          ${c.disciplines.map(d=>`<span style="font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--rule);color:var(--txt2);padding:.28rem .7rem">${d}</span>`).join('')}
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <span class="ms-title">Facilities & Features</span>
+        <div class="modal-feats">
+          ${c.features.map(f=>`<div class="mf">${f}</div>`).join('')}
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <span class="ms-title">Daily Schedule</span>
+        <div style="display:flex;flex-direction:column;gap:.5rem">
+          ${c.schedule.map(s=>`<div style="display:flex;gap:1rem;font-size:.88rem;color:var(--txt2);padding:.5rem 0;border-bottom:1px solid var(--rule2)"><span style="font-family:'DM Mono',monospace;color:var(--burg4);flex-shrink:0;font-size:.78rem">${s.split('—')[0]}</span><span>${s.split('—')[1]||''}</span></div>`).join('')}
+        </div>
+      </div>
+
+      <div class="modal-section" style="margin-bottom:2rem">
+        <button onclick="openMap('${key}',null);closeModal()" style="width:100%;font-family:'Racing Sans One',sans-serif;font-size:1rem;letter-spacing:.04em;background:transparent;color:var(--txt2);border:1px solid var(--rule);padding:.85rem;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:.6rem" onmouseover="this.style.borderColor='var(--burg)'" onmouseout="this.style.borderColor='var(--rule)'">🗺 Karte anzeigen — ${c.loc}</button>
+        <a href="${c.url}" target="_blank" style="display:block;margin-top:.5rem;text-align:center;font-family:'Racing Sans One',sans-serif;font-size:1rem;letter-spacing:.04em;background:var(--burg);color:#fff;padding:.85rem;transition:background .15s" onmouseover="this.style.background='var(--burg2)'" onmouseout="this.style.background='var(--burg)'">Visit Official Website →</a>
+      </div>
+    </div>
+  `;
+  // Store current camp for modal duration tabs
+  document.getElementById('campModal').dataset.campKey = key;
+  document.getElementById('overlay').classList.add('show');
+  document.getElementById('campModal').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+
+function setModalDur(btn, idx, key){
+  document.querySelectorAll('.mdt').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  const c=camps[key];
+  const durPrices=[c.prices.day, c.prices.week, c.prices.month, c.prices['3month']];
+  const labels=['per day','per week','per month','per 3 months'];
+  const el=document.getElementById('mpGroup');
+  if(el){ el.textContent=fmt(durPrices[idx]); el.nextElementSibling.textContent=labels[idx]+' / person'; }
+}
+
+function closeModal(){document.getElementById('campModal').classList.remove('show')}
+function closeAll(){
+  document.getElementById('overlay').classList.remove('show');
+  document.getElementById('campModal').classList.remove('show');
+  document.body.style.overflow='';
+}
+
+// ── MAP MODAL ──
+function openMap(key, e){
+  if(e) e.stopPropagation();
+  const c=camps[key]; if(!c) return;
+  document.getElementById('mapTitle').textContent='📍 '+c.name+' — '+c.loc;
+  document.getElementById('mapFrame').src=c.mapUrl;
+  document.getElementById('mapModal').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+function closeMap(){
+  document.getElementById('mapModal').classList.remove('show');
+  document.getElementById('mapFrame').src='';
+  document.body.style.overflow='';
+}
+document.getElementById('mapModal').addEventListener('click',function(e){if(e.target===this)closeMap()});
+
+// ── INIT ──
 upP();
 </script>
 </body>
