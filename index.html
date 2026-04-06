@@ -215,8 +215,8 @@ h1 em{font-style:normal;color:var(--burg3)}
 }
 
 /* ═══ LAYOUT ═══ */
-.main{display:grid;grid-template-columns:220px 1fr;background:var(--bg)}
-.main.map-on{grid-template-columns:220px 1fr 400px}
+.main{display:grid;grid-template-columns:200px 1fr;background:var(--bg)}
+.main.map-on{grid-template-columns:200px 1fr 400px}
 
 /* ═══ SIDEBAR ═══ */
 .sidebar{
@@ -231,39 +231,48 @@ h1 em{font-style:normal;color:var(--burg3)}
 .sidebar::-webkit-scrollbar-thumb{background:var(--burg)}
 
 .sb-head{
-  padding:1.1rem 1.4rem;
+  padding:1rem 1.2rem;
   border-bottom:1px solid var(--rule);
   display:flex;justify-content:space-between;align-items:center;
 }
 .sb-head span{
   font-family:'DM Mono',monospace;
-  font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--txt3);
+  font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--txt3);
 }
 .sb-clear{
-  font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;
+  font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;
   color:var(--burg3);background:none;border:none;
   transition:color 0.15s;cursor:pointer;
 }
 .sb-clear:hover{color:var(--txt)}
 
-.fg{padding:1.1rem 1.4rem;border-bottom:1px solid var(--rule2)}
+/* Collapsible filter groups */
+.fg{border-bottom:1px solid var(--rule2)}
 .fg:last-child{border-bottom:none}
+.fg-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.8rem 1.2rem;cursor:pointer;user-select:none;
+  transition:background 0.15s;
+}
+.fg-head:hover{background:rgba(255,255,255,0.02)}
 .fgt{
   font-family:'DM Mono',monospace;
-  font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--txt3);display:block;margin-bottom:0.85rem;
+  font-size:0.56rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--txt3);
 }
+.fg-arrow{font-size:0.55rem;color:var(--txt3);transition:transform 0.25s var(--ease)}
+.fg.closed .fg-arrow{transform:rotate(-90deg)}
+.fg-body{padding:0.2rem 1.2rem 0.9rem;overflow:hidden;transition:all 0.25s var(--ease)}
+.fg.closed .fg-body{display:none}
 
 .cr{
   display:flex;align-items:center;justify-content:space-between;
-  padding:0.26rem 0;cursor:pointer;
-  transition:opacity 0.15s;
+  padding:0.22rem 0;cursor:pointer;
 }
-.cr:hover{opacity:1}
 .cr:hover .lbl{color:var(--txt)}
-.cl{display:flex;align-items:center;gap:0.55rem}
+.cl{display:flex;align-items:center;gap:0.5rem}
 .cb{
-  width:12px;height:12px;border:1px solid var(--txt3);
+  width:11px;height:11px;border:1px solid var(--txt3);
   flex-shrink:0;position:relative;transition:all 0.18s;
 }
 .cb.on{background:var(--burg);border-color:var(--burg)}
@@ -272,16 +281,16 @@ h1 em{font-style:normal;color:var(--burg3)}
   display:flex;align-items:center;justify-content:center;
   font-size:7px;color:#fff;font-weight:700;
 }
-.lbl{font-size:0.85rem;font-weight:300;color:var(--txt2);transition:color 0.15s}
-.cc{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--txt3)}
+.lbl{font-size:0.82rem;font-weight:300;color:var(--txt2);transition:color 0.15s}
+.cc{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--txt3)}
 
 /* Duration tabs */
-.dur{display:flex;border:1px solid var(--rule);overflow:hidden;margin-bottom:1rem}
+.dur{display:flex;border:1px solid var(--rule);overflow:hidden;margin-bottom:0.8rem}
 .dt{
   flex:1;font-family:'DM Mono',monospace;
-  font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;
+  font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;
   color:var(--txt3);background:transparent;border:none;
-  border-right:1px solid var(--rule);padding:0.55rem 0.2rem;
+  border-right:1px solid var(--rule);padding:0.5rem 0.2rem;
   cursor:pointer;transition:all 0.15s;text-align:center;
 }
 .dt:last-child{border-right:none}
@@ -303,7 +312,7 @@ input[type=range]::-webkit-slider-thumb{
   transition:transform 0.15s;
 }
 input[type=range]:hover::-webkit-slider-thumb{transform:scale(1.2)}
-.rv{display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--txt2)}
+.rv{display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:0.66rem;color:var(--txt2)}
 
 /* ═══ RESULTS ═══ */
 .results{padding:2rem 2.2rem;min-height:100vh}
@@ -359,137 +368,81 @@ input[type=range]:hover::-webkit-slider-thumb{transform:scale(1.2)}
 .sbar-t{font-size:0.82rem;color:var(--txt2)}
 .sbar-c{font-size:0.65rem;color:var(--burg3);background:none;border:none;cursor:pointer;text-decoration:underline}
 
-/* ═══ CARDS ═══ */
-.gym-list{display:flex;flex-direction:column;gap:1px;background:var(--rule)}
-
-.gym-card{
-  background:var(--bg2);display:flex;
-  cursor:pointer;position:relative;
-  transition:background 0.25s var(--ease),box-shadow 0.25s var(--ease);
-  overflow:hidden;
+/* ═══ CARDS — 3-column grid ═══ */
+.gym-list{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--rule);
 }
-/* Left burgundy accent line on hover */
-.gym-card::before{
-  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
-  background:var(--burg);transform:scaleY(0);transform-origin:bottom;
+.gym-card{
+  background:var(--bg2);display:flex;flex-direction:column;
+  cursor:pointer;position:relative;overflow:hidden;
+  transition:background 0.25s var(--ease);
+}
+.gym-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--burg);transform:scaleX(0);transform-origin:left;
   transition:transform 0.3s var(--ease);
 }
-.gym-card:hover{background:var(--bg3);box-shadow:0 8px 40px rgba(0,0,0,0.3)}
-.gym-card:hover::before{transform:scaleY(1)}
+.gym-card:hover{background:var(--bg3)}
+.gym-card:hover::after{transform:scaleX(1)}
 .gym-card.sel{outline:1px solid var(--burg)}
 
-/* Image */
-.ci{width:260px;flex-shrink:0;position:relative;overflow:hidden;min-height:260px}
+/* Image — 4:3 */
+.ci{width:100%;aspect-ratio:4/3;position:relative;overflow:hidden}
 .ci img{
   width:100%;height:100%;object-fit:cover;display:block;
-  filter:grayscale(40%) brightness(0.58);
+  filter:grayscale(40%) brightness(0.55);
   transition:filter 0.5s var(--ease),transform 0.6s var(--ease);
 }
-.gym-card:hover .ci img{filter:grayscale(0%) brightness(0.8);transform:scale(1.06)}
-
-.bdgs{position:absolute;top:0.8rem;left:0.8rem;display:flex;flex-direction:column;gap:0.28rem;pointer-events:none}
-.bdg{font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.14em;text-transform:uppercase;padding:0.18rem 0.6rem;display:inline-block}
-.bd{background:rgba(13,13,20,0.9);color:var(--txt2);border:1px solid rgba(255,255,255,0.1)}
-.bw{background:rgba(85,0,0,0.9);color:#FFAAAA;border:1px solid var(--burg)}
-.bb{background:rgba(0,60,30,0.9);color:#66FFAA;border:1px solid #004020}
-.bn{background:rgba(80,50,0,0.9);color:#FFCC66;border:1px solid #503200}
-
-.cflag{position:absolute;top:0.8rem;right:0.8rem;font-size:1.1rem;background:rgba(13,13,20,0.85);padding:0.12rem 0.3rem;border:1px solid var(--rule)}
-
-/* Action buttons (fav + compare) */
-.cacts{position:absolute;bottom:0.8rem;right:0.8rem;display:flex;gap:0.35rem;opacity:0;transition:opacity 0.2s var(--ease)}
+.gym-card:hover .ci img{filter:grayscale(5%) brightness(0.78);transform:scale(1.06)}
+.bdgs{position:absolute;top:0.65rem;left:0.65rem;display:flex;flex-direction:column;gap:0.22rem;pointer-events:none}
+.bdg{font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.14em;text-transform:uppercase;padding:0.15rem 0.5rem;display:inline-block}
+.bd{background:rgba(13,13,20,0.92);color:var(--txt2);border:1px solid rgba(255,255,255,0.1)}
+.bw{background:rgba(85,0,0,0.92);color:#FFAAAA;border:1px solid var(--burg)}
+.bb{background:rgba(0,60,30,0.92);color:#66FFAA;border:1px solid #004020}
+.bn{background:rgba(80,50,0,0.92);color:#FFCC66;border:1px solid #503200}
+/* Fav+compare — fade in on hover */
+.cacts{position:absolute;bottom:0.65rem;right:0.65rem;display:flex;gap:0.3rem;opacity:0;transition:opacity 0.2s var(--ease)}
 .gym-card:hover .cacts{opacity:1}
-.cact{
-  width:28px;height:28px;
-  background:rgba(13,13,20,0.9);border:1px solid rgba(255,255,255,0.12);
-  display:flex;align-items:center;justify-content:center;
-  font-size:0.72rem;color:var(--txt3);
-  transition:all 0.18s;cursor:pointer;
-}
+.cact{width:24px;height:24px;background:rgba(13,13,20,0.9);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:var(--txt3);transition:all 0.18s;cursor:pointer}
 .cact:hover{border-color:var(--burg3);color:var(--burg3)}
 .cact.fav.on{color:#FFD700;border-color:#FFD700;background:rgba(255,215,0,0.1)}
 .cact.cmp.on{background:var(--burg);border-color:var(--burg);color:#fff}
 
 /* Card body */
-.cb2{padding:1.6rem 1.8rem;display:flex;flex-direction:column;flex:1}
-.ctop{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.8rem}
-.gloc{
-  font-family:'DM Mono',monospace;font-size:0.6rem;
-  letter-spacing:0.16em;text-transform:uppercase;
-  color:var(--burg3);display:block;margin-bottom:0.38rem;
-}
-.gname{
-  font-family:'Racing Sans One',sans-serif;
-  font-size:1.55rem;letter-spacing:0.03em;
-  color:#fff;line-height:1;display:block;
-  transition:color 0.2s;
-}
-.gym-card:hover .gname{color:#fff}
-.gweb{
-  font-size:0.75rem;color:var(--txt3);display:block;
-  margin-top:0.3rem;font-weight:300;
-  transition:color 0.2s;
-}
-.gweb:hover{color:var(--burg3)}
-
+.cb2{padding:0.9rem 1rem 0.9rem;display:flex;flex-direction:column;flex:1}
+/* Top: location + flag / rating */
+.ctop{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.45rem}
+.c-left{flex:1;min-width:0;padding-right:0.5rem}
+.gloc{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--burg3);display:block;margin-bottom:0.25rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gname-row{display:flex;align-items:center;gap:0.45rem;margin-bottom:0.35rem}
+.gname{font-family:'Racing Sans One',sans-serif;font-size:1.1rem;letter-spacing:0.03em;color:#fff;line-height:1.05;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1}
+.gflag{font-size:0.95rem;flex-shrink:0;line-height:1}
 .rbox{text-align:right;flex-shrink:0}
-.rnum{font-family:'Racing Sans One',sans-serif;font-size:1.65rem;color:#fff;line-height:1;display:block}
-.rstars{color:var(--burg3);font-size:0.72rem;letter-spacing:-1px;display:block}
-.rct{font-family:'DM Mono',monospace;font-size:0.56rem;color:var(--txt3);display:block}
-
+.rnum{font-family:'Racing Sans One',sans-serif;font-size:1.25rem;color:#fff;line-height:1;display:block}
+.rstars{color:var(--burg3);font-size:0.58rem;letter-spacing:-1px;display:block;margin-top:0.1rem}
+.rct{font-family:'DM Mono',monospace;font-size:0.5rem;color:var(--txt3);display:block}
 /* Tags */
-.gtags{display:flex;gap:0.3rem;flex-wrap:wrap;margin:0.7rem 0 0.9rem}
-.gtag{
-  font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--txt3);border:1px solid var(--rule);
-  padding:0.16rem 0.5rem;
-  transition:all 0.18s;
-}
-.gym-card:hover .gtag{border-color:rgba(255,255,255,0.12)}
-
-/* Price table */
-.ptbl{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:1px;background:var(--rule);
-  border:1px solid var(--rule);margin:0.8rem 0;
-}
-.pc{background:var(--bg);padding:0.7rem 0.5rem;text-align:center;transition:background 0.2s}
-.gym-card:hover .pc{background:rgba(13,13,20,0.8)}
-.pl{font-family:'DM Mono',monospace;font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--txt3);display:block;margin-bottom:0.3rem}
-.pv{font-family:'Racing Sans One',sans-serif;font-size:1.05rem;color:#fff;line-height:1;display:block}
-.pu{font-size:0.56rem;color:var(--txt3);display:block;margin-top:0.1rem}
-
-/* Quick info */
-.qi-row{display:flex;gap:1rem;margin:0.7rem 0;flex-wrap:wrap}
-.qi{font-size:0.8rem;color:var(--txt2);display:flex;align-items:center;gap:0.35rem}
-.qi.g{color:#55CC88}
-.qi.r{color:#FF9999}
-
-/* Card footer */
-.cfoot{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-top:auto;padding-top:1rem;
-  border-top:1px solid var(--rule2);
-}
-.cmeta{display:flex;gap:0.7rem}
-.cm{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--txt3)}
-.cm span{color:var(--txt2)}
-.cbts{display:flex;gap:0.4rem}
-
-.btn-map{
-  font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--txt2);background:transparent;
-  border:1px solid var(--rule);padding:0.45rem 0.85rem;
-  transition:all 0.2s;display:flex;align-items:center;gap:0.4rem;
-  cursor:pointer;
-}
+.gtags{display:flex;gap:0.25rem;overflow:hidden;margin:0.45rem 0 0.6rem}
+.gtag{font-size:0.54rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--txt3);border:1px solid var(--rule);padding:0.12rem 0.42rem;white-space:nowrap;flex-shrink:0}
+/* Price single line */
+.price-row{display:flex;align-items:baseline;gap:0.4rem;margin-bottom:0.55rem}
+.price-from{font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--txt3)}
+.price-val{font-family:'Racing Sans One',sans-serif;font-size:1.25rem;color:#fff;line-height:1}
+.price-unit{font-size:0.6rem;color:var(--txt3);font-weight:300}
+/* Chips */
+.chips{display:flex;gap:0.28rem;flex-wrap:wrap;margin-bottom:0.5rem}
+.chip{font-size:0.56rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--txt3);background:var(--bg);border:1px solid var(--rule);padding:0.1rem 0.42rem}
+.chip.g{color:#55CC88;border-color:rgba(85,204,136,0.2)}
+.chip.r{color:#FF9999;border-color:rgba(255,153,153,0.2)}
+/* Footer */
+.cfoot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:0.7rem;border-top:1px solid var(--rule2)}
+.gweb{font-size:0.6rem;color:var(--txt3);font-weight:300;transition:color 0.2s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:120px}
+.gweb:hover{color:var(--burg3)}
+.cbts{display:flex;gap:0.3rem}
+.btn-map{font-size:0.58rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--txt3);background:transparent;border:1px solid var(--rule);padding:0.35rem 0.6rem;transition:all 0.2s;display:flex;align-items:center;gap:0.3rem;cursor:pointer}
 .btn-map:hover{border-color:var(--burg);color:var(--burg3)}
-.btn-view{
-  font-family:'Racing Sans One',sans-serif;font-size:0.88rem;
-  letter-spacing:0.04em;background:var(--burg);color:#fff;
-  border:none;padding:0.48rem 1.4rem;
-  transition:background 0.2s;cursor:pointer;
-}
+.btn-view{font-family:'Racing Sans One',sans-serif;font-size:0.78rem;letter-spacing:0.04em;background:var(--burg);color:#fff;border:none;padding:0.38rem 0.9rem;transition:background 0.2s;cursor:pointer}
 .btn-view:hover{background:var(--burg2)}
 
 /* ═══ MAP PANEL ═══ */
@@ -663,7 +616,7 @@ footer{
   nav{padding:0 1.2rem}.nav-links{display:none}
   .hero{padding:6.5rem 1.2rem 3rem}
   .results{padding:1.2rem 1rem}
-  .gym-card{flex-direction:column}.ci{width:100%;height:200px}
+  .gym-list{grid-template-columns:1fr}
   .ftg{grid-template-columns:1fr 1fr;gap:2rem}
   .search-bar{flex-direction:column}
   .search-bar select{border-right:none;border-bottom:1px solid var(--rule)}
@@ -740,53 +693,75 @@ footer{
   <aside class="sidebar">
     <div class="sb-head"><span>Filter</span><button class="sb-clear" onclick="clearAll()">Clear all</button></div>
 
-    <div class="fg"><span class="fgt">Region</span>
-      <div class="cr" onclick="tf(this,'asia')"><div class="cl"><div class="cb"></div><span class="lbl">🌏 Asia</span></div><span class="cc">380</span></div>
-      <div class="cr" onclick="tf(this,'europe')"><div class="cl"><div class="cb"></div><span class="lbl">🌍 Europe</span></div><span class="cc">120</span></div>
-    </div>
-
-    <div class="fg"><span class="fgt">Country</span>
-      <div class="cr" onclick="tf(this,'thailand')"><div class="cl"><div class="cb"></div><span class="lbl">🇹🇭 Thailand</span></div><span class="cc">300</span></div>
-      <div class="cr" onclick="tf(this,'uk')"><div class="cl"><div class="cb"></div><span class="lbl">🇬🇧 United Kingdom</span></div><span class="cc">120</span></div>
-      <div class="cr" onclick="tf(this,'south-korea')"><div class="cl"><div class="cb"></div><span class="lbl">🇰🇷 South Korea</span></div><span class="cc">80</span></div>
-    </div>
-
-    <div class="fg"><span class="fgt">Duration</span>
-      <div class="dur">
-        <button class="dt on" onclick="setDur('day',this)">1 Day</button>
-        <button class="dt" onclick="setDur('week',this)">1 Wk</button>
-        <button class="dt" onclick="setDur('month',this)">1 Mo</button>
-        <button class="dt" onclick="setDur('3month',this)">3 Mo</button>
+    <div class="fg">
+      <div class="fg-head" onclick="toggleFg(this)"><span class="fgt">Region</span><span class="fg-arrow">▾</span></div>
+      <div class="fg-body">
+        <div class="cr" onclick="tf(this,'asia')"><div class="cl"><div class="cb"></div><span class="lbl">🌏 Asia</span></div><span class="cc">380</span></div>
+        <div class="cr" onclick="tf(this,'europe')"><div class="cl"><div class="cb"></div><span class="lbl">🌍 Europe</span></div><span class="cc">120</span></div>
       </div>
-      <div class="rt"><div class="rf" id="rf"></div>
-        <input type="range" id="pMin" min="0" max="3000" value="0" step="50" oninput="upP()">
-        <input type="range" id="pMax" min="0" max="3000" value="2500" step="50" oninput="upP()">
+    </div>
+
+    <div class="fg">
+      <div class="fg-head" onclick="toggleFg(this)"><span class="fgt">Country</span><span class="fg-arrow">▾</span></div>
+      <div class="fg-body">
+        <div class="cr" onclick="tf(this,'thailand')"><div class="cl"><div class="cb"></div><span class="lbl">🇹🇭 Thailand</span></div><span class="cc">300</span></div>
+        <div class="cr" onclick="tf(this,'uk')"><div class="cl"><div class="cb"></div><span class="lbl">🇬🇧 United Kingdom</span></div><span class="cc">120</span></div>
+        <div class="cr" onclick="tf(this,'south-korea')"><div class="cl"><div class="cb"></div><span class="lbl">🇰🇷 South Korea</span></div><span class="cc">80</span></div>
       </div>
-      <div class="rv"><span id="pvMin">฿0</span><span id="pvMax">฿2,500</span></div>
     </div>
 
-    <div class="fg"><span class="fgt">Discipline</span>
-      <div class="cr" onclick="tf(this,'muay-thai')"><div class="cl"><div class="cb"></div><span class="lbl">Muay Thai</span></div><span class="cc">248</span></div>
-      <div class="cr" onclick="tf(this,'boxing')"><div class="cl"><div class="cb"></div><span class="lbl">Boxing</span></div><span class="cc">182</span></div>
-      <div class="cr" onclick="tf(this,'mma')"><div class="cl"><div class="cb"></div><span class="lbl">MMA</span></div><span class="cc">144</span></div>
-      <div class="cr" onclick="tf(this,'bjj')"><div class="cl"><div class="cb"></div><span class="lbl">BJJ / Grappling</span></div><span class="cc">98</span></div>
+    <div class="fg">
+      <div class="fg-head" onclick="toggleFg(this)"><span class="fgt">Duration</span><span class="fg-arrow">▾</span></div>
+      <div class="fg-body">
+        <div class="dur">
+          <button class="dt on" onclick="setDur('day',this)">1 Day</button>
+          <button class="dt" onclick="setDur('week',this)">1 Wk</button>
+          <button class="dt" onclick="setDur('month',this)">1 Mo</button>
+          <button class="dt" onclick="setDur('3month',this)">3 Mo</button>
+        </div>
+        <div class="rt"><div class="rf" id="rf"></div>
+          <input type="range" id="pMin" min="0" max="3000" value="0" step="50" oninput="upP()">
+          <input type="range" id="pMax" min="0" max="3000" value="2500" step="50" oninput="upP()">
+        </div>
+        <div class="rv"><span id="pvMin">฿0</span><span id="pvMax">฿2,500</span></div>
+      </div>
     </div>
 
-    <div class="fg"><span class="fgt">Level</span>
-      <div class="cr" onclick="tf(this,'beginner')"><div class="cl"><div class="cb"></div><span class="lbl">Beginner Friendly</span></div><span class="cc">224</span></div>
-      <div class="cr" onclick="tf(this,'intermediate')"><div class="cl"><div class="cb"></div><span class="lbl">Intermediate</span></div><span class="cc">278</span></div>
-      <div class="cr" onclick="tf(this,'advanced')"><div class="cl"><div class="cb"></div><span class="lbl">Advanced / Pro</span></div><span class="cc">188</span></div>
+    <div class="fg">
+      <div class="fg-head" onclick="toggleFg(this)"><span class="fgt">Discipline</span><span class="fg-arrow">▾</span></div>
+      <div class="fg-body">
+        <div class="cr" onclick="tf(this,'muay-thai')"><div class="cl"><div class="cb"></div><span class="lbl">Muay Thai</span></div><span class="cc">248</span></div>
+        <div class="cr" onclick="tf(this,'boxing')"><div class="cl"><div class="cb"></div><span class="lbl">Boxing</span></div><span class="cc">182</span></div>
+        <div class="cr" onclick="tf(this,'mma')"><div class="cl"><div class="cb"></div><span class="lbl">MMA</span></div><span class="cc">144</span></div>
+        <div class="cr" onclick="tf(this,'bjj')"><div class="cl"><div class="cb"></div><span class="lbl">BJJ / Grappling</span></div><span class="cc">98</span></div>
+      </div>
     </div>
 
-    <div class="fg"><span class="fgt">Accommodation</span>
-      <div class="cr" onclick="tf(this,'accom')"><div class="cl"><div class="cb"></div><span class="lbl">Includes Accommodation</span></div><span class="cc">182</span></div>
-      <div class="cr" onclick="tf(this,'private-room')"><div class="cl"><div class="cb"></div><span class="lbl">Private Room</span></div><span class="cc">148</span></div>
-      <div class="cr" onclick="tf(this,'pool')"><div class="cl"><div class="cb"></div><span class="lbl">Swimming Pool</span></div><span class="cc">112</span></div>
-      <div class="cr" onclick="tf(this,'meals')"><div class="cl"><div class="cb"></div><span class="lbl">Meals Included</span></div><span class="cc">68</span></div>
+    <div class="fg">
+      <div class="fg-head" onclick="toggleFg(this)"><span class="fgt">Level</span><span class="fg-arrow">▾</span></div>
+      <div class="fg-body">
+        <div class="cr" onclick="tf(this,'beginner')"><div class="cl"><div class="cb"></div><span class="lbl">Beginner Friendly</span></div><span class="cc">224</span></div>
+        <div class="cr" onclick="tf(this,'intermediate')"><div class="cl"><div class="cb"></div><span class="lbl">Intermediate</span></div><span class="cc">278</span></div>
+        <div class="cr" onclick="tf(this,'advanced')"><div class="cl"><div class="cb"></div><span class="lbl">Advanced / Pro</span></div><span class="cc">188</span></div>
+      </div>
     </div>
 
-    <div class="fg"><span class="fgt">Training</span>
-      <div class="cr" onclick="tf(this,'private-training')"><div class="cl"><div class="cb"></div><span class="lbl">Private Training</span></div><span class="cc">318</span></div>
+    <div class="fg">
+      <div class="fg-head" onclick="toggleFg(this)"><span class="fgt">Accommodation</span><span class="fg-arrow">▾</span></div>
+      <div class="fg-body">
+        <div class="cr" onclick="tf(this,'accom')"><div class="cl"><div class="cb"></div><span class="lbl">Includes Accommodation</span></div><span class="cc">182</span></div>
+        <div class="cr" onclick="tf(this,'private-room')"><div class="cl"><div class="cb"></div><span class="lbl">Private Room</span></div><span class="cc">148</span></div>
+        <div class="cr" onclick="tf(this,'pool')"><div class="cl"><div class="cb"></div><span class="lbl">Swimming Pool</span></div><span class="cc">112</span></div>
+        <div class="cr" onclick="tf(this,'meals')"><div class="cl"><div class="cb"></div><span class="lbl">Meals Included</span></div><span class="cc">68</span></div>
+      </div>
+    </div>
+
+    <div class="fg">
+      <div class="fg-head" onclick="toggleFg(this)"><span class="fgt">Training</span><span class="fg-arrow">▾</span></div>
+      <div class="fg-body">
+        <div class="cr" onclick="tf(this,'private-training')"><div class="cl"><div class="cb"></div><span class="lbl">Private Training</span></div><span class="cc">318</span></div>
+        <div class="cr" onclick="tf(this,'women')"><div class="cl"><div class="cb"></div><span class="lbl">Women-Friendly</span></div><span class="cc">148</span></div>
+      </div>
     </div>
   </aside>
 
@@ -810,13 +785,12 @@ footer{
     </div>
 
     <div class="gym-list" id="gymList">
+      <!-- TIGER -->
 
-      <!-- CARD 1 — Tiger -->
       <div class="gym-card" data-tags="muay-thai mma bjj thailand asia phuket accom women beginner intermediate private-training pool" onclick="openCamp('tiger')">
         <div class="ci">
           <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=700&q=80" alt="Tiger Muay Thai" loading="lazy">
-          <div class="bdgs"><span class="bdg bd">#1 Rated</span><span class="bdg bw">♀ Women-Friendly</span><span class="bdg bb">Beginner OK</span></div>
-          <span class="cflag">🇹🇭</span>
+          <div class="bdgs"><span class="bdg bd">#1 Rated</span><span class="bdg bw">♀ Women</span><span class="bdg bb">Beginner</span></div>
           <div class="cacts">
             <button class="cact fav" onclick="saveCamp(this,'tiger',event)" title="Save">♡</button>
             <button class="cact cmp" onclick="tCmp(this,event)" title="Compare">⊕</button>
@@ -824,221 +798,354 @@ footer{
         </div>
         <div class="cb2">
           <div class="ctop">
-            <div><span class="gloc">📍 Chalong, Phuket · Thailand</span><span class="gname">Tiger Muay Thai</span><a class="gweb" href="https://tigermuaythai.com" target="_blank" onclick="event.stopPropagation()">🔗 tigermuaythai.com</a></div>
-            <div class="rbox"><span class="rnum">9.4</span><span class="rstars">★★★★★</span><span class="rct">1,240 reviews</span></div>
+            <div class="c-left">
+              <span class="gloc">Chalong, Phuket</span>
+              <div class="gname-row">
+                <span class="gname">Tiger Muay Thai</span>
+                <span class="gflag">🇹🇭</span>
+              </div>
+            </div>
+            <div class="rbox">
+              <span class="rnum">9.4</span>
+              <span class="rstars">★★★★★</span>
+              <span class="rct">1,240 rev.</span>
+            </div>
           </div>
-          <div class="gtags"><span class="gtag">Muay Thai</span><span class="gtag">MMA</span><span class="gtag">BJJ</span><span class="gtag">Boxing</span></div>
-          <div class="ptbl">
-            <div class="pc"><span class="pl">1 Day</span><span class="pv" data-p="900,6300,24000,63000">฿900</span><span class="pu">group</span></div>
-            <div class="pc"><span class="pl">1 Week</span><span class="pv" data-p="900,6300,24000,63000">฿6,300</span><span class="pu">group</span></div>
-            <div class="pc"><span class="pl">1 Month</span><span class="pv" data-p="900,6300,24000,63000">฿24,000</span><span class="pu">group</span></div>
-            <div class="pc"><span class="pl">Private/hr</span><span class="pv" data-pr="1500">฿1,500</span><span class="pu">1-on-1</span></div>
+          <div class="gtags"><span class="gtag">Muay Thai</span><span class="gtag">MMA</span><span class="gtag">BJJ</span></div>
+          <div class="price-row">
+            <span class="price-from">from</span>
+            <span class="price-val" data-p="900,6300,24000,63000">฿900</span>
+            <span class="price-unit">/ day</span>
           </div>
-          <div class="qi-row"><span class="qi g">✓ Beginner</span><span class="qi r">♀ Female Trainers</span><span class="qi">🏊 Pool</span><span class="qi">🛏 Accommodation</span></div>
+          <div class="chips"><span class="chip g">✓ Beginner</span><span class="chip r">♀ Trainers</span><span class="chip">🏊 Pool</span><span class="chip">🛏 Stay</span></div>
           <div class="cfoot">
-            <div class="cmeta"><span class="cm">Est. <span>2004</span></span><span class="cm">Trainers <span>40+</span></span></div>
-            <div class="cbts"><button class="btn-map" onclick="openMap('tiger',event)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/></svg> Map</button><button class="btn-view" onclick="openCamp('tiger',event)">View Camp</button></div>
+            <a class="gweb" href="https://tigermuaythai.com" target="_blank" onclick="event.stopPropagation()">🔗 tigermuaythai.com</a>
+            <div class="cbts">
+              <button class="btn-map" onclick="openMap('tiger',event)">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/></svg> Map
+              </button>
+              <button class="btn-view" onclick="openCamp('tiger',event)">View</button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- CARD 2 — Lanna -->
+      <!-- LANNA -->
+
       <div class="gym-card" data-tags="muay-thai boxing thailand asia chiang-mai accom women intermediate advanced private-training" onclick="openCamp('lanna')">
         <div class="ci">
           <img src="https://images.unsplash.com/photo-1615117972428-28de67cda58e?w=700&q=80" alt="Lanna Muay Thai" loading="lazy">
-          <div class="bdgs"><span class="bdg bd">Pro Camp</span><span class="bdg bw">♀ Women-Friendly</span></div>
-          <span class="cflag">🇹🇭</span>
-          <div class="cacts"><button class="cact fav" onclick="saveCamp(this,'lanna',event)" title="Save">♡</button><button class="cact cmp" onclick="tCmp(this,event)" title="Compare">⊕</button></div>
+          <div class="bdgs"><span class="bdg bd">Pro Camp</span><span class="bdg bw">♀ Women</span></div>
+          <div class="cacts">
+            <button class="cact fav" onclick="saveCamp(this,'lanna',event)" title="Save">♡</button>
+            <button class="cact cmp" onclick="tCmp(this,event)" title="Compare">⊕</button>
+          </div>
         </div>
         <div class="cb2">
           <div class="ctop">
-            <div><span class="gloc">📍 Chiang Mai · Thailand</span><span class="gname">Lanna Muay Thai</span><a class="gweb" href="https://lannamuaythai.com" target="_blank" onclick="event.stopPropagation()">🔗 lannamuaythai.com</a></div>
-            <div class="rbox"><span class="rnum">9.2</span><span class="rstars">★★★★★</span><span class="rct">876 reviews</span></div>
+            <div class="c-left">
+              <span class="gloc">Chiang Mai</span>
+              <div class="gname-row">
+                <span class="gname">Lanna Muay Thai</span>
+                <span class="gflag">🇹🇭</span>
+              </div>
+            </div>
+            <div class="rbox">
+              <span class="rnum">9.2</span>
+              <span class="rstars">★★★★★</span>
+              <span class="rct">876 rev.</span>
+            </div>
           </div>
-          <div class="gtags"><span class="gtag">Muay Thai</span><span class="gtag">Boxing</span><span class="gtag">Intermediate+</span></div>
-          <div class="ptbl">
-            <div class="pc"><span class="pl">1 Day</span><span class="pv" data-p="700,4900,18000,48000">฿700</span><span class="pu">group</span></div>
-            <div class="pc"><span class="pl">1 Week</span><span class="pv" data-p="700,4900,18000,48000">฿4,900</span><span class="pu">group</span></div>
-            <div class="pc"><span class="pl">1 Month</span><span class="pv" data-p="700,4900,18000,48000">฿18,000</span><span class="pu">group</span></div>
-            <div class="pc"><span class="pl">Private/hr</span><span class="pv" data-pr="1200">฿1,200</span><span class="pu">1-on-1</span></div>
+          <div class="gtags"><span class="gtag">Muay Thai</span><span class="gtag">Boxing</span></div>
+          <div class="price-row">
+            <span class="price-from">from</span>
+            <span class="price-val" data-p="700,4900,18000,48000">฿700</span>
+            <span class="price-unit">/ day</span>
           </div>
-          <div class="qi-row"><span class="qi r">♀ Women-Only Classes</span><span class="qi g">✓ Meals Included</span><span class="qi">🏔 Mountain</span></div>
+          <div class="chips"><span class="chip r">♀ Women-Only</span><span class="chip g">✓ Meals incl.</span><span class="chip">🏔 Mountain</span></div>
           <div class="cfoot">
-            <div class="cmeta"><span class="cm">Est. <span>1997</span></span><span class="cm">Trainers <span>18</span></span></div>
-            <div class="cbts"><button class="btn-map" onclick="openMap('lanna',event)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/></svg> Map</button><button class="btn-view" onclick="openCamp('lanna',event)">View Camp</button></div>
+            <a class="gweb" href="https://lannamuaythai.com" target="_blank" onclick="event.stopPropagation()">🔗 lannamuaythai.com</a>
+            <div class="cbts">
+              <button class="btn-map" onclick="openMap('lanna',event)">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/></svg> Map
+              </button>
+              <button class="btn-view" onclick="openCamp('lanna',event)">View</button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- CARD 3 — Evolve -->
+      <!-- EVOLVE -->
+
       <div class="gym-card" data-tags="mma boxing bjj thailand asia bangkok accom beginner intermediate advanced private-training pool" onclick="openCamp('evolve')">
         <div class="ci">
-          <img src="https://images.unsplash.com/photo-1549476464-37392f717541?w=700&q=80" alt="Evolve MMA" loading="lazy">
-          <div class="bdgs"><span class="bdg bd">World Class</span><span class="bdg bb">Beginner OK</span></div>
-          <span class="cflag">🇹🇭</span>
-          <div class="cacts"><button class="cact fav" onclick="saveCamp(this,'evolve',event)" title="Save">♡</button><button class="cact cmp" onclick="tCmp(this,event)" title="Compare">⊕</button></div>
+          <img src="https://images.unsplash.com/photo-1549476464-37392f717541?w=700&q=80" alt="Evolve MMA Bangkok" loading="lazy">
+          <div class="bdgs"><span class="bdg bd">World Class</span><span class="bdg bb">Beginner</span></div>
+          <div class="cacts">
+            <button class="cact fav" onclick="saveCamp(this,'evolve',event)" title="Save">♡</button>
+            <button class="cact cmp" onclick="tCmp(this,event)" title="Compare">⊕</button>
+          </div>
         </div>
         <div class="cb2">
           <div class="ctop">
-            <div><span class="gloc">📍 Sukhumvit, Bangkok · Thailand</span><span class="gname">Evolve MMA Bangkok</span><a class="gweb" href="https://evolve-mma.com" target="_blank" onclick="event.stopPropagation()">🔗 evolve-mma.com</a></div>
-            <div class="rbox"><span class="rnum">9.6</span><span class="rstars">★★★★★</span><span class="rct">2,100 reviews</span></div>
+            <div class="c-left">
+              <span class="gloc">Bangkok</span>
+              <div class="gname-row">
+                <span class="gname">Evolve MMA Bangkok</span>
+                <span class="gflag">🇹🇭</span>
+              </div>
+            </div>
+            <div class="rbox">
+              <span class="rnum">9.6</span>
+              <span class="rstars">★★★★★</span>
+              <span class="rct">2,100 rev.</span>
+            </div>
           </div>
-          <div class="gtags"><span class="gtag">MMA</span><span class="gtag">Boxing</span><span class="gtag">BJJ</span><span class="gtag">Muay Thai</span></div>
-          <div class="ptbl">
-            <div class="pc"><span class="pl">1 Day</span><span class="pv" data-p="1200,8400,30000,78000">฿1,200</span><span class="pu">group</span></div>
-            <div class="pc"><span class="pl">1 Week</span><span class="pv" data-p="1200,8400,30000,78000">฿8,400</span><span class="pu">group</span></div>
-            <div class="pc"><span class="pl">1 Month</span><span class="pv" data-p="1200,8400,30000,78000">฿30,000</span><span class="pu">group</span></div>
-            <div class="pc"><span class="pl">Private/hr</span><span class="pv" data-pr="2500">฿2,500</span><span class="pu">1-on-1</span></div>
+          <div class="gtags"><span class="gtag">MMA</span><span class="gtag">Boxing</span><span class="gtag">BJJ</span></div>
+          <div class="price-row">
+            <span class="price-from">from</span>
+            <span class="price-val" data-p="1200,8400,30000,78000">฿1,200</span>
+            <span class="price-unit">/ day</span>
           </div>
-          <div class="qi-row"><span class="qi g">✓ Beginner</span><span class="qi">🏊 Rooftop Pool</span><span class="qi">3+ sessions/day</span></div>
+          <div class="chips"><span class="chip g">✓ Beginner</span><span class="chip">🏊 Pool</span><span class="chip">3+ sessions</span></div>
           <div class="cfoot">
-            <div class="cmeta"><span class="cm">Est. <span>2009</span></span><span class="cm">Trainers <span>60+</span></span></div>
-            <div class="cbts"><button class="btn-map" onclick="openMap('evolve',event)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/></svg> Map</button><button class="btn-view" onclick="openCamp('evolve',event)">View Camp</button></div>
+            <a class="gweb" href="https://evolve-mma.com" target="_blank" onclick="event.stopPropagation()">🔗 evolve-mma.com</a>
+            <div class="cbts">
+              <button class="btn-map" onclick="openMap('evolve',event)">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/></svg> Map
+              </button>
+              <button class="btn-view" onclick="openCamp('evolve',event)">View</button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- CARD 4 — UK London -->
+      <!-- UNIT 1 LONDON -->
+
       <div class="gym-card" data-tags="boxing muay-thai uk europe london beginner intermediate private-training women" onclick="openCamp('ub')">
         <div class="ci">
           <img src="https://images.unsplash.com/photo-1517438984742-1262db08379e?w=700&q=80" alt="Unit 1 Muay Thai" loading="lazy">
-          <div class="bdgs"><span class="bdg bd">UK #1</span><span class="bdg bw">♀ Women-Friendly</span><span class="bdg bb">Beginner OK</span></div>
-          <span class="cflag">🇬🇧</span>
-          <div class="cacts"><button class="cact fav" onclick="saveCamp(this,'ub',event)" title="Save">♡</button><button class="cact cmp" onclick="tCmp(this,event)" title="Compare">⊕</button></div>
+          <div class="bdgs"><span class="bdg bd">UK #1</span><span class="bdg bw">♀ Women</span><span class="bdg bb">Beginner</span></div>
+          <div class="cacts">
+            <button class="cact fav" onclick="saveCamp(this,'ub',event)" title="Save">♡</button>
+            <button class="cact cmp" onclick="tCmp(this,event)" title="Compare">⊕</button>
+          </div>
         </div>
         <div class="cb2">
           <div class="ctop">
-            <div><span class="gloc">📍 Bethnal Green, London · UK</span><span class="gname">Unit 1 Muay Thai</span><a class="gweb" href="https://unit1muaythai.co.uk" target="_blank" onclick="event.stopPropagation()">🔗 unit1muaythai.co.uk</a></div>
-            <div class="rbox"><span class="rnum">9.1</span><span class="rstars">★★★★★</span><span class="rct">624 reviews</span></div>
+            <div class="c-left">
+              <span class="gloc">Bethnal Green, London</span>
+              <div class="gname-row">
+                <span class="gname">Unit 1 Muay Thai</span>
+                <span class="gflag">🇬🇧</span>
+              </div>
+            </div>
+            <div class="rbox">
+              <span class="rnum">9.1</span>
+              <span class="rstars">★★★★★</span>
+              <span class="rct">624 rev.</span>
+            </div>
           </div>
-          <div class="gtags"><span class="gtag">Muay Thai</span><span class="gtag">Boxing</span><span class="gtag">All Levels</span></div>
-          <div class="ptbl">
-            <div class="pc"><span class="pl">1 Day</span><span class="pv" data-p="2800,15000,50000,140000">฿2,800</span><span class="pu">drop-in</span></div>
-            <div class="pc"><span class="pl">1 Week</span><span class="pv" data-p="2800,15000,50000,140000">฿15,000</span><span class="pu">unlimited</span></div>
-            <div class="pc"><span class="pl">1 Month</span><span class="pv" data-p="2800,15000,50000,140000">฿50,000</span><span class="pu">unlimited</span></div>
-            <div class="pc"><span class="pl">Private/hr</span><span class="pv" data-pr="5500">฿5,500</span><span class="pu">1-on-1</span></div>
+          <div class="gtags"><span class="gtag">Muay Thai</span><span class="gtag">Boxing</span></div>
+          <div class="price-row">
+            <span class="price-from">from</span>
+            <span class="price-val" data-p="2800,15000,50000,140000">฿2,800</span>
+            <span class="price-unit">/ day</span>
           </div>
-          <div class="qi-row"><span class="qi g">✓ Beginner</span><span class="qi r">♀ Female Trainers</span><span class="qi">🏙 Central London</span></div>
+          <div class="chips"><span class="chip g">✓ Beginner</span><span class="chip r">♀ Trainers</span><span class="chip">🏙 London</span></div>
           <div class="cfoot">
-            <div class="cmeta"><span class="cm">Est. <span>2012</span></span><span class="cm">Trainers <span>15</span></span></div>
-            <div class="cbts"><button class="btn-map" onclick="openMap('ub',event)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/></svg> Map</button><button class="btn-view" onclick="openCamp('ub',event)">View Camp</button></div>
+            <a class="gweb" href="https://unit1muaythai.co.uk" target="_blank" onclick="event.stopPropagation()">🔗 unit1muaythai.co.uk</a>
+            <div class="cbts">
+              <button class="btn-map" onclick="openMap('ub',event)">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/></svg> Map
+              </button>
+              <button class="btn-view" onclick="openCamp('ub',event)">View</button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- CARD 5 — UK Manchester -->
+      <!-- TRILOGY MANCHESTER -->
+
       <div class="gym-card" data-tags="bjj mma boxing uk europe manchester beginner intermediate private-training" onclick="openCamp('mcr')">
         <div class="ci">
           <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=700&q=80" alt="Trilogy MMA" loading="lazy">
           <div class="bdgs"><span class="bdg bd">Top Rated UK</span><span class="bdg bn">Trending</span></div>
-          <span class="cflag">🇬🇧</span>
-          <div class="cacts"><button class="cact fav" onclick="saveCamp(this,'mcr',event)" title="Save">♡</button><button class="cact cmp" onclick="tCmp(this,event)" title="Compare">⊕</button></div>
+          <div class="cacts">
+            <button class="cact fav" onclick="saveCamp(this,'mcr',event)" title="Save">♡</button>
+            <button class="cact cmp" onclick="tCmp(this,event)" title="Compare">⊕</button>
+          </div>
         </div>
         <div class="cb2">
           <div class="ctop">
-            <div><span class="gloc">📍 Deansgate, Manchester · UK</span><span class="gname">Trilogy MMA</span><a class="gweb" href="https://trilogymma.co.uk" target="_blank" onclick="event.stopPropagation()">🔗 trilogymma.co.uk</a></div>
-            <div class="rbox"><span class="rnum">8.9</span><span class="rstars">★★★★☆</span><span class="rct">412 reviews</span></div>
+            <div class="c-left">
+              <span class="gloc">Deansgate, Manchester</span>
+              <div class="gname-row">
+                <span class="gname">Trilogy MMA</span>
+                <span class="gflag">🇬🇧</span>
+              </div>
+            </div>
+            <div class="rbox">
+              <span class="rnum">8.9</span>
+              <span class="rstars">★★★★☆</span>
+              <span class="rct">412 rev.</span>
+            </div>
           </div>
-          <div class="gtags"><span class="gtag">BJJ</span><span class="gtag">MMA</span><span class="gtag">Boxing</span><span class="gtag">Kickboxing</span></div>
-          <div class="ptbl">
-            <div class="pc"><span class="pl">1 Day</span><span class="pv" data-p="2200,12000,40000,110000">฿2,200</span><span class="pu">drop-in</span></div>
-            <div class="pc"><span class="pl">1 Week</span><span class="pv" data-p="2200,12000,40000,110000">฿12,000</span><span class="pu">unlimited</span></div>
-            <div class="pc"><span class="pl">1 Month</span><span class="pv" data-p="2200,12000,40000,110000">฿40,000</span><span class="pu">unlimited</span></div>
-            <div class="pc"><span class="pl">Private/hr</span><span class="pv" data-pr="4500">฿4,500</span><span class="pu">1-on-1</span></div>
+          <div class="gtags"><span class="gtag">BJJ</span><span class="gtag">MMA</span><span class="gtag">Boxing</span></div>
+          <div class="price-row">
+            <span class="price-from">from</span>
+            <span class="price-val" data-p="2200,12000,40000,110000">฿2,200</span>
+            <span class="price-unit">/ day</span>
           </div>
-          <div class="qi-row"><span class="qi g">✓ IBJJF Affiliated</span><span class="qi g">✓ Beginner</span><span class="qi">🏙 City Centre</span></div>
+          <div class="chips"><span class="chip g">✓ IBJJF</span><span class="chip g">✓ Beginner</span><span class="chip">🏙 Manchester</span></div>
           <div class="cfoot">
-            <div class="cmeta"><span class="cm">Est. <span>2015</span></span><span class="cm">Trainers <span>12</span></span></div>
-            <div class="cbts"><button class="btn-map" onclick="openMap('mcr',event)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/></svg> Map</button><button class="btn-view" onclick="openCamp('mcr',event)">View Camp</button></div>
+            <a class="gweb" href="https://trilogymma.co.uk" target="_blank" onclick="event.stopPropagation()">🔗 trilogymma.co.uk</a>
+            <div class="cbts">
+              <button class="btn-map" onclick="openMap('mcr',event)">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/></svg> Map
+              </button>
+              <button class="btn-view" onclick="openCamp('mcr',event)">View</button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- CARD 6 — Seoul -->
+      <!-- SEOUL -->
+
       <div class="gym-card" data-tags="mma muay-thai boxing south-korea asia seoul beginner intermediate private-training" onclick="openCamp('seoul')">
         <div class="ci">
           <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?w=700&q=80" alt="Seoul Fight Lab" loading="lazy">
-          <div class="bdgs"><span class="bdg bd">Korea #1</span><span class="bdg bb">Beginner OK</span></div>
-          <span class="cflag">🇰🇷</span>
-          <div class="cacts"><button class="cact fav" onclick="saveCamp(this,'seoul',event)" title="Save">♡</button><button class="cact cmp" onclick="tCmp(this,event)" title="Compare">⊕</button></div>
+          <div class="bdgs"><span class="bdg bd">Korea #1</span><span class="bdg bb">Beginner</span></div>
+          <div class="cacts">
+            <button class="cact fav" onclick="saveCamp(this,'seoul',event)" title="Save">♡</button>
+            <button class="cact cmp" onclick="tCmp(this,event)" title="Compare">⊕</button>
+          </div>
         </div>
         <div class="cb2">
           <div class="ctop">
-            <div><span class="gloc">📍 Gangnam, Seoul · South Korea</span><span class="gname">Seoul Fight Lab</span><a class="gweb" href="https://seoulfightlab.com" target="_blank" onclick="event.stopPropagation()">🔗 seoulfightlab.com</a></div>
-            <div class="rbox"><span class="rnum">8.8</span><span class="rstars">★★★★☆</span><span class="rct">318 reviews</span></div>
+            <div class="c-left">
+              <span class="gloc">Gangnam, Seoul</span>
+              <div class="gname-row">
+                <span class="gname">Seoul Fight Lab</span>
+                <span class="gflag">🇰🇷</span>
+              </div>
+            </div>
+            <div class="rbox">
+              <span class="rnum">8.8</span>
+              <span class="rstars">★★★★☆</span>
+              <span class="rct">318 rev.</span>
+            </div>
           </div>
-          <div class="gtags"><span class="gtag">MMA</span><span class="gtag">Muay Thai</span><span class="gtag">Boxing</span></div>
-          <div class="ptbl">
-            <div class="pc"><span class="pl">1 Day</span><span class="pv" data-p="3800,22000,75000,200000">฿3,800</span><span class="pu">drop-in</span></div>
-            <div class="pc"><span class="pl">1 Week</span><span class="pv" data-p="3800,22000,75000,200000">฿22,000</span><span class="pu">unlimited</span></div>
-            <div class="pc"><span class="pl">1 Month</span><span class="pv" data-p="3800,22000,75000,200000">฿75,000</span><span class="pu">unlimited</span></div>
-            <div class="pc"><span class="pl">Private/hr</span><span class="pv" data-pr="8000">฿8,000</span><span class="pu">1-on-1</span></div>
+          <div class="gtags"><span class="gtag">MMA</span><span class="gtag">Muay Thai</span></div>
+          <div class="price-row">
+            <span class="price-from">from</span>
+            <span class="price-val" data-p="3800,22000,75000,200000">฿3,800</span>
+            <span class="price-unit">/ day</span>
           </div>
-          <div class="qi-row"><span class="qi g">✓ Beginner</span><span class="qi">🏙 Gangnam</span><span class="qi">English Coaching</span></div>
+          <div class="chips"><span class="chip g">✓ Beginner</span><span class="chip">🏙 Gangnam</span><span class="chip">EN Coaching</span></div>
           <div class="cfoot">
-            <div class="cmeta"><span class="cm">Est. <span>2016</span></span><span class="cm">Trainers <span>8</span></span></div>
-            <div class="cbts"><button class="btn-map" onclick="openMap('seoul',event)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/></svg> Map</button><button class="btn-view" onclick="openCamp('seoul',event)">View Camp</button></div>
+            <a class="gweb" href="https://seoulfightlab.com" target="_blank" onclick="event.stopPropagation()">🔗 seoulfightlab.com</a>
+            <div class="cbts">
+              <button class="btn-map" onclick="openMap('seoul',event)">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/></svg> Map
+              </button>
+              <button class="btn-view" onclick="openCamp('seoul',event)">View</button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- CARD 7 — Busan -->
+      <!-- BUSAN -->
+
       <div class="gym-card" data-tags="bjj muay-thai south-korea asia busan intermediate advanced private-training women" onclick="openCamp('busan')">
         <div class="ci">
           <img src="https://images.unsplash.com/photo-1549476464-37392f717541?w=700&q=80" alt="Busan Combat Club" loading="lazy">
-          <div class="bdgs"><span class="bdg bd">Busan's Best</span><span class="bdg bw">♀ Women-Friendly</span></div>
-          <span class="cflag">🇰🇷</span>
-          <div class="cacts"><button class="cact fav" onclick="saveCamp(this,'busan',event)" title="Save">♡</button><button class="cact cmp" onclick="tCmp(this,event)" title="Compare">⊕</button></div>
+          <div class="bdgs"><span class="bdg bd">Busan's Best</span><span class="bdg bw">♀ Women</span></div>
+          <div class="cacts">
+            <button class="cact fav" onclick="saveCamp(this,'busan',event)" title="Save">♡</button>
+            <button class="cact cmp" onclick="tCmp(this,event)" title="Compare">⊕</button>
+          </div>
         </div>
         <div class="cb2">
           <div class="ctop">
-            <div><span class="gloc">📍 Haeundae, Busan · South Korea</span><span class="gname">Busan Combat Club</span><a class="gweb" href="https://busancombat.com" target="_blank" onclick="event.stopPropagation()">🔗 busancombat.com</a></div>
-            <div class="rbox"><span class="rnum">8.7</span><span class="rstars">★★★★☆</span><span class="rct">224 reviews</span></div>
+            <div class="c-left">
+              <span class="gloc">Haeundae, Busan</span>
+              <div class="gname-row">
+                <span class="gname">Busan Combat Club</span>
+                <span class="gflag">🇰🇷</span>
+              </div>
+            </div>
+            <div class="rbox">
+              <span class="rnum">8.7</span>
+              <span class="rstars">★★★★☆</span>
+              <span class="rct">224 rev.</span>
+            </div>
           </div>
-          <div class="gtags"><span class="gtag">BJJ</span><span class="gtag">Muay Thai</span><span class="gtag">Intermediate+</span></div>
-          <div class="ptbl">
-            <div class="pc"><span class="pl">1 Day</span><span class="pv" data-p="3000,18000,62000,165000">฿3,000</span><span class="pu">drop-in</span></div>
-            <div class="pc"><span class="pl">1 Week</span><span class="pv" data-p="3000,18000,62000,165000">฿18,000</span><span class="pu">unlimited</span></div>
-            <div class="pc"><span class="pl">1 Month</span><span class="pv" data-p="3000,18000,62000,165000">฿62,000</span><span class="pu">unlimited</span></div>
-            <div class="pc"><span class="pl">Private/hr</span><span class="pv" data-pr="6500">฿6,500</span><span class="pu">1-on-1</span></div>
+          <div class="gtags"><span class="gtag">BJJ</span><span class="gtag">Muay Thai</span></div>
+          <div class="price-row">
+            <span class="price-from">from</span>
+            <span class="price-val" data-p="3000,18000,62000,165000">฿3,000</span>
+            <span class="price-unit">/ day</span>
           </div>
-          <div class="qi-row"><span class="qi r">♀ Female Trainers</span><span class="qi g">✓ Beach Location</span></div>
+          <div class="chips"><span class="chip r">♀ Trainers</span><span class="chip g">✓ Beach</span></div>
           <div class="cfoot">
-            <div class="cmeta"><span class="cm">Est. <span>2018</span></span><span class="cm">Trainers <span>6</span></span></div>
-            <div class="cbts"><button class="btn-map" onclick="openMap('busan',event)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/></svg> Map</button><button class="btn-view" onclick="openCamp('busan',event)">View Camp</button></div>
+            <a class="gweb" href="https://busancombat.com" target="_blank" onclick="event.stopPropagation()">🔗 busancombat.com</a>
+            <div class="cbts">
+              <button class="btn-map" onclick="openMap('busan',event)">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/></svg> Map
+              </button>
+              <button class="btn-view" onclick="openCamp('busan',event)">View</button>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- CARD 8 — Lamai -->
+      <!-- LAMAI -->
+
       <div class="gym-card" data-tags="muay-thai boxing thailand asia koh-samui accom women beginner private-training pool" onclick="openCamp('lamai')">
         <div class="ci">
-          <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=700&q=80" alt="Lamai Camp" loading="lazy">
-          <div class="bdgs"><span class="bdg bd">Beach Camp</span><span class="bdg bw">♀ Women-Friendly</span><span class="bdg bb">Beginner OK</span></div>
-          <span class="cflag">🇹🇭</span>
-          <div class="cacts"><button class="cact fav" onclick="saveCamp(this,'lamai',event)" title="Save">♡</button><button class="cact cmp" onclick="tCmp(this,event)" title="Compare">⊕</button></div>
+          <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=700&q=80" alt="Lamai Muay Thai" loading="lazy">
+          <div class="bdgs"><span class="bdg bd">Beach Camp</span><span class="bdg bw">♀ Women</span><span class="bdg bb">Beginner</span></div>
+          <div class="cacts">
+            <button class="cact fav" onclick="saveCamp(this,'lamai',event)" title="Save">♡</button>
+            <button class="cact cmp" onclick="tCmp(this,event)" title="Compare">⊕</button>
+          </div>
         </div>
         <div class="cb2">
           <div class="ctop">
-            <div><span class="gloc">📍 Lamai Beach, Koh Samui · Thailand</span><span class="gname">Lamai Muay Thai</span><a class="gweb" href="https://lamaimuaythai.com" target="_blank" onclick="event.stopPropagation()">🔗 lamaimuaythai.com</a></div>
-            <div class="rbox"><span class="rnum">8.8</span><span class="rstars">★★★★☆</span><span class="rct">512 reviews</span></div>
+            <div class="c-left">
+              <span class="gloc">Lamai Beach, Koh Samui</span>
+              <div class="gname-row">
+                <span class="gname">Lamai Muay Thai</span>
+                <span class="gflag">🇹🇭</span>
+              </div>
+            </div>
+            <div class="rbox">
+              <span class="rnum">8.8</span>
+              <span class="rstars">★★★★☆</span>
+              <span class="rct">512 rev.</span>
+            </div>
           </div>
-          <div class="gtags"><span class="gtag">Muay Thai</span><span class="gtag">Boxing</span><span class="gtag">All Levels</span></div>
-          <div class="ptbl">
-            <div class="pc"><span class="pl">1 Day</span><span class="pv" data-p="650,4550,16000,42000">฿650</span><span class="pu">group</span></div>
-            <div class="pc"><span class="pl">1 Week</span><span class="pv" data-p="650,4550,16000,42000">฿4,550</span><span class="pu">group</span></div>
-            <div class="pc"><span class="pl">1 Month</span><span class="pv" data-p="650,4550,16000,42000">฿16,000</span><span class="pu">group</span></div>
-            <div class="pc"><span class="pl">Private/hr</span><span class="pv" data-pr="1100">฿1,100</span><span class="pu">1-on-1</span></div>
+          <div class="gtags"><span class="gtag">Muay Thai</span><span class="gtag">Boxing</span></div>
+          <div class="price-row">
+            <span class="price-from">from</span>
+            <span class="price-val" data-p="650,4550,16000,42000">฿650</span>
+            <span class="price-unit">/ day</span>
           </div>
-          <div class="qi-row"><span class="qi r">♀ Women-Only Classes</span><span class="qi g">✓ Beach + Pool</span><span class="qi">🍽 Meals incl.</span></div>
+          <div class="chips"><span class="chip r">♀ Women-Only</span><span class="chip">🏊 Pool</span><span class="chip g">✓ Meals</span></div>
           <div class="cfoot">
-            <div class="cmeta"><span class="cm">Est. <span>2011</span></span><span class="cm">Trainers <span>12</span></span></div>
-            <div class="cbts"><button class="btn-map" onclick="openMap('lamai',event)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/></svg> Map</button><button class="btn-view" onclick="openCamp('lamai',event)">View Camp</button></div>
+            <a class="gweb" href="https://lamaimuaythai.com" target="_blank" onclick="event.stopPropagation()">🔗 lamaimuaythai.com</a>
+            <div class="cbts">
+              <button class="btn-map" onclick="openMap('lamai',event)">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/></svg> Map
+              </button>
+              <button class="btn-view" onclick="openCamp('lamai',event)">View</button>
+            </div>
           </div>
         </div>
       </div>
 
-    </div><!-- /gymList -->
+    
 
     <div class="ctbl" id="ctbl"></div>
 
@@ -1101,6 +1208,9 @@ const C={
 
 function fmt(n){return '฿'+Math.round(n).toLocaleString()}
 
+// SIDEBAR COLLAPSE
+function toggleFg(head){head.closest('.fg').classList.toggle('closed')}
+
 // FILTERS
 const active=new Set();
 let showSavedOnly=false;
@@ -1113,7 +1223,7 @@ function qf(p,t){document.querySelectorAll('.pill').forEach(x=>x.classList.remov
 let dur='day';
 const durI={day:0,week:1,month:2,'3month':3};
 const durMax={day:3000,week:21000,month:85000,'3month':230000};
-function setDur(d,btn){dur=d;document.querySelectorAll('.dt').forEach(t=>t.classList.remove('on'));btn.classList.add('on');const max=durMax[d];document.getElementById('pMax').max=max;document.getElementById('pMin').max=max;document.getElementById('pMax').value=max*0.85;document.querySelectorAll('.pv[data-p]').forEach(el=>{const ps=el.dataset.p.split(',').map(Number);el.textContent=fmt(ps[durI[d]])});upP()}
+function setDur(d,btn){dur=d;document.querySelectorAll('.dt').forEach(t=>t.classList.remove('on'));btn.classList.add('on');const max=durMax[d];document.getElementById('pMax').max=max;document.getElementById('pMin').max=max;document.getElementById('pMax').value=max*0.85;document.querySelectorAll('.price-val[data-p]').forEach(el=>{const ps=el.dataset.p.split(',').map(Number);el.textContent=fmt(ps[durI[d]])});upP()}
 
 // PRICE
 function upP(){const mn=+document.getElementById('pMin').value,mx=+document.getElementById('pMax').value;document.getElementById('pvMin').textContent=fmt(mn);document.getElementById('pvMax').textContent=fmt(mx);const max=+document.getElementById('pMax').max;const p=v=>(v/max)*100;document.getElementById('rf').style.left=p(mn)+'%';document.getElementById('rf').style.right=(100-p(mx))+'%'}
