@@ -40,17 +40,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:600;height:58px;display:flex;ali
 .nav-favs .fav-count{font-family:'DM Mono',monospace;font-size:0.65rem;background:var(--burg);color:#fff;border-radius:50%;width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center;display:none}
 .nav-favs .fav-count.show{display:inline-flex}
 
-/* Currency */
-.cur-wrap{position:relative}
-.cur-btn{display:flex;align-items:center;gap:0.45rem;font-family:'DM Mono',monospace;font-size:0.75rem;letter-spacing:0.08em;color:var(--txt2);background:var(--bg3);border:1px solid var(--rule);padding:0.4rem 0.8rem;cursor:pointer;transition:all 0.15s}
-.cur-btn:hover{border-color:var(--burg3);color:var(--txt)}
-.cur-drop{position:absolute;top:calc(100% + 6px);right:0;background:var(--bg3);border:1px solid var(--rule);min-width:175px;display:none;z-index:700}
-.cur-drop.show{display:block}
-.cur-opt{display:flex;align-items:center;gap:0.7rem;padding:0.65rem 1rem;font-size:0.85rem;color:var(--txt2);cursor:pointer;transition:all 0.15s;border-bottom:1px solid var(--rule2)}
-.cur-opt:last-child{border-bottom:none}
-.cur-opt:hover{background:var(--bg4);color:var(--txt)}
-.cur-opt.on{color:var(--burg4)}
-.cur-sym{font-family:'DM Mono',monospace;font-size:0.8rem;width:20px}
+
 .nav-cta{font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt);border:1px solid var(--burg);padding:0.4rem 1.1rem;transition:background 0.15s}
 .nav-cta:hover{background:var(--burg)}
 
@@ -74,7 +64,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:600;height:58px;display:flex;ali
 .search{display:flex;flex:1;border:1px solid rgba(85,0,0,0.4);background:var(--bg2)}
 .search select,.search input{background:transparent;border:none;outline:none;font-size:0.95rem;color:var(--txt);padding:1rem 1.1rem}
 .search select{border-right:1px solid var(--rule);color:var(--txt2);min-width:145px}
-.search select option{background:#0E0B0B}
+.search select option{background:#242428}
 .search input{flex:1}
 .search input::placeholder{color:var(--dim)}
 .search button{font-family:'Racing Sans One',sans-serif;font-size:0.95rem;letter-spacing:0.04em;background:var(--burg);color:#fff;border:none;padding:1rem 1.8rem;white-space:nowrap;transition:background 0.15s;cursor:pointer}
@@ -95,35 +85,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:600;height:58px;display:flex;ali
 .hs .l{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--txt3);margin-top:0.3rem;display:block}
 
 /* ── WHITE SECTION (why us) ── */
-.why-section{background:#F8F8F8;padding:5rem 2.5rem;border-top:3px solid var(--burg)}
-.why-inner{max-width:1100px;margin:0 auto}
-.why-label{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--burg);display:block;margin-bottom:1.2rem}
-.why-section h2{font-family:'Racing Sans One',sans-serif;font-size:clamp(2.2rem,4vw,4rem);letter-spacing:0.02em;color:#1C1C22;line-height:0.95;margin-bottom:1rem}
-.why-section h2 span{color:var(--burg)}
-.why-section .why-sub{font-size:1.05rem;font-weight:300;color:#6A6A72;line-height:1.8;max-width:480px;margin-bottom:3rem}
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:#E0E0E0}
-.why-card{background:#F8F8F8;padding:2.2rem 1.8rem;border-bottom:3px solid transparent;transition:border-color 0.2s}
-.why-card:hover{border-bottom-color:var(--burg);background:#fff}
-.why-icon{font-size:2rem;margin-bottom:1rem;display:block}
-.why-title{font-family:'Racing Sans One',sans-serif;font-size:1.3rem;letter-spacing:0.03em;color:#1C1C22;margin-bottom:0.6rem}
-.why-desc{font-size:0.95rem;font-weight:300;color:#6A6A72;line-height:1.75}
 
-/* ── COUNTRIES SECTION (light) ── */
-.countries-section{}}
-.cs-inner{max-width:1100px;margin:0 auto}
-.cs-label{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--burg);display:block;margin-bottom:1.2rem}
-.cs-inner h2{font-family:'Racing Sans One',sans-serif;font-size:clamp(2rem,3.5vw,3.2rem);color:var(--ink);letter-spacing:0.02em;margin-bottom:2.5rem;line-height:0.95}
-.country-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--cream3)}
-.cc{background:var(--cream);padding:2rem 1.8rem;cursor:pointer;transition:background 0.2s;position:relative;overflow:hidden;display:block}
-.cc:hover{background:#fff}
-.cc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--burg);transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
-.cc:hover::after{transform:scaleX(1)}
-.cc-flag{font-size:2.5rem;display:block;margin-bottom:0.8rem}
-.cc-name{font-family:'Racing Sans One',sans-serif;font-size:1.4rem;letter-spacing:0.03em;color:#1C1C22;display:block;margin-bottom:0.3rem}
-.cc-count{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--burg);display:block;margin-bottom:0.8rem}
-.cc-desc{font-size:0.9rem;font-weight:300;color:#6A6A72;line-height:1.7}
-.cc-arrow{position:absolute;bottom:1.5rem;right:1.5rem;font-size:1.2rem;color:#E0E0E0;transition:color 0.2s}
-.cc:hover .cc-arrow{color:var(--burg)}
 
 /* ── MAIN LAYOUT ── */
 .main{display:grid;grid-template-columns:230px 1fr;background:var(--bg)}
@@ -193,20 +155,20 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;heigh
 .gym-card:hover .card-img img{filter:grayscale(10%) brightness(0.82);transform:scale(1.04)}
 .card-badges{position:absolute;top:0.8rem;left:0.8rem;display:flex;flex-direction:column;gap:0.3rem;pointer-events:none}
 .bdg{font-family:'DM Mono',monospace;font-size:0.54rem;letter-spacing:0.14em;text-transform:uppercase;padding:0.2rem 0.6rem;display:inline-block}
-.bdg-d{background:rgba(8,6,6,0.9);color:var(--txt2);border:1px solid rgba(255,255,255,0.12)}
+.bdg-d{background:rgba(28,28,34,0.9);color:var(--txt2);border:1px solid rgba(255,255,255,0.12)}
 .bdg-w{background:rgba(85,0,0,0.92);color:#FF9999;border:1px solid var(--burg)}
 .bdg-b{background:rgba(0,80,50,0.92);color:#66FFBB;border:1px solid #005030}
 .bdg-n{background:rgba(100,70,0,0.92);color:#FFB84D;border:1px solid #664400}
 
 /* FAV + COMPARE buttons on image */
 .card-actions{position:absolute;bottom:0.8rem;right:0.8rem;display:flex;gap:0.4rem}
-.act-btn{width:28px;height:28px;background:rgba(8,6,6,0.88);border:1px solid var(--dim);display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:var(--txt3);transition:all 0.15s;cursor:pointer}
+.act-btn{width:28px;height:28px;background:rgba(28,28,34,0.88);border:1px solid var(--dim);display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:var(--txt3);transition:all 0.15s;cursor:pointer}
 .act-btn:hover{border-color:var(--burg)}
 .act-btn.fav-btn:hover,.act-btn.fav-btn.on{border-color:#FFD700;color:#FFD700;background:rgba(255,215,0,0.1)}
 .act-btn.cmp-btn.on{background:var(--burg);border-color:var(--burg);color:#fff}
 
 /* Country flag badge */
-.country-flag{position:absolute;top:0.8rem;right:0.8rem;font-size:1.2rem;background:rgba(8,6,6,0.85);padding:0.15rem 0.35rem;border:1px solid var(--rule)}
+.country-flag{position:absolute;top:0.8rem;right:0.8rem;font-size:1.2rem;background:rgba(28,28,34,0.85);padding:0.15rem 0.35rem;border:1px solid var(--rule)}
 
 .card-body{padding:1.5rem 1.8rem;display:flex;flex-direction:column;flex:1}
 .card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.8rem}
@@ -271,11 +233,11 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;heigh
 .cr-val.good{color:#66FFBB}
 
 /* ── CAMP DETAIL MODAL ── */
-.overlay{position:fixed;inset:0;background:rgba(8,6,6,0.88);z-index:800;opacity:0;pointer-events:none;transition:opacity 0.3s;backdrop-filter:blur(4px)}
+.overlay{position:fixed;inset:0;background:rgba(28,28,34,0.88);z-index:800;opacity:0;pointer-events:none;transition:opacity 0.3s;backdrop-filter:blur(4px)}
 .overlay.show{opacity:1;pointer-events:all}
 .camp-modal{position:fixed;top:0;right:0;bottom:0;width:min(720px,100vw);background:var(--bg2);z-index:900;transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);overflow-y:auto;border-left:1px solid rgba(85,0,0,0.3)}
 .camp-modal.show{transform:translateX(0)}
-.modal-bar{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;background:rgba(14,11,11,0.97);border-bottom:1px solid var(--rule);backdrop-filter:blur(8px)}
+.modal-bar{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;background:rgba(36,36,40,0.97);border-bottom:1px solid var(--rule);backdrop-filter:blur(8px)}
 .modal-back{font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt3);background:none;border:none;cursor:pointer;transition:color 0.15s}
 .modal-back:hover{color:var(--txt)}
 .modal-title{font-family:'Racing Sans One',sans-serif;font-size:1.1rem;letter-spacing:0.04em;color:#fff}
@@ -313,7 +275,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;heigh
 .modal-visit-btn:hover{background:var(--burg2)}
 
 /* ── MAP MODAL ── */
-.map-modal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;background:rgba(8,6,6,0.92);backdrop-filter:blur(6px)}
+.map-modal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;background:rgba(28,28,34,0.92);backdrop-filter:blur(6px)}
 .map-modal.show{display:flex}
 .map-inner{background:var(--bg2);border:1px solid var(--rule);width:min(820px,96vw);max-height:90vh;overflow:hidden}
 .map-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.4rem;border-bottom:1px solid var(--rule)}
@@ -354,8 +316,8 @@ footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.2);padding:3.5re
 .gym-card:nth-child(7){animation-delay:.34s}.gym-card:nth-child(8){animation-delay:.39s}
 
 @media(max-width:1100px){.main.map-open{grid-template-columns:200px 1fr 360px}}
-@media(max-width:900px){.main,.main.map-open{grid-template-columns:1fr}.sidebar{position:static;height:auto;border-right:none;border-bottom:1px solid var(--rule)}.map-panel{position:fixed;top:58px;right:0;bottom:0;width:100%;z-index:400}.card-img{width:200px}.why-grid,.country-cards{grid-template-columns:1fr}}
-@media(max-width:640px){nav{padding:0 1rem}.nav-mid{display:none}.hero{padding:7rem 1.2rem 3rem}.results{padding:1.2rem 1rem}.gym-card{flex-direction:column}.card-img{width:100%;height:200px}.ft-g{grid-template-columns:1fr 1fr;gap:2rem}.search-row{flex-direction:column}.price-table{grid-template-columns:1fr 1fr}.why-grid,.country-cards{grid-template-columns:1fr}}
+@media(max-width:900px){.main,.main.map-open{grid-template-columns:1fr}.sidebar{position:static;height:auto;border-right:none;border-bottom:1px solid var(--rule)}.map-panel{position:fixed;top:58px;right:0;bottom:0;width:100%;z-index:400}.card-img{width:200px}.why-grid,}
+@media(max-width:640px){nav{padding:0 1rem}.nav-mid{display:none}.hero{padding:7rem 1.2rem 3rem}.results{padding:1.2rem 1rem}.gym-card{flex-direction:column}.card-img{width:100%;height:200px}.ft-g{grid-template-columns:1fr 1fr;gap:2rem}.search-row{flex-direction:column}.price-table{grid-template-columns:1fr 1fr}.why-grid,}
 </style>
 </head>
 <body>
@@ -372,17 +334,7 @@ footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.2);padding:3.5re
     <button class="nav-favs" id="navFavs" onclick="toggleFavView()">
       ♥ Saved <span class="fav-count" id="favCount">0</span>
     </button>
-    <div class="cur-wrap">
-      <button class="cur-btn" id="curBtn" onclick="toggleCur(event)"><span id="curLabel">฿ THB</span> <span>▾</span></button>
-      <div class="cur-drop" id="curDrop">
-        <div class="cur-opt on" onclick="setCur('THB','฿',1,this)"><span class="cur-sym">฿</span>Thai Baht (THB)</div>
-        <div class="cur-opt" onclick="setCur('USD','$',0.028,this)"><span class="cur-sym">$</span>US Dollar (USD)</div>
-        <div class="cur-opt" onclick="setCur('EUR','€',0.026,this)"><span class="cur-sym">€</span>Euro (EUR)</div>
-        <div class="cur-opt" onclick="setCur('GBP','£',0.022,this)"><span class="cur-sym">£</span>British Pound (GBP)</div>
-        <div class="cur-opt" onclick="setCur('AUD','A$',0.043,this)"><span class="cur-sym">A$</span>Australian Dollar</div>
-        <div class="cur-opt" onclick="setCur('KRW','₩',37,this)"><span class="cur-sym">₩</span>South Korean Won</div>
-        <div class="cur-opt" onclick="setCur('CHF','Fr',0.025,this)"><span class="cur-sym">Fr</span>Swiss Franc</div>
-      </div>
+    </div>
     </div>
     <button class="nav-cta">List Your Gym</button>
   </div>
@@ -422,7 +374,6 @@ footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.2);padding:3.5re
     <span class="pill" onclick="qf(this,'boxing')">Boxing</span>
     <span class="pill" onclick="qf(this,'mma')">MMA</span>
     <span class="pill" onclick="qf(this,'bjj')">BJJ</span>
-    <span class="pill" onclick="qf(this,'women')">♀ Women-Friendly</span>
     <span class="pill" onclick="qf(this,'beginner')">Beginner OK</span>
     <span class="pill" onclick="qf(this,'accom')">Accommodation</span>
   </div>
@@ -435,62 +386,7 @@ footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.2);padding:3.5re
   </div>
 </section>
 
-<!-- WHITE SECTION — Why CheckFightCamp -->
-<section class="why-section">
-  <div class="why-inner">
-    <span class="why-label">Why Us</span>
-    <h2>YOUR EDGE IN<br>FINDING THE RIGHT <span>FIGHT CAMP</span></h2>
-    <p class="why-sub">No booking fees. No bias. Just clean data and honest comparisons — so you can train where it matters most.</p>
-    <div class="why-grid">
-      <div class="why-card">
-        <span class="why-icon">🔍</span>
-        <div class="why-title">300+ Verified Camps</div>
-        <p class="why-desc">Every camp is manually verified by our team. No fake listings, no paid placements. Pure data.</p>
-      </div>
-      <div class="why-card">
-        <span class="why-icon">💱</span>
-        <div class="why-title">Real-Time Currency</div>
-        <p class="why-desc">See prices in your currency — THB, USD, EUR, GBP, KRW and more. Compare without doing the math.</p>
-      </div>
-      <div class="why-card">
-        <span class="why-icon">♀</span>
-        <div class="why-title">Women-Friendly Filter</div>
-        <p class="why-desc">We specifically vet camps for female trainers, safety, and women-only classes. Train with confidence.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- WHITE SECTION — Countries -->
-<section class="countries-section">
-  <div class="cs-inner">
-    <span class="cs-label">Destinations</span>
-    <h2>3+ COUNTRIES &amp; GROWING</h2>
-    <div class="country-cards">
-      <div class="cc" onclick="setCountryScroll('thailand')">
-        <span class="cc-flag">🇹🇭</span>
-        <span class="cc-name">Thailand</span>
-        <span class="cc-count">300+ Camps · 24 Cities</span>
-        <p class="cc-desc">The birthplace of Muay Thai. World-class camps in Phuket, Bangkok, Chiang Mai and beyond.</p>
-        <span class="cc-arrow">→</span>
-      </div>
-      <div class="cc" onclick="setCountryScroll('uk')">
-        <span class="cc-flag">🇬🇧</span>
-        <span class="cc-name">United Kingdom</span>
-        <span class="cc-count">120+ Camps · 12 Cities</span>
-        <p class="cc-desc">London, Manchester, Birmingham — a thriving fight scene with top-level Boxing, Muay Thai and BJJ gyms.</p>
-        <span class="cc-arrow">→</span>
-      </div>
-      <div class="cc" onclick="setCountryScroll('south-korea')">
-        <span class="cc-flag">🇰🇷</span>
-        <span class="cc-name">South Korea</span>
-        <span class="cc-count">80+ Camps · 8 Cities</span>
-        <p class="cc-desc">Seoul's rapidly growing MMA and Muay Thai scene. Professional training at Asian standards.</p>
-        <span class="cc-arrow">→</span>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- MAIN -->
 <div class="main" id="gyms" id="mainLayout">
@@ -544,10 +440,7 @@ footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.2);padding:3.5re
       <div class="cr" onclick="tf(this,'meals')"><div class="cl"><div class="cb"></div><span class="lbl">Meals Included</span></div><span class="cc-num">68</span></div>
     </div>
 
-    <div class="fg"><span class="fgt">Training</span>
-      <div class="cr" onclick="tf(this,'private-training')"><div class="cl"><div class="cb"></div><span class="lbl">Private Training</span></div><span class="cc-num">318</span></div>
-      <div class="cr" onclick="tf(this,'women')"><div class="cl"><div class="cb"></div><span class="lbl">Women-Friendly</span></div><span class="cc-num">148</span></div>
-    </div>
+      
   </aside>
 
   <!-- RESULTS -->
@@ -858,38 +751,9 @@ const camps={
   busan:{name:'Busan Combat Club',loc:'Haeundae, Busan · South Korea',flag:'🇰🇷',website:'busancombat.com',url:'https://busancombat.com',rating:'8.7',stars:'★★★★☆',reviews:'224',img:'https://images.unsplash.com/photo-1549476464-37392f717541?w=900&q=80',desc:'Busan\'s most respected combat sports club. Overlooking Haeundae Beach with a serious training culture. BJJ and Muay Thai specialists.',disciplines:['BJJ','Muay Thai','Boxing'],prices:{day:3000,week:18000,month:62000,'3month':165000,private:6500},accom:[],features:['Beach Location','Female Trainers','Women-Friendly','Competition Training','BJJ Specialist','English Classes','Free WiFi'],mapUrl:'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3260!2d129.166!3d35.163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356889!2sHaeundae!5e0!3m2!1sen!2skr'},
 };
 
-// ── CURRENCY ──
-let sym='฿', rate=1, dur='day';
-const durIdx={day:0,week:1,month:2,'3month':3};
-const durMax={day:3000,week:21000,month:85000,'3month':230000};
-function toggleCur(e){e.stopPropagation();document.getElementById('curDrop').classList.toggle('show')}
-document.addEventListener('click',()=>document.getElementById('curDrop').classList.remove('show'));
-function setCur(code,s,r,el){sym=s;rate=r;document.getElementById('curLabel').textContent=s+' '+code;document.querySelectorAll('.cur-opt').forEach(o=>o.classList.remove('on'));el.classList.add('on');document.getElementById('curDrop').classList.remove('show');updatePrices();upP()}
-function fmt(thb){const v=thb*rate;if(rate===1)return sym+Math.round(v).toLocaleString();if(v<10)return sym+v.toFixed(2);return sym+Math.round(v).toLocaleString()}
-function updatePrices(){document.querySelectorAll('.pt-val[data-prices]').forEach(el=>{const ps=el.dataset.prices.split(',').map(Number);el.textContent=fmt(ps[durIdx[dur]])});document.querySelectorAll('.pt-val[data-private]').forEach(el=>{el.textContent=fmt(+el.dataset.private)})}
 
-// ── DURATION ──
-function setDur(d,btn){dur=d;document.querySelectorAll('.dur-tab').forEach(t=>t.classList.remove('on'));btn.classList.add('on');const max=durMax[d];document.getElementById('pMax').max=max;document.getElementById('pMin').max=max;document.getElementById('pMax').value=max*0.85;updatePrices();upP()}
+function fmt(thb){return '฿'+Math.round(thb).toLocaleString()}
 
-// ── PRICE SLIDER ──
-function upP(){const mn=+document.getElementById('pMin').value,mx=+document.getElementById('pMax').value;document.getElementById('pvMin').textContent=fmt(mn);document.getElementById('pvMax').textContent=fmt(mx);const max=+document.getElementById('pMax').max;const pct=v=>(v/max)*100;document.getElementById('rf').style.left=pct(mn)+'%';document.getElementById('rf').style.right=(100-pct(mx))+'%'}
-
-// ── FILTERS ──
-const active=new Set();
-let showFavsOnly=false;
-function tf(r,t){const b=r.querySelector('.cb');b.classList.toggle('on');active.has(t)?active.delete(t):active.add(t);applyF()}
-function applyF(){let n=0;document.querySelectorAll('#gymList .gym-card').forEach(c=>{const t=c.dataset.tags||'';let show=active.size===0||[...active].every(f=>t.includes(f));if(showFavsOnly&&!favs.has(c.querySelector('.fav-btn')?.dataset?.id))show=false;c.style.display=show?'':'none';if(show)n++});document.getElementById('cnt').textContent=n+' of 500+'}
-function clearAll(){active.clear();document.querySelectorAll('.cb.on').forEach(b=>b.classList.remove('on'));applyF()}
-function qf(p,t){document.querySelectorAll('.pill').forEach(x=>x.classList.remove('on'));p.classList.add('on');active.clear();document.querySelectorAll('.cb.on').forEach(b=>b.classList.remove('on'));if(t!=='all')active.add(t);applyF()}
-
-// ── COUNTRY ──
-function setCountry(c,btn){document.querySelectorAll('.c-tab').forEach(t=>t.classList.remove('on'));btn.classList.add('on');active.clear();document.querySelectorAll('.cb.on').forEach(b=>b.classList.remove('on'));if(c!=='all')active.add(c);applyF();document.getElementById('gyms').scrollIntoView({behavior:'smooth'})}
-function setCountryScroll(c){document.querySelectorAll('.c-tab').forEach((t,i)=>{const countries=['all','thailand','uk','south-korea'];if(countries[i]===c)t.classList.add('on');else t.classList.remove('on')});active.clear();active.add(c);applyF();document.getElementById('gyms').scrollIntoView({behavior:'smooth'})}
-
-// ── FAVORITES ──
-const favs=new Set();
-function toggleFav(btn,key,e){if(e)e.stopPropagation();btn.classList.toggle('on');if(favs.has(key)){favs.delete(key);btn.textContent='♡'}else{favs.add(key);btn.textContent='♥'}const fc=document.getElementById('favCount');fc.textContent=favs.size;fc.classList.toggle('show',favs.size>0)}
-function toggleFavView(){showFavsOnly=!showFavsOnly;const banner=document.getElementById('favsBanner');banner.classList.toggle('show',showFavsOnly);if(showFavsOnly){document.getElementById('favCountTxt').textContent=favs.size;applyF()}else{showFavsOnly=false;applyF()}}
 
 // ── COMPARE ──
 const cs=new Set();
