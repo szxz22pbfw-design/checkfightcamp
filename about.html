@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About CheckFightCamp — Why We Exist</title>
+<meta name="description" content="CheckFightCamp is the world's most honest fight camp comparison platform. No ads, no bias, no booking fees.">
+<link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-size:16px}
+:root{
+  --bg:#080606;--bg2:#0E0B0B;--bg3:#141010;
+  --burg:#550000;--burg2:#700000;--burg3:#9A1515;--burg4:#CC3333;
+  --txt:#EEEAE6;--txt2:#C8C2BE;--txt3:#9A9490;--dim:#5A5450;
+  --rule:rgba(255,255,255,0.08);
+  --cream:#FAF7F2;--cream2:#F2EDE6;--cream3:#E8E0D6;
+  --ink:#1A1410;--ink2:#3A2E28;--ink3:#6A5E58;
+}
+a{text-decoration:none;color:inherit;cursor:pointer}
+button{cursor:pointer;font-family:'DM Sans',sans-serif}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(8,6,6,0.98);border-bottom:1px solid rgba(85,0,0,0.35)}
+.logo{font-family:'Racing Sans One',sans-serif;font-size:1.3rem;letter-spacing:0.05em;color:var(--txt)}
+.logo span{color:var(--burg4)}
+.nav-mid{display:flex;gap:2.5rem}
+.nav-mid a{font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt3);transition:color 0.15s}
+.nav-mid a:hover,.nav-mid a.active{color:var(--txt)}
+.nav-cta{font-size:0.75rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--txt);border:1px solid var(--burg);padding:0.42rem 1.2rem;transition:background 0.15s}
+.nav-cta:hover{background:var(--burg)}
+
+/* HERO — dark */
+.about-hero{padding:9rem 2.5rem 6rem;background:var(--bg);position:relative;overflow:hidden;border-bottom:4px solid var(--burg)}
+.about-hero::before{content:'';position:absolute;top:-100px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(85,0,0,0.12),transparent 65%);pointer-events:none}
+.ah-inner{max-width:760px;position:relative;z-index:2}
+.ah-tag{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--burg4);display:block;margin-bottom:1.8rem}
+.about-hero h1{font-family:'Racing Sans One',sans-serif;font-size:clamp(3rem,7vw,7.5rem);line-height:0.9;letter-spacing:0.02em;color:#fff}
+.about-hero h1 span{color:var(--burg4)}
+.h-line{width:40px;height:2px;background:var(--burg);display:block;margin:2rem 0}
+.about-hero p{font-size:1.15rem;font-weight:300;color:var(--txt2);line-height:1.82;max-width:520px}
+
+/* MISSION — white */
+.mission{background:var(--cream);padding:6rem 2.5rem;border-bottom:1px solid var(--cream3)}
+.mission-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.m-label{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--burg);display:block;margin-bottom:1.2rem}
+.mission h2{font-family:'Racing Sans One',sans-serif;font-size:clamp(2rem,4vw,3.5rem);color:var(--ink);letter-spacing:0.02em;line-height:0.95;margin-bottom:1.5rem}
+.mission h2 span{color:var(--burg)}
+.mission p{font-size:1rem;font-weight:300;color:var(--ink3);line-height:1.85;margin-bottom:1.2rem}
+.mission .big-stat{font-family:'Racing Sans One',sans-serif;font-size:4rem;color:var(--burg);line-height:1;display:block;margin-bottom:0.3rem}
+.mission .stat-l{font-size:0.85rem;font-weight:300;color:var(--ink3)}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.stat-box{padding:1.8rem;background:var(--cream2);border-left:3px solid var(--burg)}
+
+/* PROBLEM — dark */
+.problem{background:var(--bg);padding:6rem 2.5rem;color:var(--txt)}
+.problem-inner{max-width:1000px;margin:0 auto}
+.p-label{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--burg4);display:block;margin-bottom:1.2rem}
+.problem h2{font-family:'Racing Sans One',sans-serif;font-size:clamp(2rem,4vw,3.5rem);color:#fff;letter-spacing:0.02em;line-height:0.95;margin-bottom:1rem}
+.problem h2 span{color:var(--burg4)}
+.problem .p-sub{font-size:1.05rem;font-weight:300;color:var(--txt2);line-height:1.82;max-width:600px;margin-bottom:3rem}
+.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(255,255,255,0.05)}
+.prob-card{background:var(--bg2);padding:2rem 1.8rem;border-bottom:2px solid transparent;transition:border-color 0.2s}
+.prob-card:hover{border-bottom-color:var(--burg)}
+.pc-icon{font-size:1.8rem;margin-bottom:1rem;display:block}
+.pc-title{font-family:'Racing Sans One',sans-serif;font-size:1.2rem;letter-spacing:0.03em;color:#fff;margin-bottom:0.6rem}
+.pc-desc{font-size:0.92rem;font-weight:300;color:var(--txt2);line-height:1.75}
+
+/* HOW WE HELP — white */
+.how{background:var(--cream2);padding:6rem 2.5rem;border-top:1px solid var(--cream3)}
+.how-inner{max-width:1000px;margin:0 auto}
+.h-label{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--burg);display:block;margin-bottom:1.2rem}
+.how h2{font-family:'Racing Sans One',sans-serif;font-size:clamp(2rem,4vw,3.5rem);color:var(--ink);letter-spacing:0.02em;line-height:0.95;margin-bottom:3rem}
+.how h2 span{color:var(--burg)}
+.how-steps{display:flex;flex-direction:column;gap:2px;background:var(--cream3)}
+.step{background:var(--cream);padding:2rem 2.5rem;display:grid;grid-template-columns:80px 1fr;gap:2rem;align-items:start;transition:background 0.2s;cursor:default}
+.step:hover{background:#fff}
+.step-num{font-family:'Racing Sans One',sans-serif;font-size:3rem;color:var(--burg);line-height:1;opacity:0.4}
+.step-content{}
+.step-title{font-family:'Racing Sans One',sans-serif;font-size:1.3rem;letter-spacing:0.03em;color:var(--ink);margin-bottom:0.6rem}
+.step-desc{font-size:0.95rem;font-weight:300;color:var(--ink3);line-height:1.8}
+
+/* VALUES — dark */
+.values{background:var(--bg2);padding:6rem 2.5rem}
+.values-inner{max-width:1000px;margin:0 auto}
+.v-label{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--burg4);display:block;margin-bottom:1.2rem}
+.values h2{font-family:'Racing Sans One',sans-serif;font-size:clamp(2rem,4vw,3.5rem);color:#fff;letter-spacing:0.02em;line-height:0.95;margin-bottom:3rem}
+.val-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:rgba(255,255,255,0.05)}
+.val-card{background:var(--bg3);padding:2.2rem 2rem}
+.val-icon{font-size:1.8rem;margin-bottom:1rem;display:block}
+.val-title{font-family:'Racing Sans One',sans-serif;font-size:1.2rem;letter-spacing:0.03em;color:#fff;margin-bottom:0.6rem}
+.val-desc{font-size:0.92rem;font-weight:300;color:var(--txt2);line-height:1.75}
+
+/* TEAM — white */
+.team{background:var(--cream);padding:6rem 2.5rem;border-top:4px solid var(--burg)}
+.team-inner{max-width:1000px;margin:0 auto}
+.t-label{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--burg);display:block;margin-bottom:1.2rem}
+.team h2{font-family:'Racing Sans One',sans-serif;font-size:clamp(2rem,4vw,3.5rem);color:var(--ink);letter-spacing:0.02em;line-height:0.95;margin-bottom:1rem}
+.team .t-sub{font-size:1.05rem;font-weight:300;color:var(--ink3);line-height:1.82;max-width:600px;margin-bottom:3rem}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--cream3)}
+.tm{background:var(--cream);padding:2rem}
+.tm-avatar{width:56px;height:56px;background:var(--burg);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Racing Sans One',sans-serif;font-size:1.4rem;color:#fff;margin-bottom:1rem}
+.tm-name{font-family:'Racing Sans One',sans-serif;font-size:1.1rem;letter-spacing:0.03em;color:var(--ink);margin-bottom:0.2rem}
+.tm-role{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--burg);display:block;margin-bottom:0.8rem}
+.tm-bio{font-size:0.9rem;font-weight:300;color:var(--ink3);line-height:1.7}
+
+/* CTA — dark */
+.cta-section{background:var(--bg);padding:6rem 2.5rem;text-align:center;border-top:4px solid var(--burg)}
+.cta-section h2{font-family:'Racing Sans One',sans-serif;font-size:clamp(2.5rem,5vw,5rem);color:#fff;letter-spacing:0.02em;line-height:0.95;margin-bottom:1rem}
+.cta-section h2 span{color:var(--burg4)}
+.cta-section p{font-size:1.05rem;font-weight:300;color:var(--txt2);line-height:1.82;max-width:480px;margin:0 auto 2.5rem}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.cta-primary{font-family:'Racing Sans One',sans-serif;font-size:1.05rem;letter-spacing:0.04em;background:var(--burg);color:#fff;border:none;padding:1rem 2.5rem;cursor:pointer;transition:background 0.15s;display:inline-block}
+.cta-primary:hover{background:var(--burg2)}
+.cta-secondary{font-family:'Racing Sans One',sans-serif;font-size:1.05rem;letter-spacing:0.04em;background:transparent;color:var(--txt2);border:1px solid var(--rule);padding:1rem 2.5rem;cursor:pointer;transition:all 0.15s;display:inline-block}
+.cta-secondary:hover{border-color:var(--burg);color:var(--txt)}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid rgba(85,0,0,0.2);padding:3.5rem 2.5rem 2rem}
+.ft-g{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2rem}
+.ft-logo{font-family:'Racing Sans One',sans-serif;font-size:1.2rem;letter-spacing:0.05em;color:var(--txt);display:block;margin-bottom:0.7rem}
+.ft-logo span{color:var(--burg4)}
+.ft-desc{font-size:0.9rem;font-weight:300;color:var(--txt3);line-height:1.75;max-width:210px;display:block}
+.ft-col h4{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--txt3);display:block;margin-bottom:0.9rem}
+.ft-col ul{list-style:none}
+.ft-col ul li{margin-bottom:0.45rem}
+.ft-col ul a{font-size:0.9rem;font-weight:300;color:var(--txt3);display:block;transition:color 0.15s}
+.ft-col ul a:hover{color:var(--txt)}
+.ft-b{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;border-top:1px solid var(--rule);flex-wrap:wrap;gap:0.8rem}
+.ft-copy{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--txt3)}
+.ft-leg{display:flex;gap:1.5rem}
+.ft-leg a{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--txt3);transition:color 0.15s}
+.ft-leg a:hover{color:var(--txt)}
+
+@media(max-width:900px){.mission-inner{grid-template-columns:1fr;gap:3rem}.prob-grid,.val-grid,.team-grid{grid-template-columns:1fr}.ft-g{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:600px){nav{padding:0 1.2rem}.nav-mid{display:none}.about-hero{padding:7rem 1.2rem 4rem}.mission,.problem,.how,.values,.team,.cta-section{padding:4rem 1.2rem}.step{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Check<span>Fight</span>Camp</a>
+  <div class="nav-mid">
+    <a href="index.html">Find Camps</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html" class="active">About</a>
+  </div>
+  <a href="#" class="nav-cta">List Your Gym</a>
+</nav>
+
+<!-- HERO — dark -->
+<section class="about-hero">
+  <div class="ah-inner">
+    <span class="ah-tag">Our Story</span>
+    <h1>WE FIGHT<br>FOR YOUR<br><span>RIGHT TO</span><br>TRAIN.</h1>
+    <span class="h-line"></span>
+    <p>CheckFightCamp was built by fighters, for fighters. No booking fees, no paid placements, no bullshit. Just the most honest comparison platform for fight camps in the world.</p>
+  </div>
+</section>
+
+<!-- MISSION — white -->
+<section class="mission">
+  <div class="mission-inner">
+    <div>
+      <span class="m-label">Our Mission</span>
+      <h2>MAKING GREAT <span>TRAINING</span> FINDABLE</h2>
+      <p>Finding the right fight camp should be easy. It isn't. Outdated websites, misleading reviews, hidden fees and biased recommendation engines make it almost impossible to know where to train.</p>
+      <p>We built CheckFightCamp to fix that. A platform where every camp is verified, every price is transparent, and every filter is built around what fighters actually need.</p>
+      <p><strong>The result:</strong> You spend less time researching, and more time training.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-box"><span class="big-stat">500+</span><p class="stat-l">Verified fight camps across 3 countries</p></div>
+      <div class="stat-box"><span class="big-stat">0</span><p class="stat-l">Booking fees, ever. We're free, always.</p></div>
+      <div class="stat-box"><span class="big-stat">6</span><p class="stat-l">Currencies supported in real-time</p></div>
+      <div class="stat-box"><span class="big-stat">4</span><p class="stat-l">Disciplines: Muay Thai, Boxing, MMA, BJJ</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM — dark -->
+<section class="problem">
+  <div class="problem-inner">
+    <span class="p-label">The Problem We Solve</span>
+    <h2>FINDING A FIGHT CAMP<br>USED TO BE <span>BROKEN</span></h2>
+    <p class="p-sub">Before CheckFightCamp, fighters faced the same frustrating experience every time they tried to find a camp.</p>
+    <div class="prob-grid">
+      <div class="prob-card"><span class="pc-icon">💸</span><div class="pc-title">Hidden Booking Fees</div><p class="pc-desc">Other platforms charge camps to be listed — and charge YOU a booking fee on top. The best camps often weren't listed at all.</p></div>
+      <div class="prob-card"><span class="pc-icon">❓</span><div class="pc-title">No Transparent Pricing</div><p class="pc-desc">Camp websites rarely showed clear pricing for different durations, private training, or accommodation. You had to email and wait.</p></div>
+      <div class="prob-card"><span class="pc-icon">♀</span><div class="pc-title">No Women-Specific Filters</div><p class="pc-desc">Female fighters had no reliable way to find camps with female trainers, women-only classes, or safe accommodation options.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE HELP — white -->
+<section class="how">
+  <div class="how-inner">
+    <span class="h-label">How We Help</span>
+    <h2>WHY <span>CHECKFIGHTCAMP</span> IS DIFFERENT</h2>
+    <div class="how-steps">
+      <div class="step"><div class="step-num">01</div><div class="step-content"><div class="step-title">100% Free, Always</div><p class="step-desc">We never charge fighters a booking fee. We never charge camps to appear in search results. Our listings are based purely on quality and completeness of information. If a camp is great, it shows up — period.</p></div></div>
+      <div class="step"><div class="step-num">02</div><div class="step-content"><div class="step-title">Transparent Pricing by Duration</div><p class="step-desc">See exactly what you'll pay for 1 day, 1 week, 1 month or 3 months — for group classes AND private training. In your currency. No surprises, no emails required.</p></div></div>
+      <div class="step"><div class="step-num">03</div><div class="step-content"><div class="step-title">Women & Safety First</div><p class="step-desc">Every camp is specifically assessed for female trainers, women-only classes, safe neighbourhood and 24h security. Female fighters get their own dedicated filter so they can find camps where they'll thrive.</p></div></div>
+      <div class="step"><div class="step-num">04</div><div class="step-content"><div class="step-title">Verified, Not Paid</div><p class="step-desc">Our team manually verifies every camp listing. We check websites, review real fighter feedback, and update information regularly. If something's wrong, we fix it — not because a camp paid us, but because accuracy matters.</p></div></div>
+      <div class="step"><div class="step-num">05</div><div class="step-content"><div class="step-title">Compare Side by Side</div><p class="step-desc">Select up to 3 camps and compare them across every dimension — price, location, disciplines, accommodation, beginner-friendliness and more. Make a confident decision without endless tab-switching.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES — dark -->
+<section class="values">
+  <div class="values-inner">
+    <span class="v-label">What We Stand For</span>
+    <h2>OUR VALUES</h2>
+    <div class="val-grid">
+      <div class="val-card"><span class="val-icon">🥊</span><div class="val-title">Fighter First</div><p class="val-desc">Every decision we make is filtered through one question: does this help fighters find better training? Not: does this make us more money.</p></div>
+      <div class="val-card"><span class="val-icon">🔍</span><div class="val-title">Radical Transparency</div><p class="val-desc">Prices, conditions, honest assessments. We don't soften negative aspects to protect camp relationships. If a camp has downsides, you'll know.</p></div>
+      <div class="val-card"><span class="val-icon">♀</span><div class="val-title">Inclusive Training</div><p class="val-desc">Fighting is for everyone. We specifically track and promote camps that make women, beginners and international fighters genuinely welcome.</p></div>
+      <div class="val-card"><span class="val-icon">🌍</span><div class="val-title">Global Perspective</div><p class="val-desc">Great training exists everywhere. We're expanding from Thailand to the UK, South Korea, and beyond — because great fighters come from everywhere.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM — white -->
+<section class="team">
+  <div class="team-inner">
+    <span class="t-label">The Team</span>
+    <h2>BUILT BY PEOPLE WHO TRAIN</h2>
+    <p class="t-sub">Every person on our team is an active martial artist. We've trained in Thailand, the UK, Japan and Korea. We built the tool we wished existed.</p>
+    <div class="team-grid">
+      <div class="tm"><div class="tm-avatar">M</div><div class="tm-name">Marcus K.</div><span class="tm-role">Founder · Muay Thai</span><p class="tm-bio">12 years training, 4 years in Thailand. Former Muay Thai camp manager. Built CheckFightCamp after spending months trying to find the right camp for his students.</p></div>
+      <div class="tm"><div class="tm-avatar">S</div><div class="tm-name">Sophie L.</div><span class="tm-role">Head of Content · BJJ</span><p class="tm-bio">Purple belt in BJJ, 6 years training. Leads our Women & Safety verification program. Former sports journalist covering combat sports in Southeast Asia.</p></div>
+      <div class="tm"><div class="tm-avatar">J</div><div class="tm-name">James T.</div><span class="tm-role">Camp Verification · MMA</span><p class="tm-bio">Amateur MMA fighter and personal trainer. Visits and verifies every camp we list in person when possible. Has trained in 14 countries.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA — dark -->
+<section class="cta-section">
+  <h2>READY TO FIND<br>YOUR <span>FIGHT CAMP?</span></h2>
+  <p>Browse 500+ verified camps across Thailand, UK and South Korea. Free, always.</p>
+  <div class="cta-btns">
+    <a href="index.html" class="cta-primary">Browse All Camps →</a>
+    <a href="blog.html" class="cta-secondary">Read Our Guides</a>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-g">
+    <div><span class="ft-logo">Check<span>Fight</span>Camp</span><span class="ft-desc">The world's most honest fight camp comparison platform. Free, always.</span></div>
+    <div class="ft-col"><h4>Disciplines</h4><ul><li><a href="index.html">Muay Thai</a></li><li><a href="index.html">Boxing</a></li><li><a href="index.html">MMA</a></li><li><a href="index.html">BJJ</a></li></ul></div>
+    <div class="ft-col"><h4>Countries</h4><ul><li><a href="index.html">🇹🇭 Thailand</a></li><li><a href="index.html">🇬🇧 United Kingdom</a></li><li><a href="index.html">🇰🇷 South Korea</a></li></ul></div>
+    <div class="ft-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="#">List Your Gym</a></li><li><a href="blog.html">Blog</a></li><li><a href="#">Contact</a></li></ul></div>
+  </div>
+  <div class="ft-b"><span class="ft-copy">© 2025 CheckFightCamp.com</span><div class="ft-leg"><a>Privacy</a><a>Impressum</a><a>Cookies</a></div></div>
+</footer>
+
+</body>
+</html>
